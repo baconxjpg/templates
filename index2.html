@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: "Raleway", Arial, sans-serif;
+        }
+
+        .content {
+            margin: 0 10px;
+        }
+
+        .header {
+            display: flex;
+            margin: 25px 12px;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            font-size: 23px;
+            padding: 15px 20px;
+        }
+
+        .header a:hover {
+            background-color: gainsboro;
+        }
+
+        .row {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .half {
+            float: left;
+            width:49.9%;
+        }
+
+        .half img {
+            width: 100%;
+            margin-bottom: -8px;
+        }
+
+        .article {
+            padding-top: 80px;
+            margin: auto;
+            width: 58%;
+            text-align: center;
+            line-height: 23px;
+            font-size: 15px;
+        }
+
+        .article img {
+            max-width: 500px;
+            width: 34%; 
+            padding-bottom:40px
+        }
+
+        .section {
+            margin: 17px auto;
+            width: 58%;
+            text-align: center;
+        }
+        
+        form p {
+            margin-bottom: 2px;
+        }
+
+        input, button {
+            padding: 11px 10px;
+            border: 1px solid rgb(201, 201, 201);
+            width: 100%;
+        }
+        
+        button {
+            background-color: rgb(100, 100, 100);
+            color: white;
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: rgb(194, 194, 194);
+            color: black;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0 80px 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <!-- header -->
+    <div class="content">
+        <div class="header">
+            <a href="#" style="float: left;">MY ART</a>
+            <a href="#about" style="margin-left:auto">About</a>
+        </div>
+        <!-- img -->
+        <div class="row">
+            <div class="half">
+            <img src="https://www.w3schools.com/w3images/streetart.jpg" alt="art1">
+            <img src="https://www.w3schools.com/w3images/streetart2.jpg" alt="art2">
+            <img src="https://www.w3schools.com/w3images/streetart5.jpg" alt="art3">
+            </div>
+            <div class="half">
+            <img src="https://www.w3schools.com/w3images/streetart3.jpg" alt="art4">
+            <img src="https://www.w3schools.com/w3images/streetart4.jpg" alt="art5">
+            </div>
+        </div>
+    </div>
+
+        <!-- article -->
+        <div style="background-color: rgb(235, 235, 235);">
+        <div id="about" class="article">
+            <h2 style="font-size: 30px; margin-bottom:55px">About</h2>
+            <img src="https://www.w3schools.com/w3images/boy.jpg">
+            <p style="letter-spacing: 1px;">Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            <h4 style="margin: 22px; font-size:18px; color:rgb(253, 92, 92);">Do not hesitate to contact me!</h4>
+        </div>
+        <!-- contact -->
+        <div>
+            <form>
+                <div class="section">
+                <p><b>Name</b></p>
+                <input required>
+                </div>
+                <div class="section">
+                <p><b>Email</b></p>
+                <input required>
+                </div>
+                <div class="section">
+                <p><b>Message</b></p>
+                <input required>
+                <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Powered by <a href="#">w3.css</a></p>
+        </div>
+
+        </div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

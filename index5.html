@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,h2,h3,p {
+            font-family: "Raleway", sans-serif;
+            font-weight: 150;
+            margin: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 17px;
+            padding-bottom: 45px;
+        }
+        p {
+            color: rgb(44, 44, 44);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 30px;
+            margin: 0 auto;
+            max-width: 1355px;
+            flex-wrap: wrap;
+            padding: 15px;
+        }
+
+        .left-article {
+            flex: 2;
+            min-width: 600px;
+        }
+
+        .text h2, h3, p, button {
+            padding: 15px;
+        }
+        .btn {
+            margin-left: 15px;
+            margin-bottom: 15px;
+            background-color: white;
+            border: 1px solid rgb(213, 213, 213);
+        }
+        .comments {
+            float: right;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        .tag-1 {
+            background-color: black;
+            color:white;
+            margin-left:5px;
+            padding: 4px 10px;
+        }
+
+        .right-article {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .card-left {
+            background-color: white;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 
+            0 4px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-bottom: 40px;
+        }
+
+        .card-left img{
+            width: 100%;
+        }
+
+        .card-right {
+            background-color: white;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 
+                        0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            margin-bottom: 40px;
+        }
+        
+        .post {
+            background-color: rgb(242, 242, 242);
+            font-size: 13px;
+        }
+        .content {
+            background-color: white;
+        }
+        .sub {
+            padding: 15px;
+            border-bottom: 1px solid rgb(222, 222, 222);
+            display: flex;
+        }
+        .sub-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.5;
+        }
+
+        .sub img{
+            width: 20%;
+            height: 20%;
+        }
+        .tags:first-child {
+            background-color: black;
+            color:white;
+            font-size:15px;
+            padding:2px 5px;
+        }
+        .tags {
+            background-color: rgb(236, 236, 236);
+            font-size: 12px;
+            padding:2px 7px;
+            margin-bottom: 20px;
+            margin-left: 2px;
+            display: inline-block;
+        }
+        .footer {
+            background-color: rgb(101, 101, 101);
+            padding: 30px 15px 40px 15px;
+            font-size: 15px;
+        }
+        .footer-btn-1 {
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            cursor: not-allowed;
+            background-color:rgb(69, 69, 69);
+            color: rgb(145, 144, 144);
+            border: none;
+        }
+        .footer-btn-2 {
+            padding: 14px 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+        }
+        li {
+            margin-left: -40px;
+        }
+        li:hover {
+            background-color: rgb(205, 205, 205);
+        }
+        .btn:hover {
+            background-color: rgb(205, 205, 205);
+        }
+        .footer-btn-1:hover {
+            background-color: rgb(125, 125, 125);
+            color: rgb(69, 69, 69);
+        }
+        .footer-btn-2:hover {
+            background-color: rgb(205, 205, 205);
+            color: black;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="background-color: rgb(242, 242, 242);">
+        <div class="header">
+            <h1>MY BLOG</h1>
+            <p style="font-size: 14.5px;margin-top:-15px">Welcome to the blog of <span style="background-color:black;padding:4px 8px;color:white">unknown</span></p>
+        </div>
+
+        <div class="container">
+            <div class="left-article">
+                <div class="card-left">
+                    <img src="https://www.w3schools.com/w3images/woods.jpg" alt="woods">
+                    <div class="text">
+                    <h2>TITLE HEADING</h2>
+                    <h3>Title description, <span style="color: gray;">April 7, 2014</span></h3>
+                    <p style="font-size: 13.5px;line-height:1.5;margin-bottom: 15px;">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <button class="btn"><b>READ MORE >></b></button>
+                    <p class="comments">Comments <span class="tag-1">0</span></p>
+                    </div>
+                </div>
+                <div class="card-left">
+                    <img src="https://www.w3schools.com/w3images/bridge.jpg" alt="bridge">
+                    <div class="text">
+                    <h2>BLOG ENTRY</h2>
+                    <h3>Title description, <span style="color: gray;">April 2, 2014</span></h3>
+                    <p style="font-size: 13.5px;line-height:1.5;margin-bottom: 15px;">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <button class="btn"><b>READ MORE >></b></button>
+                    <p class="comments">Comments <span class="tag-1" style="border-radius: 20px;">2</span></p>
+                </div>
+            </div>
+        </div>
+            <!-- flex right-->
+            <div class="right-article">
+                <div class="card-right">
+                <div class="content">
+                    <img style="width: 100%;" src="https://www.w3schools.com/w3images/avatar_g.jpg" alt="avatar">
+                    <h2 style="margin: 10px 15px 2px 15px; font-size:21px">My Name</h2>
+                    <p style="font-size: 16px;line-height:1.5;font-family: 'Raleway', sans-serif;">Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.</p>
+                </div>
+                </div>
+                <div class="card-right">
+                    <div class="post">
+                        <h2 style="padding:20px 20px 10px 20px;">Popular Posts</h2>
+                        <ul class="content">
+                            <li class="sub">
+                                <img src="https://www.w3schools.com/w3images/workshop.jpg" alt="workshop">
+                                <div class="sub-text">
+                                <span style="font-size: 18px;margin-left:20px">Lorem</span>
+                                <span style="font-size:15px;margin-left:20px">Sed mattis nunc</span>
+                                </div>
+                            </li>
+                            <li class="sub">
+                                <img src="https://www.w3schools.com/w3images/gondol.jpg" alt="gondol">
+                                <div class="sub-text">
+                                <span style="font-size: 18px;margin-left:20px">Ipsum</span>
+                                <span style="font-size:15px;margin-left:20px">Praes tinci sed</span>
+                                </div>
+                            </li>
+                            <li class="sub">
+                                <img src="https://www.w3schools.com/w3images/skies.jpg" alt="skies">
+                                <div class="sub-text">
+                                <span style="font-size: 18px;margin-left:20px">Dorum</span>
+                                <span style="font-size:15px;margin-left:20px">Ultricies congue</span>
+                                </div>
+                            </li>
+                            <li class="sub">
+                                <img src="https://www.w3schools.com/w3images/rock.jpg" alt="rock">
+                                <div class="sub-text">
+                                <span style="font-size: 18px;margin-left:20px">Mingsum</span>
+                                <span style="font-size:15px;margin-left:20px">Lorem ipsum dipsum</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-right">
+                    <div class="post">
+                        <h2 style="padding:20px">Tags</h2>
+                        <div class="content">
+                            <div style="padding: 15px;">
+                            <span class="tags">Travel</span>
+                            <span class="tags">New York</span><span class="tags">London</span><span class="tags">IKEA</span>
+                            <span class="tags">NORWAY</span><span class="tags">DIY</span><span class="tags">Ideas</span><span class="tags">Baby</span>
+                            <span class="tags">Family</span><span class="tags">News</span><span class="tags">Clothing</span>
+                            <span class="tags">Shopping</span><span class="tags">Sports</span class="tags"><span class="tags">Games</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button class="footer-btn-1">Previous</button>
+            <button class="footer-btn-2">Next >></button>
+            <p style="color: white;margin-left:-15px">Powered by <a style="color: white;" href="#">w3.css</a></p>
+        </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="nav">
+            <a href="#home">HOME</a>
+            <a href="#band">BAND</a>
+            <a href="#tour">TOUR</a>
+            <a href="#contact">CONTACT</a>
+            <div class="dropdown">
+            <a href="#">MORE<i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#">Merchandise</a>
+                    <a href="#">Extras</a>
+                    <a href="#">Media</a>
+                </div>
+            </div>
+            <a href="#search" style="margin-left: auto;" 
+            onmouseover="this.style.backgroundColor='red',this.style.color='white'"
+            onmouseout="this.style.backgroundColor='black'"><i class="fa fa-search"></i></a>
+        </div>
+
+        <div id="home">
+            <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://www.w3schools.com/w3images/la.jpg" alt="Los Angeles">
+                    <div class="slide-text">
+                        <h2>Los Angeles</h2>
+                        <p><b>We had the best time playing at Venice Beach!</b></p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://www.w3schools.com/w3images/ny.jpg" alt="New York">
+                    <div class="slide-text">
+                        <h2>New York</h2>
+                        <p><b>The atmosphere in New York is lorem ipsum.</b></p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://www.w3schools.com/w3images/chicago.jpg" alt="Chicago">
+                    <div class="slide-text">
+                        <h2>Chicago</h2>
+                        <p><b>Thank you, Chicago - A night we won't forget.</b></p>
+                    </div>
+                </div>
+            </div>
+            <div id="band"></div>
+        </div>
+        </div>
+
+        <div>
+            <div class="band" id="band">
+                <h1 style="font-family: monospace; letter-spacing:7px; font-size:30px">THE BAND</h1>
+                <p style="color: gray;"><i>We love music</i></p>
+                <p style="text-align: justify;">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="members">
+                <div class="member">
+                    <p>Name</p>
+                    <img src="https://www.w3schools.com/w3images/bandmember.jpg">
+                </div>
+                <div class="member">
+                    <p>Name</p>
+                    <img src="https://www.w3schools.com/w3images/bandmember.jpg">
+                </div>
+                <div class="member">
+                    <p>Name</p>
+                    <img src="https://www.w3schools.com/w3images/bandmember.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div id="tour">
+        <div class="tour" style="background-color: black;">
+            <h1 style="color: white;text-align:center;padding-top:90px;font-family:monospace;letter-spacing:5px;font-size:30px">TOUR DATES</h1>
+            <p style="color: gray;text-align:center;padding:10px">Remember to book your tickets!
+                <div class="display">
+                    <p>September<span style="padding: 3px 7px;margin-left:20px;background-color:red;color:white">Sold out</span></p>
+                    <p>October<span style="padding: 3px 7px;margin-left:20px;background-color:red;color:white">Sold out</span></p>
+                    <p>November<span style="float:right;margin-right:20px;background-color:black;padding:0 5px;border-radius:80%;color:white">3</span></p>
+                </div>
+            <div class="location">
+                <div class="city">
+                    <img src="https://www.w3schools.com/w3images/newyork.jpg" alt="newyork" class="opacity">
+                    <h3>New York</h3>
+                    <p>Fri 27 Nov 2016</p>
+                    <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    <button onclick="purchase()" class="button-purchase">Buy Tickets</button>
+                </div>
+                <div class="city">
+                    <img src="https://www.w3schools.com/w3images/paris.jpg" alt="paris" class="opacity">
+                    <h3>Paris</h3>
+                    <p>Sat 28 Nov 2016</p>
+                    <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    <button onclick="purchase()" class="button-purchase">Buy Tickets</button>
+                </div>
+                <div class="city">
+                    <img src="https://www.w3schools.com/w3images/sanfran.jpg" alt="sanfran" class="opacity">
+                    <h3>San Francisco</h3>
+                    <p>Sun 29 Nov 2016</p>
+                    <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    <button onclick="purchase()" class="button-purchase">Buy Tickets</button>
+                </div>
+                <div class="ticket">
+                    <div style="max-width: 900px;margin:auto">
+                    <div style="background-color: white;">
+                    <div style="position: relative">
+                    <h1 style="color:white;letter-spacing:4px;padding: 50px;background-color:rgb(42, 169, 138); width:100%; text-align:center;font-size:30px;font-family:monospace"><i class="fa fa-suitcase"></i> Tickets</h1>
+                    <button onclick="closeticket()" class="buttons" style="display:block;padding:20px;cursor:pointer;font-size:15px;border:none;background-color:transparent;position:absolute;right:0px;top:0%;color:white">X</button>
+                    </div>
+                    <div>
+                    <p><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</p>
+                    <input placeholder="How many?" type="number" style="margin-left: 10px;padding:5px; width:98%">
+                    <p><i class="fa fa-user"></i> Send To</p>
+                    <input placeholder="Enter email" style="margin-left: 10px;padding:5px; width:98%">
+                    <button class="buttons" onclick="pay()" style="cursor:pointer;margin: 20px 10px;border:none; color:white;padding: 20px; background-color:rgb(42, 169, 138); width:98%">PAY <i class="fa fa-check"></i></button>
+                    <div style="padding-bottom: 10px;">
+                    <button onclick="closeticket()" class="buttons" style="cursor:pointer;margin: 10px;border:none;padding: 10px 20px;background-color:red; color:white">Close <i  class="fa fa-remove"></i></button>
+                    <p style="float: right;">Need <a href="#">help?</a></p>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div style="padding: 70px;">
+        <div id="contact">
+            <div style="text-align: center;">
+                <h1 style="font-family: monospace;letter-spacing:8px">CONTACT</h1>
+                <p style="color: gray;"><i>Fan? Drop a note!</i></p>
+            </div>
+        </div>
+        <div style="position: relative;padding: 50px 20px 200px 20px; margin:auto; max-width:900px">
+        <div style="right:35%; margin: 25px 50px; font-size:20px;  width:50%; position:absolute">
+            <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+            <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+            <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+        </div>
+        <div>
+        <form action="/action_page.php" target="_blank">
+        <div style="left:50%; width:50%; position:absolute; margin-top:20px">
+            <input placeholder="Name" style="width:41%; padding:10px;" required>
+            <input placeholder="Email" style="width:41%; float:left; padding:10px;position:absolute; right:15%;"required>
+            <input placeholder="Message" style="width:85%; padding:10px; margin-top:10px"required>
+            <button class="buttons" type="submit" style="border:none;color:white;background-color:black;padding:10px 20px; display:block; position:absolute; right:15%; margin-top:20px">SEND</button>
+        </div>
+        </form>
+        </div>
+    </div>
+    </div>
+
+    <img src="https://www.w3schools.com/w3images/map.jpg" style="width:100%">
+
+<footer style="text-align: center;padding:80px">
+  <div  style="font-size: 25px;color:gray">
+  <i class="fa fa-facebook-official"></i>
+  <i class="fa fa-instagram"></i>
+  <i class="fa fa-snapchat"></i>
+  <i class="fa fa-pinterest-p"></i>
+  <i class="fa fa-twitter"></i>
+  <i class="fa fa-linkedin"></i>
+  </div>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+
+        <script>
+            let index = 0;
+
+            function changeSlide(){
+                
+                const slides = document.querySelector(".slides");
+                index = (index +1) % slides.children.length;
+                slides.style.transform = `translateX(-${index * 100}%)`;
+            }
+            setInterval(changeSlide, 4000);
+
+
+            function purchase(){
+                document.querySelector(".ticket").classList.add("show");
+            }
+
+            function closeticket(){
+                document.querySelector(".ticket").classList.remove("show");
+
+                const locationElement = document.querySelector(".city");
+                if (locationElement){
+                    window.location.hash = "#city";
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
