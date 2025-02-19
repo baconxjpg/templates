@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Karma", sans-serif;
+            margin: auto;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            top: 0;
+            margin: auto;
+            text-align: center;
+            background-color: white;
+        }
+        .sidebar {
+            display: none;
+            width: 39%;
+            height: 100vh;
+            z-index: 2;
+            box-shadow: 1px 1px 7px rgb(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            background-color: white;
+            animation: animateleft 0.4s;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            font-size: 24px;
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar a:hover {
+            background-color: gainsboro;
+        }
+
+        .main {
+            display: flex;
+            gap: 16px;
+            padding-top: 125px;
+            margin: 0 30px;
+        }
+        .card-1 img {
+            width: 100%;
+        }
+        .card-1 {
+            width: 24%;
+        }
+        .card1-text {
+            font-size: 16px;
+            text-align: center;
+        }
+        .card1-text h2 {
+            font-weight: 300;
+        }
+        .card1-text p {
+            padding: 18px 0;
+            font-size: 15px;
+            width: 99.5%;
+        }
+
+        .pagination {
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 70px;
+        }
+        .pagination a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 14px;
+        }
+        .pagination a:hover {
+            background-color: black;
+            color: white;
+        }
+        .first:hover {
+            background-color: gainsboro!important;
+            color: black!important;
+        }
+
+        hr {
+            opacity: 0.2;
+        }
+
+        .about img {
+            width: 75%;
+        }
+
+        .about {
+            text-align: center;
+            margin: 30px;
+            font-size: 15px;
+        }
+
+        .footer {
+            padding-top: 35px;
+            margin-left: 30px;
+        }
+        .card-2 {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 33%;
+            float: left;
+            padding-bottom: 35px;
+        }
+        ul img {
+            width: 50px;
+        }
+        li {
+            display: flex;
+            list-style: none;
+            padding: 20px;
+        }
+        li:first-child {
+            border-bottom: 1px solid rgb(222, 222, 222);
+            width: 85%;
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+        }
+        li:hover {
+            background-color: gainsboro;
+        }
+
+        .tags {
+            display: inline-block;
+            background-color: rgb(111, 111, 111);
+            margin-bottom: 20px;
+            font-size: 11px;
+            padding: 2px 6px 0 6px;
+            color: white;
+        }
+
+
+        @keyframes animateleft {
+            from {transform: translateX(-100px);opacity: 0;}
+            to {transform: translateX(0);opacity: 1;}
+        }
+
+        @media screen and (max-width:600px) {
+            .main {
+                flex-wrap: wrap;
+            }
+            .card-1 {
+                width: 100%;
+            }
+            .card-2 {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 1500px) {
+            nav {
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span onclick="openSidebar()">☰</span>
+        <span>My Food</span>
+        <span>Mail</span>
+    </nav>
+    <div class="sidebar">
+        <a href="javascript:void(0)" onclick="closeSidebar()">Close Menu</a>
+        <a href="#food">Food</a>
+        <a href="#about">About</a>
+    </div>
+    
+    <div style="margin: auto; max-width:1200px">
+    <div class="main" id="food">
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="sandwich">
+            <div class="card1-text">
+                <h2>The Perfect Sandwich, A Real NYC Classic</h2>
+                <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/steak.jpg" alt="steak">
+            <div class="card1-text">
+            <h2>Let Me Tell You About This Steak</h2>
+            <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/cherries.jpg" alt="cherries">
+            <div class="card1-text">
+                <h2>Cherries, interrupted</h2>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+                <span>What else?</span>
+            </div>
+        </div>
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/wine.jpg" alt="wine">
+            <div class="card1-text">
+                <h2>Once Again, Robust Wine and Vegetable Pasta</h2>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+    </div>
+    <div class="main" id="food" style="margin-top: -95px;">
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/popsicle.jpg" alt="popsicle">
+            <div class="card1-text">
+                <h2>All I Need Is a Popsicle</h2>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/salmon.jpg" alt="salmon">
+            <div class="card1-text">
+                <h2>Salmon For Your Skin</h2>
+                <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="sandwich">
+            <div class="card1-text">
+                <h2>The Perfect Sandwich, A Real Classic</h2>
+                <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+        <div class="card-1">
+            <img src="https://www.w3schools.com/w3images/croissant.jpg" alt="croissant">
+            <div class="card1-text">
+                <h2>Le French</h2>
+                <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <a href="#"><<</a>
+        <a href="#" class="first" style="background-color: black;color:white">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">>></a>
+    </div>
+    <hr>
+
+    <div class="about" id="about">
+        <div style="padding-top: 65px;padding-bottom: 35px; text-align:center">
+        <h2 style="font-weight: 300;">About Me, The Food Man</h2>
+        </div>
+        <img src="https://www.w3schools.com/w3images/chef.jpg" alt="chef">
+        <h3 style="padding-top: 35px; padding-bottom: 10px;font-size:20px">I am Who I Am!</h3>
+        <p style="font-size:16px"><i>With Passion For Real, Good Food</i></p>
+        <p style="padding-top: 15px; padding-bottom: 100px;">Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+    </div>
+    <hr>
+
+    <div class="footer">
+        <div class="card-2">
+            <h2 style="font-weight: 200;">FOOTER</h2>
+            <p style="padding: 15px 0; font-size:15px">Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            <p style="font-size:15px">Powered by <a style="color: black;" href="#">w3.css</a></p>
+        </div>
+        <div class="card-2">
+            <h2 style="font-weight: 200;">BLOG POSTS</h2>
+            <ul>
+                <li>
+                    <img src="https://www.w3schools.com/w3images/workshop.jpg" alt="workshop">
+                    <div class="text">
+                        <span style="font-size: 18px;">Lorem</span>
+                        <span>Sed mattis nunc</span>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://www.w3schools.com/w3images/gondol.jpg" alt="gondol">
+                    <div class="text">
+                        <span style="font-size: 18px;">Ipsum</span>
+                        <span>Praes tinci sed</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="card-2">
+            <h2 style="font-weight: 200;">POPULAR TAGS</h2>
+            <div style="width: 90%;padding-top:15px">
+                <span class="tags" style="background-color: black;font-size:15px;padding:3px 8px 0 8px">Travel</span> <span class="tags">New York</span> <span class="tags">Dinner</span> <span class="tags">Salmon</span>
+                <span class="tags">France</span> <span class="tags">Drinks</span> <span class="tags">Ideas</span> <span class="tags">Flavors</span>
+                <span class="tags">Cuisine</span> <span class="tags">Chicken</span> <span class="tags">Dressing</span> <span class="tags">Fried</span>
+                <span class="tags">Fish</span> <span class="tags">Duck</span>
+            </div>
+        </div>
+    </div>
+
+
+<!-- -->
+    </div>
+    
+    <script>
+        function openSidebar() {
+            document.querySelector(".sidebar").style.display = "block";
+        }
+        
+        function closeSidebar() {
+            document.querySelector(".sidebar").style.display = "none";
+        }
+    </script>
+</body>
+</html>

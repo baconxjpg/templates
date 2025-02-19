@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .overlay {
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      transition: opacity 0.5s ease-in-out;
+    }
+    .overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .form {
+      visibility: hidden;
+      opacity: 0;
+      padding: 40px;
+      position: fixed;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      transition: opacity 0.5s ease-in-out;
+      width: 50%;
+    }
+    .form.show {
+      visibility: visible;
+      opacity: 1;
+      top: 30%;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="openForm()">Subscribe</button>
+  <div class="overlay">
+    <div class="form">
+      <h1>Hello</h1>
+      <button onclick="closeForm()">Subscribe</button>
+    </div>
+  </div>
+
+  <script>
+    function openForm(){
+      document.querySelector(".overlay").classList.add("show")
+      document.querySelector(".form").classList.add("show")
+    }
+
+    function closeForm(){
+      document.querySelector(".overlay").classList.remove("show")
+      document.querySelector(".form").classList.remove("show")
+    }
+  </script>
+</body>
+</html>

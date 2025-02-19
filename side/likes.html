@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <button onclick="likeFunction(this)" class="btn-like"><i class="fa fa-thumbs-up"></i> Like</button>
+
+  <!-- second option -->
+  <button onclick="Like(this)" class="btn-like"><i class="fa fa-thumbs-up"></i>Like</button>
+
+  <script>
+    function likeFunction(x) {
+      if (x.innerText.trim() === "Like") {
+        x.style.fontWeight = "bold";
+        x.innerHTML = `✓ Liked`;
+      } else {
+        x.style.fontWeight = "normal";
+        x.innerHTML = `<i class="fa fa-thumbs-up"></i> Like`;
+      }
+    }
+
+    // without space, so no triming needed
+    function Like(x) {
+      if (x.innerText === "Like") {
+        x.innerHTML = `✓Liked`;
+      } else {
+        x.innerHTML = `<i class="fa fa-thumbs-up"></i>Like`;
+      }
+    }
+  </script>
+
+</body>
+</html>

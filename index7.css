@@ -1,0 +1,254 @@
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Oswald";
+}
+
+body {
+  margin: 0;  
+  padding: 0;
+  font-family: "Open Sans";
+  background-color: rgb(232, 232, 232);
+}
+
+nav {
+  background-color: black;
+  width: 100%;
+  overflow: hidden;
+}
+
+.icon {
+  color: white;
+  padding: 10px 15px;
+  display: block;
+  float: left;
+}
+
+.icon:hover {
+  background-color: gainsboro;
+}
+
+.header-container img {
+  position: relative;
+  width: 100%;
+}
+
+.header-text {
+  position: absolute;
+  color: white;
+  top: 87%;
+  left: 1.5%;
+  letter-spacing: 4px;
+}
+
+.btn {
+  font-size: 18px;
+  padding:10px 22px;
+  margin:5px 0;
+  opacity:0.6;
+  font-family: 'Oswald';
+}
+
+main {
+  float: left;
+  flex: 2;
+  margin: 20px 30px;
+}
+
+main img {
+  width: 100%;
+}
+
+.content {
+  background-color: white;
+  padding: 5px 25px;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+}
+
+.like-btn {
+  background-color:transparent;
+  padding:10px 15px;
+  float:left;
+  margin-top:15px;
+  border:1px solid rgb(207, 207, 207);
+  font-size:15px;
+  font-family:Open Sans;
+}
+
+.rply-btn {
+  background-color:black;
+  color:white;
+  font-size:15px;
+  float:right;
+  padding:10px 15px;
+  margin-top:15px;
+  border: none;
+  font-family:Open Sans;
+}
+
+.tag {
+  padding: 2px 8px;
+  background-color:white;
+  color:black;
+  margin-left: 15px;
+}
+
+.rply-btn:hover {
+  color: black;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 200;
+  padding-top:15px;
+  padding-left:15px
+}
+
+aside {
+  float: right;
+  flex: 1;
+  margin-top: 20px;
+  margin-right: 35px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: white;
+}
+
+li {
+  padding: 15px;
+  border-bottom: 1px solid gainsboro;
+}
+
+li img {
+  float: left;
+  margin-right: 15px;
+}
+
+.post-text {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.AD-container {
+  padding: 5px 15px;
+  background-color: white;
+}
+
+.grid {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+button:hover {
+  background-color: gainsboro;
+}
+
+li:hover {
+  background-color: gainsboro;
+}
+
+.tags {
+  display: inline-block;
+  background-color: rgb(240, 240, 240);
+  margin-bottom: 20px;
+  font-size: 12px;
+  padding: 1px 8px;
+}
+
+.flw-icon {
+  font-size: 25px;
+  color: black;
+}
+
+.flw-icon:hover {
+  color: rgb(99, 99, 99);
+}
+
+input {
+  width: 93%;
+  padding: 10px;
+}
+
+.subbtn {
+  border: none;
+  background-color: red;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.subForm {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52%;
+  padding: 25px 50px;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.subForm.show {
+  opacity: 1;
+  visibility: visible;
+  top: 30%;
+}
+
+.x {
+  position: absolute;
+  top:15%;
+  left:90%;
+  font-size:25px;
+  background-color:transparent;
+  border:none;
+  padding: 5px 15px;
+}
+
+footer {
+  padding: 45px 30px 40px 30px;
+  background-color: rgb(78, 78, 78);
+}
+
+.row {
+  clear: both;
+  display: table;
+  content: "";
+}
+
+.totop {
+  padding: 13px 25px;
+  font-size:15px;
+  background-color:black;
+  color:gainsboro;
+  text-decoration: none;
+}
+
+.totop:hover {
+  background-color: gainsboro;
+  color: black;
+}
