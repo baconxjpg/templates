@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+    }
+    p {
+      font-size: 15px;
+    }
+
+    header {
+      position: relative;
+      margin: 0 10px;
+      margin-bottom: 15px;
+    }
+
+    header img {
+      width: 100%;
+    }
+
+    .header-txt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(230, 230, 230);
+      border: 1px solid white;
+      padding:0 25px;
+      text-align: center;
+      font-size: 24px;
+      letter-spacing: 4px;
+    }
+    
+    nav {
+      position: absolute;
+      top: 97%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(238, 238, 238);
+      display: flex;
+      border-radius: 4px;
+    }
+
+    .font-adj {
+      color: black !important;
+      text-decoration: none;
+      display: inline-block;
+      padding: 9px 18px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      background-color: rgb(241, 241, 241);
+      padding: 25px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin-top: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgb(214, 214, 214);
+      margin-bottom: 16px;
+      margin-top: 3px;
+    }
+    button {
+      width: 100%;
+      background-color: rgb(102, 102, 102);
+      color: white;
+      padding: 10px;
+      margin-bottom: 25px;
+      border: none;
+      font-size: 15px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+    nav a:hover{
+     background-color: rgb(195, 195, 195);
+     color: black;
+     border-radius: 4px;
+   }
+
+    button:hover, .sidebar a:hover {
+      background-color: rgb(195, 195, 195);
+      color: black;
+    }
+
+    @media (min-width:1000px){
+      .small {
+        display: none;
+      }
+    }
+
+    @media (max-width:1000px){
+      header {
+        margin: 0;
+      }
+      .small {
+        display: none;
+      }
+      .jumbo {
+        display: none;
+      }
+
+    }
+    @media (max-width:600px){
+      .medi {
+        display: none;
+      }
+      .small {
+        display: block;
+      }
+    }
+    .container {
+      margin: 20px 25px;
+    }
+    .sidebar {
+      background-color: rgb(235, 235, 235);
+      padding: 28px;
+      margin-top: -15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .sidebar a {
+      color: black;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://www.w3schools.com/w3images/photographer.jpg" alt="photographer">
+    <div class="header-txt">
+      <h1 class="jumbo" style="font-weight: 400;margin-top: 25px;">JANE DOE</h1>
+      <h4 class="small" style="font-weight: 400;font-size:18px">JANE DOE</h4>
+      <h3 class="jumbo" style="font-weight: 400;font-size: 23px;margin-top: -15px;">PHOTOGRAPHER</h3>
+    </div>
+    
+    <nav class="medi">
+      <a href="#" class="font-adj">Home</a>
+      <a href="#portfolio" class="font-adj">Portfolio</a>
+      <a href="#contact" class="font-adj">Contact</a>
+    </nav>
+  </header>
+
+  <div class="small sidebar">
+    <a href="#">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div style="margin: auto;max-width:980px" id="portfolio">
+  <div class="container">
+    <img src="https://www.w3schools.com/w3images/ocean.jpg" alt="ocean">
+    <img src="https://www.w3schools.com/w3images/ocean2.jpg" alt="ocean2">
+    <img src="https://www.w3schools.com/w3images/falls2.jpg" alt="falls2">
+    <img src="https://www.w3schools.com/w3images/mountainskies.jpg" alt="mountainskies">
+    <img src="https://www.w3schools.com/w3images/mountains2.jpg" alt="mountains2">
+  
+  <div class="contact" id="contact">
+    <h3 style="text-align: center;font-weight: 400;font-size:23px;font-family: 'Segoe UI', Arial, sans-serif;">Contact</h3>
+    <p style="text-align: justify;padding-top:20px;line-height:1.5">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus.</p>
+    <form action="action.php" target="_blank">
+    <span>Name</span>
+    <input type="text" required>
+    <span>Email</span>
+    <input type="text" required>
+    <span>Message</span>
+    <input type="text" required>
+    <button type="submit">Send</button>
+    <p style="padding-bottom: 15px;">Powered by w3.css</p>
+    </form>
+  </div>
+  </div>
+  </div>
+</body>
+</html>

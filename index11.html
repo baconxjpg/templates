@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
+  <style>
+    body,h1,h2,h3,h4,p  {
+      font-family: "Montserrat", sans-serif;
+      color: rgb(109, 109, 109); 
+    }
+    body {
+      margin: 0;
+      text-align: center;
+    }
+
+    .open-btn {
+      position: absolute;
+      top: 2%;
+      right: 1%;
+      font-size: 36px;
+      border: none;
+      background-color: transparent;
+      color: rgb(94, 94, 94);
+    }
+
+    .bars {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background-color: black;
+      top: 0;
+      display: none;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      font-size: 36px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      display: block;
+      padding: 15px 20px;
+    }
+    .close-btn:hover {
+      color: black;
+      background-color: rgb(198, 198, 198);
+    }
+
+    .bars a {
+      display: block;
+      font-size: 36px;
+      text-decoration: none;
+      padding: 13px;
+      color: gray;
+    }
+
+    .bars a:hover {
+      color: white;
+    }
+
+    header {
+      margin-top: 80px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 15px;
+      color: white;
+      background-color: rgb(103, 103, 103);
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: gainsboro;
+      color: gray;
+    }
+    img {
+      margin: -7px;
+    }
+
+    .grid {
+      display: flex;
+      max-width: 1500px;
+      margin: auto;
+      margin-bottom: 130px;
+    }
+    
+    .col {
+      float: left;
+      width: 33.9999%;
+    }
+
+    @media (max-width:500px){
+      .grid {
+        display: flex;
+        flex-direction: column;
+      }
+      .col {
+        width: 100%;
+      }
+    }
+
+    .rowPad img {
+      margin-bottom: 15px;
+    }
+
+    .rowPad .col {
+      padding: 0 8px;
+    }
+
+    footer {
+      padding-top: 60px;
+      padding-bottom: 70px;
+      background-color:ghostwhite;
+    }
+    .icons {
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <button class="open-btn" onclick="openBars()"><i class="fa fa-bars"></i></button>
+  <div class="bars">
+    <button class="close-btn" onclick="closeBars()"><i class="fa fa-close"></i></button>
+    <div style="margin-top: 10%;">
+    <a href="#">About</a>
+    <a href="#">Photos</a>
+    <a href="#">Shop</a>
+    <a href="#">Contact</a>
+    </div>
+  </div>
+
+<header>
+  <h1>PHOTOLIO</h1>
+  <p style="font-size: 15px;"><b>A template made by w3.css for photographers.</b></p>
+  <button class="btn" onclick="gridPad()">Toggle Grid Padding</button>
+</header>
+
+  <div class="grid">
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/sound.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/woods.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/rock.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
+    </div>
+  
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/coffee.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/bridge.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/notebook.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/london.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/avatar_g.jpg" style="width:100%">
+    </div>
+  
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/workbench.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/gondol.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/skies.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/lights.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/workshop.jpg" style="width:100%">
+    </div>
+</div>
+
+<footer>
+  <i class="fa fa-facebook-official icons"></i>
+  <i class="fa fa-instagram icons"></i>
+  <i class="fa fa-snapchat icons"></i>
+  <i class="fa fa-pinterest-p icons"></i>
+  <i class="fa fa-twitter icons"></i>
+  <i class="fa fa-linkedin icons"></i>
+  <p>Powered by w3.css</p>
+</footer>
+
+<script>
+  function gridPad() {
+    let x = document.querySelector(".grid");
+    if (x.classList.contains("rowPad")){
+      x.classList.remove("rowPad");
+    } else {
+      x.classList.add("rowPad");
+    }
+  }
+
+  function openBars() {
+    document.querySelector(".bars").style.display = "block";
+  }
+
+  function closeBars() {
+    document.querySelector(".bars").style.display = "none";
+  }
+</script>
+  
+</body>
+</html>

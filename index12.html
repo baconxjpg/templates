@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: "Raleway", Arial, sans-serif;
+      text-align: center;
+      color:rgb(85, 85, 85);
+      margin: 0;
+    }
+    p {
+      font-size: 15px;
+    }
+
+    header {
+      font-weight: 200;
+      padding-top: 130px;
+      padding-bottom: 20px;
+      font-size: 18px;
+      letter-spacing: 6px;
+    }
+
+    nav {
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgb(220, 220, 220);
+      display: flex;
+    }
+
+    nav a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 15px;
+      color: gray;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      background-color: gainsboro;
+    }
+
+    .grid {
+      padding-top: 230px;
+      margin: auto;
+      max-width: 1470px;
+      display: flex;
+      gap: 16px;
+      padding-bottom: 100px;
+    }
+    .col img {
+      padding-bottom: 10px;
+    }
+
+    .col {
+      float: left;
+      width: 50%;
+    }
+
+    @media (max-width:500px){
+      .grid {
+        display: flex;
+        flex-direction: column;
+        margin: 15px;
+      }
+      .col {
+        width:100%;
+      }
+    }
+
+    .icons:hover  {
+      color: gray;
+    }
+
+    footer {
+      color: black;
+      font-size: 18px;
+      background-color:rgb(239, 239, 239);
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2 style="font-weight: 200;font-size: 23px;">PHOTOGRAPHER</h2>
+    <h1 style="font-weight: 200;margin-top:0">John Doe</h1>
+  </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#" style="background-color: rgb(245, 245, 245);">Portfolio</a>
+    <a href="#">Contact</a>
+    <a href="#">Weddings</a>
+  </nav>
+
+  <div class="grid">
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/falls2.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
+    </div>
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/ocean.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/mountainskies.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
+    </div>
+  </div>
+
+  <footer> 
+    <i class="fa fa-facebook-official icons"></i>
+    <i class="fa fa-instagram icons"></i>
+    <i class="fa fa-snapchat icons"></i>
+    <i class="fa fa-pinterest-p icons"></i>
+    <i class="fa fa-twitter icons"></i>
+    <i class="fa fa-linkedin icons"></i>
+    <p style="padding-top: 5px;font-size: 18px;">Powered by <a href="#" target="_blank" style="color: black;" >w3.css</a></p>
+  </footer>
+</body>
+</html>

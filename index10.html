@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+<style>
+  body,html {
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    text-align: center;
+    background-color: rgb(247, 226, 230);
+  }
+  p { font-size: 15px; }
+  .img-hdr {
+    background-image: url(https://www.w3schools.com/w3images/wedding_couple.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+    position: relative;
+    filter: grayscale(50%);
+  }
+  .text-hdr {
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 4px;
+    color: white;
+    font-weight: 300;
+  }
+  nav {
+    position: fixed;
+    bottom: 0;
+    padding: 8px 15px;
+    width: 100%;
+    background-color: white;
+    opacity: 0.6;
+    display: flex;
+    z-index: 1;
+  }
+  nav a {
+    display: block;
+    width: 25%;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+
+  nav:hover {
+    opacity: 1;
+  }
+
+  nav a:hover, .btn-2 a:hover { background-color:rgb(206, 206, 206); }
+  .btn-3:hover {
+    background-color:rgb(206, 206, 206);
+    color: black!important;
+    opacity: 1;
+  }
+ 
+  main {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .title {
+    color: gray;
+    font-size: 35px;
+    padding-bottom: 20px;
+  }
+  .img-main {
+    width: 100%;
+    filter: grayscale(70%);
+    margin-bottom: 30px;
+    border-radius: 4px;
+  }
+  .btn-2 {
+    margin-top: 75px;
+    margin-bottom: 28px;
+  }
+  .btn-2 a{
+    background-color: black;
+    color: white;
+    padding: 18px 22px;
+    font-size: 18px;
+    border-radius: 4px;
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+    color: white;
+  }
+  .img-main-2 {
+    position: relative;
+    background-image: url(https://www.w3schools.com/w3images/flowers.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 100%;
+  }
+  .text-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 200;
+    font-size: 32px;
+  }
+
+  section img {
+    width: 100%;
+    max-width:980px;
+    margin: auto;
+    filter: grayscale(70%);
+  }
+  .time {
+    float: left;
+    width: 50%;
+  }
+
+  .btn-3 {
+    color: #fff;
+    background-color: #f44336;
+    opacity: 0.6;
+    border-radius: 4px;
+    border: none;
+    font-size: 25px;
+    font-family: "Raleway", sans-serif;
+    padding: 20px 60px;
+  }
+  
+  .row {
+    clear: both;
+    display: table;
+    content: "";
+  }
+  
+  aside {
+    background-color: #ffdddd;
+    width:100%;
+    padding-top:50px;
+    padding-bottom:100px;
+    letter-spacing: 5px;
+  }
+
+  .overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  .overlay.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .RSVP-form {
+    position: fixed;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px 30px 40px;
+    width: 30%;
+    margin: auto;
+    z-index: 2;
+    min-width: 500px;
+    animation: animatezoom 0.5s ease-in-out;
+    display: none;
+  }
+
+  .RSVP-form.show {
+    display: block;
+    top: 35%;
+  }
+
+  input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid rgb(198, 198, 198);
+  }
+  
+  .btn-4 {
+    width: 50%;
+    float: left;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+  }
+
+  footer {
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom:15px;
+  }
+
+  @keyframes animatezoom {
+    from {transform: translate(-50%, -50%) scale(0); opacity: 0;}
+    to {transform: translate(-50%, -50%) scale(1); opacity: 1;}
+  }
+  
+</style>
+<body>
+  <header id="home" class="img-hdr">
+    <div class="text-hdr">
+      <h1 style="margin-top: 45px;font-size:65px;font-weight: 300;">Jane & John</h1>
+      <h4 style="margin-top: -20px;margin-bottom:-20px;font-weight: 300;">Are getting married</h4>
+      <h4>17.07.2017</h4>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#main">Jane & John</a>
+    <a href="#wedding">Wedding</a>
+    <a href="#RSVP">RSVP</a>
+  </nav>
+
+  <main id="main">
+    <div style="padding: 0 40px;max-width:980px;margin: auto;">
+    <h1 class="title">Jane & John</h1>
+    <img class="img-main" src="https://www.w3schools.com/w3images/wedding_couple2.jpg" alt="wedding_couple">
+    <p style="line-height: 2;text-align:justify"><i>You all know us. And we all know you. We are getting married lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</i></p>
+    <p class="btn-2"><a href="#wedding">Wedding Details</a></p>
+    </div>
+  </main>
+  <div class="img-main-2">
+    <div class="text-main">
+      <h1 style="font-weight: 200;margin-top:45px">You Are Invited</h1>
+      <h4 style="font-weight: 200;padding-top:15px;font-size:30px">Of course..</h4>
+    </div>
+  </div>
+
+  <section id="wedding" style="max-width:980px;margin: auto;padding-bottom:235px">
+    <h1 class="title" style="padding-top:49px;padding-bottom:50px">THE WEDDING</h1>
+    <img style="border-radius: 8px;" src="https://www.w3schools.com/w3images/wedding_location.jpg" alt="wedding_location" width="100%">
+    <div style="padding-top:50px">
+    <div class="time">
+      <h1 style="font-size: 30px;font-weight: 200;">When</h1>
+      <p style="padding-bottom:15px">Wedding Ceremony - 2:00pm</p>
+      <p>Reception & Dinner - 5:00pm</p>
+    </div>
+    <div class="time">
+      <h1 style="font-size: 30px;font-weight: 200;">Where</h1>
+      <p style="padding-bottom:15px">Some place, an address</p>
+      <p>Some where, some address</p>
+    </div>
+    </div>
+  </section>
+
+  <aside id="RSVP" class="row">
+    <div style="max-width:980px;margin:auto;">
+    <h1 class="title" style="color: black!important;font-weight: 200;">HOPE YOU CAN MAKE IT!</h1>
+    <h4 style="font-weight: 200;margin-top:-15px;padding-bottom:10px;font-weight: 200;">Kindly Respond By January, 2017</h4>
+    <button class="btn-3" onclick="respond()">RSVP</button>
+    </div>
+  </aside>
+
+  <div class="overlay">
+  <div class="RSVP-form">
+    <h1 style="font-weight: 200;letter-spacing:4px">CAN YOU COME?</h1>
+    <p>We really hope you can make it.</p>
+    <input placeholder="Name(s)">
+    <p style="padding: 5px;"><i>Sincerely, John & Jane</i></p>
+    <div class="btn-container">
+      <button onclick="closeRespond()" style="background-color: rgb(23, 169, 23);" class="btn-4">Going</button>
+      <button onclick="closeRespond()" style="background-color: red;" class="btn-4">Can't come</button>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    <p style="color:white">Powered by <a href="#" style="color:white">w3.css</a></p>
+  </footer>
+  <div style="margin-bottom: 32px;"></div>
+
+  <script>
+    function respond(){
+      document.querySelector(".RSVP-form").classList.add("show");
+      document.querySelector(".overlay").classList.add("show");
+    }
+
+    function closeRespond(){
+      document.querySelector(".RSVP-form").classList.remove("show");
+      document.querySelector(".overlay").classList.remove("show");
+    }
+  </script>
+</body>
+</html>
