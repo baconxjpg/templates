@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <title>Document</title>
+  <style>
+    img {width: 100%;margin-bottom: -6px;opacity:0.8}
+    img:hover {opacity:1}
+    body h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif;}
+    body {margin: 0;background-color: rgb(239, 239, 239);overflow-x: hidden;}
+    
+    .container-left, .container-right {float: left;}
+    .container-right {
+      margin-left: 300px;
+      transition: margin-left 0.3s ease-out;
+    }
+
+    @media (max-width:1000px) {
+      nav {
+        display: none;
+      }
+      .container-right {
+        margin-left: 0;
+      }
+      header {
+        display: block;
+      }
+    }
+
+    @media (min-width:1000px) {
+      nav {
+        display: block!important;
+      }
+      .hidebar {
+        display: none;
+      }
+      header {
+        display: none;
+      }
+    }
+
+    nav {
+      position: fixed;
+      width: 300px;
+      height: 100%;
+      text-align: center;
+      z-index: 1;
+      line-height: 1.3;
+      color: gray;
+      background-color: white;
+      animation: animateleft 0.2s ease-out;
+    }
+    .nav-bars {
+     position: absolute; 
+     top: 10.5%;
+     left: 0%;
+     width:100%;
+    }
+    
+    nav a {
+      text-decoration: none;
+      display: block;
+      color: rgb(108, 108, 108);
+      font-family: "Raleway", sans-serif;
+      font-weight: 800;
+      padding: 10px;
+    }
+    nav a:hover {
+      background-color: gainsboro;
+      color: black;
+    }
+
+    .col {
+      display: flex;
+      width: 33.33%;
+    }
+
+    .pagination a {
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+      padding: 10px 15px;
+      
+    }
+
+    .pagination a:hover {
+      color: white;
+      background-color: black;
+    }
+
+    section {
+      background-color: rgb(95, 95, 95);
+      color: white;
+      font-family: "Raleway", sans-serif;
+      font-size: 15px;
+      padding-bottom: 30px;
+    }
+
+    .container {
+      display: flex;
+      margin: 22px -28px;
+    }
+    section ul {
+      list-style: none;
+      width: 45%;
+      margin: -12px;
+      opacity: 0.6;
+    }
+
+    section ul:hover {
+      opacity: 1;
+    }
+    
+    section li {
+      background-color: white;
+      color: black;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid rgb(164, 164, 164)
+    }
+
+    .col-2 {
+      width: 33.33%;
+      float: left;
+    }
+
+    .row {
+      clear: both;
+      display: table;
+      content: "";
+    }
+    .txt {
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+    }
+
+    aside {
+      margin:auto;
+      max-width: 600px;
+      font-family: 'Raleway', sans-serif;
+      padding-top: 30px;
+      padding-bottom: 50px;
+    }
+
+    footer ul {
+      padding: 0 15px;
+    }
+    footer li:hover {background-color: black;color:white}
+
+    .tags {
+      padding: 2px 5px;
+      font-size: 13px;
+      color: white;
+      background-color: rgb(109, 109, 109);
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .display {
+      background-color: black;
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 3;
+      overflow: auto;
+      display: none;
+      color: white;
+    }
+
+    .imgele {
+      width: 55%;
+      margin: auto;
+    }
+
+    .displayContent {
+      animation: animatezoom 0.6s;
+      padding-top: 64px!important;
+      padding-bottom: 64px!important;
+      text-align: center !important;
+      width: 900px!important;
+      position: relative;
+      padding: 0;
+      margin: auto;
+    }
+    .displayContent img {
+      opacity: 1;
+      max-width: 100%;
+      height: auto;
+    }
+
+    @keyframes animateleft {
+      from {left: -20%;}
+      to {left: 0%;}
+    }
+
+    @keyframes animatezoom {
+      from {transform: scale(0);}
+      to {transform: scale(1);}
+    }
+    .btn:hover {
+      background-color: gray;
+      color: black;
+    }
+    .btn-send {
+      width:103.5%;
+      background-color:black;
+      padding:10px;
+      color:white;
+      display:block;
+      font-size:15px;
+      border: none;
+    }
+    .btn-send:hover {
+      background-color: gainsboro;
+      color: black;
+    }
+    header {
+      padding:40px 30px 55px 30px;
+      background-color: white;
+      margin-top: -10px;
+      font-family: "Raleway", sans-serif;
+    }
+    .bar {
+      float:right;
+      font-size:23px;
+      text-decoration: none;
+      color: black;
+      padding: 8px 15px;
+      margin-top: -12px;
+      margin-right:-15px
+    }
+
+    .bar:hover {
+      background-color: gainsboro;
+      color: black;
+    }
+
+    .overlay {
+      height: 100vh;
+      margin-left: 300px;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      width: 100%;
+      display: none;
+      z-index: 5;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container-left">
+  <nav class="nav">
+    <div class="nav-bars">
+    <h1 style="line-height: 1.5;">SOME <br> NAME</h1>
+    <div style="padding-top: 50px;font-size:15px;">
+      <a href="javascript:void(0)" onclick="closebar()" class="hidebar">CLOSE</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#aboutme">ABOUT ME</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    </div>
+  </nav>
+  </div>
+
+  <div class="overlay"></div>
+
+  <div class="container-right">
+
+  <header>
+    <span style="float:left;font-size:23px;font-weight:200;">SOME NAME</span>
+    <a href="javascript:void(0)" onclick="openbar()" class="bar">☰</a>
+  </header>
+
+  <main class="row" id="portfolio">
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/natureboy.jpg" onclick="details(this)" alt="A boy surrounded by beautiful nature">
+      <img src="https://www.w3schools.com/w3images/boy.jpg" onclick="details(this)" alt="Quiet day at the beach. Cold, but beautiful">
+      <img src="https://www.w3schools.com/w3images/girl.jpg" onclick="details(this)" alt="Canoeing again">
+    </div>
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/girl_mountain.jpg" onclick="details(this)" alt="What a beautiful scenery this sunset">
+      <img src="https://www.w3schools.com/w3images/man_bench.jpg" onclick="details(this)" alt="Waiting for the bus in the desert">
+      <img src="https://www.w3schools.com/w3images/girl_train.jpg" onclick="details(this)" alt="A girl, and a train passing">
+    </div>
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/girl.jpg" onclick="details(this)" alt="The Beach. Me. Alone. Beautiful">
+      <img src="https://www.w3schools.com/w3images/natureboy.jpg" onclick="details(this)" alt="Nature again.. At its finest!">
+      <img src="https://www.w3schools.com/w3images/closegirl.jpg" onclick="details(this)" alt="What a beautiful day!">
+    </div>
+  </main>
+
+  <!-- -->
+  <div class="display" onclick="this.style.display='none'">
+    <span class="btn" style="position:absolute;top:0;right:0;font-size:26px;padding: 8px 16px;display:inline-block;">x</span>
+    <div class="displayContent">
+      <img class="imgele">
+      <p class="caption"></p>
+    </div>
+  </div>
+  
+  <div class="pagination" style="display: flex;justify-content: center;margin:35px 0">
+    <a href="#">«</a>
+    <a href="#" style="color: white;background-color: black;">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">»</a>
+  </div>
+  
+  <section id="aboutme">
+    <div style="max-width: 600px;margin:auto">
+    <h2 style="text-align:center;padding-top:45px;padding-bottom:30px;font-size: 20px;">About Me</h2>
+    <img src="https://www.w3schools.com/w3images/avatar_hat.jpg" alt="avatar" style="opacity: 1;">
+    <br><br><br>
+    <h2 style="font-size: 20px;font-weight:200;margin-top:10px">My Name</h2>
+    <p style="line-height: 1.5;text-align:justify;padding:3px 0">Some text about me. I love taking photos of PEOPLE. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>mail: example@example.com</p>
+    <p style="padding:5px 0">tel: 5353 35531</p>
+    
+    <hr style="opacity: 0.5;">
+    <br>
+    <h2 style="padding-bottom: 20px;font-weight:200;font-size:20px">Technical Skills</h2>
+    <h4 style="letter-spacing:4px;font-weight:200;font-size:15px">Photography</h4>
+    <div style="width: 100%;background-color:ghostwhite">
+      <div style="width: 95%;background-color:rgb(158, 158, 158);padding:5px;text-align:center;color:black">95%</div>
+    </div>
+    <h4 style="letter-spacing:4px;font-weight:200;font-size:15px">Web Design</h4>
+    <div style="width: 100%;background-color:ghostwhite">
+      <div style="width: 85%;background-color:rgb(158, 158, 158);padding:5px;text-align:center;color:black">85%</div>
+    </div>
+    <h4 style="letter-spacing:4px;font-weight:200;font-size:15px">Photoshop</h4>
+    <div style="width: 100%;background-color:ghostwhite">
+      <div style="width: 80%;background-color:rgb(158, 158, 158);padding:5px;text-align:center;color:black">80%</div>
+    </div><br>
+    <p><button style="padding: 15px 23px;font-size:15px;font-family:inherit">Download Resume</button></p>
+    <hr style="margin: 30px 0;">
+    
+    <h2 style="padding-bottom: 20px;font-weight:200;font-size:20px">How much I charge</h2>
+    
+    <div class="container">
+      <ul>
+        <li style="padding: 19px;background-color:black;color:rgb(191, 191, 191);font-family: 'Raleway', sans-serif;"><h1>Basic</h1></li>
+        <li>Web Design</li>
+        <li>Photography</li>
+        <li>5GB Storage</li>
+        <li>Mail Support</li>
+        <li>
+          <p style="font-size: 30px;font-weight:200;margin:10px">$ 10</p>
+          <span style="color: gray;">per month</span>
+        </li>
+        <li style="padding: 30px;background-color:rgb(235, 235, 235)"><button style="padding:15px 25px;background-color:white;border:none;font-family:inherit;">Sign Up</button></li>
+      </ul>
+      <ul>
+        <li style="padding: 19px;background-color:black;color:rgb(191, 191, 191);font-family: 'Raleway', sans-serif;"><h1>Pro</h1></li>
+        <li>Web Design</li>
+        <li>Photography</li>
+        <li>50GB Storage</li>
+        <li>Endless Support</li>
+        <li>
+          <p style="font-size: 30px;font-weight:200;margin:10px">$ 25</p>
+          <span style="color: gray;">per month</span>
+        </li>
+        <li style="padding: 30px;background-color:rgb(235, 235, 235)"><button style="padding:15px 25px;background-color:white;border:none;font-family:inherit;">Sign Up</button></li>
+      </ul>
+    </div>
+  </div>
+  </section>
+  
+  <aside id="contact">
+    <h2 style="text-align: center;font-size:20px">Contact Me</h2>
+    <p style="font-size:15px;line-height:1.5">Do you want me to photograph you? Fill out the form and fill me in with the details :) I love meeting new people!</p>
+    <label style="font-size:15px">Name</label><br>
+    <input style="width: 100%;padding:10px;border:1px solid rgb(194, 194, 194)"><br><br>
+    <label style="font-size:15px">Email</label><br>
+    <input style="width: 100%;padding:10px;border:1px solid rgb(194, 194, 194)"><br><br>
+    <label style="font-size:15px">Message</label><br>
+    <input style="width: 100%;padding:10px;border:1px solid rgb(194, 194, 194)"><br><br>
+    <button class="btn-send">Send Message</button>
+  </aside>
+  
+  <footer  class="row" style="padding: 30px;background-color:rgb(162, 162, 162);">
+    <div class="col-2">
+      <h2 style="font-weight: 200;">INFO</h2>
+      <p style="font-family: 'Raleway', sans-serif;line-height:1.5">Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+    </div>
+    <div class="col-2">
+      <h2 style="font-weight: 200;">BLOG POSTS</h2>
+      <ul style="list-style: none;">
+        <li style="border-bottom: 1px solid white;display:flex;padding:15px;padding-bottom:20px;margin-left:-15px">
+          <img src="https://www.w3schools.com/w3images/workshop.jpg" alt="workshop" style="width: 50px;height:50px;margin-right:15px">
+          <div class="txt">
+            <span style="font-family: 'Raleway', sans-serif;padding-bottom:5px;">Lorem</span>
+            <span style="font-family: 'Raleway', sans-serif;font-size:15px">Sed mattis nunc</span>
+          </div>
+        </li>
+        <li style="display:flex;padding:15px;margin-left:-15px">
+          <img src="https://www.w3schools.com/w3images/gondol.jpg" alt="gondol" style="width: 50px;height:50px;margin-right:15px">
+          <div class="txt">
+            <span style="font-family: 'Raleway', sans-serif;padding-bottom:5px;">Ipsum</span>
+            <span style="font-family: 'Raleway', sans-serif;font-size:15px">Praes tinci sed</span>
+          </div>
+        </li>
+      </ul style="list-style: none;">
+    </div>
+    <div class="col-2">
+      <h2 style="font-weight: 200;">POPULAR TAGS</h2>
+      <div  style="font-family: 'Raleway', sans-serif;">
+        <span class="tags" style="background-color: black;color:white;font-size:15px">Travel</span> <span class="tags">New York</span> <span class="tags">London</span>
+        <span class="tags">IKEA</span> <span class="tags">NORWAY</span> <span class="tags">DIY</span>
+        <span class="tags">Ideas</span> <span class="tags">Baby</span> <span class="tags">Family</span>
+        <span class="tags">News</span> <span class="tags">Clothing</span> <span class="tags">Shopping</span>
+        <span class="tags">Sports</span> <span class="tags">Games</span>
+      </div>
+    </div>
+  </footer>
+  <div class="row" style="padding: 25px;margin-top:-10px;background-color:black;width:100%;color:white;text-align:center;margin-left:-15px">Powered by w3.css</div>
+</div>
+
+<script>
+  function openbar() {
+    document.querySelector(".nav").style.display = "block";
+    document.querySelector(".overlay").style.display = "block";
+  }
+
+  function closebar() {
+    document.querySelector(".nav").style.display = "none";
+    document.querySelector(".overlay").style.display = "none";
+  }
+
+  function details(element){
+    document.querySelector(".imgele").src = element.src;
+    document.querySelector(".display").style.display = "block";
+    let captionText = document.querySelector(".caption");
+    captionText.innerHTML = element.alt;
+  }
+</script>
+  
+</body>
+</html>

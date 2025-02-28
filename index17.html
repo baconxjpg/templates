@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    body {margin: 0;background-color: black;color:gray}
+    p {font-size: 15px;}
+    nav {
+      position: fixed;
+      top: 0;
+      height: 100%;
+      overflow: hidden;
+      width: 120px;
+      display: block;
+      background-color: rgb(35, 35, 35);
+      text-align: center;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 15px 0;
+      margin-top: -3px;
+    }
+    nav a:hover {
+      background-color: black;
+    }
+    main { margin-left: 120px; }
+    header {
+      background-color: black;
+      color:white;
+      padding: 20px;
+      text-align: center;
+    }
+    img { max-width: 100%; height: auto;}
+
+    @media (max-width:600px){
+      nav {display: none;}
+      main {margin: 0;}
+      .hide-sml {display: none!important}
+    }
+    @media (min-width:600px){
+      .sidebar {display: none;}
+    }
+    .sidebar { position: fixed; top: 0; width: 100%;background-color: black;z-index: 2;}
+    .sidebar:hover a{color: white;}
+    .sidebar a {color: white;text-decoration: none;float: left;width: 25%;text-align: center;color:rgb(174, 174, 174)}
+    .sidebar a:hover {color: rgb(31, 31, 31);background-color: gainsboro;}
+    section {
+      padding: 64px 0;
+      max-width: 980px;
+      margin: auto;
+    }
+    h1 { font-size: 30px;font-weight: 200;color: white;}
+    h2 { font-size: 25px;font-weight: 200;color: white;margin: 40px 0;}
+    .row {display: table;content: "";clear: both;}
+    li {padding: 18px;color:black;background-color: white;text-align: center;border-bottom: 1px solid rgb(174, 174, 174);}
+    ul {opacity:0.5;}
+    ul:hover { opacity: 1;}
+    .icons {
+      font-size: 25px;
+    }
+    .icons:hover {opacity: 0.6;}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="https://www.w3schools.com/w3images/avatar_smoke.jpg" alt="avatar" width="120px" height="133px">
+    <a href="#" style="background-color: black!important;"><i class="fa fa-home" style="font-size:35px"></i><p style="font-size: 12px;">HOME</p></a>
+    <a href="#about"><i class="fa fa-user" style="font-size:36px;"></i><p style="font-size: 12px;">ABOUT</p></a>
+    <a href="#photos"><i class="fa fa-eye" style="font-size:36px;"></i><p style="font-size: 12px;">PHOTOS</p></a>
+    <a href="#contact"><i class="fa fa-envelope" style="font-size:36px;"></i><p style="font-size: 12px;">CONTACT</p></a>
+  </nav>
+
+  <div class="sidebar">
+    <a href="#"><p style="font-size: 12px;">HOME</p></a>
+    <a href="#about"><p style="font-size: 12px;">ABOUT</p></a>
+    <a href="#photos"><p style="font-size: 12px;">PHOTOS</p></a>
+    <a href="#contact"><p style="font-size: 12px;">CONTACT</p></a>
+  </div>
+
+  <main>
+    <header>
+      <h1 style="font-size: 64px;font-weight:200"><span class="hide-sml">I'm</span> John Doe.</h1>
+      <p style="margin-top: -15px;">Photographer and Web Designer.</p>
+      <img src="https://www.w3schools.com/w3images/man_smoke.jpg">
+    </header>
+
+    <section  id="about">
+      <h1>My Name</h1>
+      <hr style="width: 20%;margin-left:0;opacity:0.4">
+      <p style="text-align: justify;line-height:1.5">Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>My Skills</h2>
+      <p style="letter-spacing:4px">Photography</p>
+      <div style="width: 100%;background-color:ghostwhite">
+        <div style="width: 95%;height:28px;background-color:rgb(120, 120, 120)"></div>
+      </div>
+      <p style="letter-spacing:4px">Web Design</p>
+      <div style="width: 100%;background-color:ghostwhite">
+        <div style="width: 85%;height:28px;background-color:rgb(120, 120, 120)"></div>
+      </div>
+      <p style="letter-spacing:4px">Photoshop</p>
+      <div style="width: 100%;background-color:ghostwhite">
+        <div style="width: 80%;height:28px;background-color:rgb(120, 120, 120)"></div>
+      </div>
+      <div style="padding: 35px 0; width:100%"  class="row">
+        <div style="float: left; width:25%;background-color:ghostwhite;text-align:center;padding:28px 0">
+          <span style="color: black;font-size:25px">11+</span><br>
+          <span style="color:black">Partners</span>
+        </div>
+        <div style="float: left; width:25%;background-color:ghostwhite;text-align:center;padding:28px 0">
+          <span style="color: black;font-size:25px">55+</span><br>
+          <span style="color:black">Projects Done</span>
+        </div>
+        <div style="float: left; width:25%;background-color:ghostwhite;text-align:center;padding:28px 0">
+          <span style="color: black;font-size:25px">89+</span><br>
+          <span style="color:black">Happy Clients</span>
+        </div>
+        <div style="float: left; width:25%;background-color:ghostwhite;text-align:center;padding:28px 0">
+          <span style="color: black;font-size:25px">150+</span><br>
+          <span style="color:black">Meetings</span>
+        </div>
+      </div>
+      <button style="padding:10px 20px;display:block;font-size:16px"><i class="fa fa-download"> Download Resume</i></button>
+      <h2>My Price</h2>
+      <div class="row" style="display: block;">
+        <div style="float:left;;width:50%;margin-left:-15px;">
+          <ul style="list-style:none;padding:0;margin:0 15px">
+            <li style="background-color: gray;padding:30px"><span style="font-size: 25px;color:white">Basic</span></li>
+            <li>Web Design</li>
+            <li>Photography</li>
+            <li>5GB Storage</li>
+            <li>Mail Support</li>
+            <li><span style="font-size: 30px;">$ 10</span><br><br><span style="color: gray;">per month</span></li>
+            <li style="padding: 20px;background-color:rgb(245, 245, 245)"><button style="border:none;font-size: 15px;font-family:inherit;padding:15px 20px;background-color:white">Sign Up</button></li>
+          </ul>
+        </div>
+        <div style="float:left;width:49.9%;margin-bottom:60px">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="background-color: gray;padding:30px"><span style="font-size: 25px;color:white">Pro</span></li>
+            <li>Web Design</li>
+            <li>Photography</li>
+            <li>5GB Storage</li>
+            <li>Mail Support</li>
+            <li><span style="font-size: 30px;">$ 10</span><br><br><span style="color: gray;">per month</span></li>
+            <li style="padding: 20px;background-color:rgb(245, 245, 245)"><button style="border:none;font-size: 15px;font-family:inherit;padding:15px 20px;background-color:white">Sign Up</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="padding-bottom: 60px;">
+        <h2>My Reputation</h2>
+        <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="bandmember" style="width: 80px;border-radius:50%;float:left;margin-right:16px">
+        <p><span style="font-size: 18px;">Chris Fox. </span>CEO at Mighty Schools.</p>
+        <p>John Doe saved us from a web disaster.</p><br><br>
+        
+        <img src="https://www.w3schools.com/w3images/avatar_g2.jpg" alt="avatar" style="width: 80px;border-radius:50%;float:left;margin-right:16px">
+        <p> <span style="font-size: 18px;">Rebecca Flex. </span>CEO at Company.</p>
+        <p>No one is better than John Doe.</p>
+      </div>
+      <h2 id="photos" style="font-size: 30px;padding-top:40px">My Photos</h2>
+      <hr style="width: 20%;margin-left:0;margin-top:-20px;opacity:0.6">
+      <aside style="display: flex;gap:15px" class="row">
+        <div style="float: left;width:50%;margin-top:10px;">
+          <img src="https://www.w3schools.com/w3images/wedding.jpg" width="100%" style="padding-bottom: 8px;">
+          <img src="https://www.w3schools.com/w3images/rocks.jpg" width="100%" style="padding-bottom: 8px;">
+        <img src="https://www.w3schools.com/w3images/sailboat.jpg" width="100%" style="padding-bottom: 8px;">
+      </div>
+      <div style="float: left;width:50%;margin-top:10px">
+        <img src="https://www.w3schools.com/w3images/underwater.jpg" width="100%" style="padding-bottom: 8px;">
+        <img src="https://www.w3schools.com/w3images/chef.jpg" width="100%" style="padding-bottom: 8px;">
+        <img src="https://www.w3schools.com/w3images/wedding.jpg" width="100%" style="padding-bottom: 8px;">
+        <img src="https://www.w3schools.com/w3images/p6.jpg" width="100%" style="padding-bottom: 8px;">
+      </div>
+    </aside>
+    <div id="contact" style="padding-top:35px">
+      <h2  style="font-size: 30px;">Contact Me</h2>
+      <hr  style="width: 20%;margin-left:0;margin-top:-20px;opacity:0.6">
+      <div style="margin:16px 0;padding-bottom:150px">
+        <p><i class="fa fa-map-marker" style="margin-right: 15px;text-align:center;font-size:36px;width:4%;color:white"></i> Chicago, US</p>
+        <p><i class="fa fa-phone" style="margin-right: 15px;text-align:center;font-size:36px;width:4%;color:white"></i> Phone: +00 151515</p>
+        <p><i class="fa fa-envelope" style="margin-right: 15px;text-align:center;font-size:36px;width:4%;color:white"></i> Email: mail@mail.com</p>
+        <br>
+        <p>Let's get in touch. Send me a message:</p>
+        <input placeholder="Name" style="padding: 15px 10px;width:100%;margin-bottom:15px;font-size:15px">
+        <input placeholder="Email" style="padding: 15px 10px;width:100%;margin-bottom:15px;font-size:15px">
+        <input placeholder="Subject" style="padding: 15px 10px;width:100%;margin-bottom:15px;font-size:15px">
+        <input placeholder="Message" style="padding: 15px 10px;width:100%;margin-bottom:15px;font-size:15px">
+        <button style="font-size: 15px;font-family:inherit;padding:15px 25px"><i class="fa fa-paper-plane"></i>SEND MESSAGE</button>
+      </div>
+    </div>
+    <footer style="padding-bottom: 20px;">
+    <i class="fa fa-facebook-official icons"></i>
+    <i class="fa fa-instagram icons"></i>
+    <i class="fa fa-snapchat icons"></i>
+    <i class="fa fa-pinterest-p icons"></i>
+    <i class="fa fa-twitter icons"></i>
+    <i class="fa fa-linkedin icons"></i>
+    <p>Powered by w3.css</p>
+
+    </footer>
+  </section>
+    
+
+
+    <!-- END-->
+  </main>
+
+
+
+</body>
+</html>
