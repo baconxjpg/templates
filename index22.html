@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <style>
+    body{font-family: "Inconsolata", sans-serif; margin: 0;background-color: rgb(251, 247, 244);}
+    body, html {height: 100%;}
+    p {line-height: 1.5;}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 8px 15px;
+      background-color: black;
+      z-index: 1;
+      white-space: nowrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      display: inline-block;
+      width: 22.8%;
+      margin: auto;
+      padding: 10px;
+    }
+    nav a:hover {
+      background-color: rgb(200, 200, 200);
+      color: black;
+    }
+    .img1 {
+      background-image: url("https://www.w3schools.com/w3images/coffeehouse.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 75%;
+      width: 100%;
+      filter: grayscale(50%);
+    }
+    header {
+      position: relative;
+    }
+    .hdr-cap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 90px;
+      font-weight: 200;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .hdr-btmL {
+      position: absolute;
+      bottom: 2.7%;
+      left: 1.5%;
+      color: white;
+      background-color:black;
+      padding: 4px 8px;
+      font-size:15px
+    }
+    .hdr-btmR {
+      color: white;
+      position: absolute;
+      bottom: 2.7%;
+      right: 1.5%;
+      font-size:15px
+    }
+
+    main, section, aside { max-width: 700px; margin: auto; font-size:18px}
+    .menu-links {
+      display: flex;box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);padding: 8px 16px;
+    }
+    .menu-links a { text-decoration: none;color: black;width: 50%;text-align: center;padding:3px}
+    .eatBtn.active, .drinkBtn.active {background-color: rgb(96, 96, 96);color:white}
+    .food, .beverage {
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);position: absolute;white-space:nowrap;padding: 20px;
+    }
+    .row {clear: both; content: ""; display: table;}
+    .btn:hover {background-color: gainsboro!important;color:black!important}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#menu">MENU</a>
+    <a href="#where">WHERE</a>
+  </nav>
+  <header class="img1">
+    <span class="hdr-cap" style="color: white;">the<br>Cafe</span>
+    <div>
+    <span class="hdr-btmL">Open from 6am to 5pm</span>
+    <span class="hdr-btmR">15 Adr street, 5015</span>
+    </div>
+  </header>
+  
+  <main>
+    <h5 style="text-align: center;padding:50px 0;font-weight:400;font-size:17px"><span style="color:white;background-color:black;letter-spacing:5px;padding:3px 7px;font-family: 'Segoe UI', Arial, sans-serif;">ABOUT THE CAFE</span></h5>
+    <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+
+    <div style="background-color:#f1f1f1;padding:1px 15px;border-left:6px solid rgb(208, 208, 208);margin-bottom:30px">
+      <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+      <p>Chef, Coffeeist and Owner: Liam Brown</p>
+    </div>
+    <img src="https://www.w3schools.com/w3images/coffeeshop.jpg" alt="coffeeshop" width="100%" style="filter:grayscale(70%);">
+    <p><b>Opening hours:</b> everyday from 6am to 5pm.</p>
+    <p><b>Address:</b> 15 Adr street, 5015, NY</p>
+    </main>
+
+    <section>
+      <h5 style="text-align: center;padding:50px 0;font-weight:400;font-size:17px"><span style="color:white;background-color:black;letter-spacing:5px;padding:3px 7px;font-family: 'Segoe UI', Arial, sans-serif;">THE MENU</span></h5>
+      <div class="menu-links">
+        <a href="javascript:void(0)" class="eatBtn" onclick="openMenu('food')">Eat</a>
+        <a href="javascript:void(0)" class="drinkBtn" onclick="openMenu('beverage')">Drink</a>
+      </div>
+
+      <div style="position: relative;padding-bottom:48px;min-height: 660px;" class="row">
+        <div class="food" style="padding-right: 58px;">
+          <h4>Bread Basket</h4>
+          <p style="color: gray;">Assortment of fresh baked fruit breads and muffins 5.50</p>
+          <br>
+          <h4>Honey Almond Granola with Fruits</h4>
+          <p style="color: gray;">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p>
+          <br>
+          <h4>Belgian Waffle</h4>
+          <p style="color: gray;">Vanilla flavored batter with malted flour 7.50</p>
+          <br>
+          <h4>Scrambled eggs</h4>
+          <p style="color: gray;">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p>
+          <br>
+          <h4>Blueberry Pancakes</h4>
+          <p style="color: gray;">With syrup, butter and lots of berries 8.50</p>
+        </div>
+
+        <div class="beverage" style="padding-right:382px">
+          <h4>Coffee</h4>
+          <p style="color: gray;">Regular coffee 2.50</p>
+          <br>
+          <h4>Chocolato</h4>
+          <p style="color: gray;">Chocolate espresso with milk 4.50</p>
+          <br>
+          <h4>Corretto</h4>
+          <p style="color: gray;">Whiskey and coffee 5.00</p>
+          <br>
+          <h4>Iced tea</h4>
+          <p style="color: gray;">Hot tea, except not hot 3.00</p>
+          <br>
+          <h4>Soda</h4>
+          <p style="color: gray;">Coke, Sprite, Fanta, etc. 2.50</p>
+        </div>
+      </div>
+      <img src="https://www.w3schools.com/w3images/coffeehouse2.jpg" alt="coffeehouse2" width="100%" style="filter: grayscale(70%);">
+    </section>
+    <aside style="padding-bottom: 50px;">
+      <h5 style="text-align: center;padding:50px 0;font-weight:400;font-size:17px"><span style="color:white;background-color:black;letter-spacing:5px;padding:3px 7px;font-family: 'Segoe UI', Arial, sans-serif;">WHERE TO FIND US</span></h5>
+      <p>Find us at some address at some place.</p>
+      <img src="https://www.w3schools.com/w3images/map.jpg" alt="map" width="100%" style="filter: grayscale(70%);">
+      <p><span style="background-color: black;color:white;padding:3px 5px">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+      <p><b>Reserve</b> a table, ask for today's special or just send us a message:</p>
+      <form action="action.php" target="_blank">
+      <input placeholder="Name" type="text" style="font-size:18px;font-family:inherit;padding: 20px 10px;border:1px solid rgb(187, 187, 187);width:95%"><br><br>
+      <input placeholder="How many people" type="text" style="font-size:18px;font-family:inherit;padding: 20px 10px;border:1px solid rgb(187, 187, 187);width:95%"><br><br>
+      <input type="datetime-local" value="2022-11-16T20:00" style="font-size:18px;font-family:inherit;padding: 20px 10px;border:1px solid rgb(187, 187, 187);width:95%"><br><br>
+      <input placeholder="Message \ Special requirement" type="text" style="font-size:18px;font-family:inherit;padding: 20px 10px;border:1px solid rgb(187, 187, 187);width:95%"><br><br>
+      <button class="btn" style="font-size:18px;font-family:inherit;background-color: black;color:white;padding:15px 20px;font-family:inherit;border:none;font-size:18px">SEND MESSAGE</button>
+      </form>
+    </aside>
+    <footer style="padding: 50px;background-color:rgb(242, 242, 242)">
+      <p style="text-align:center;font-size:18px">Powered by w3.css</p>
+    </footer>
+
+    <script>
+      function openMenu(type) {
+        if (type === "food"){
+          document.querySelector(".food").style.display = "block"
+          document.querySelector(".beverage").style.display = "none"
+          document.querySelector(".eatBtn").classList.add("active");
+          document.querySelector(".drinkBtn").classList.remove("active");
+        } else {
+          document.querySelector(".food").style.display = "none"
+          document.querySelector(".beverage").style.display = "block"
+          document.querySelector(".eatBtn").classList.remove("active");
+          document.querySelector(".drinkBtn").classList.add("active");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        openMenu("food");
+      })
+    </script>
+  
+</body>
+</html>
