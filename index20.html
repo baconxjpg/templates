@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body, html {max-width: 1200px;margin: auto;}
+    body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+    p {font-size: 15px;}
+    
+    .sidebar {
+      position: fixed;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      font-size: 18px;
+      text-align: center;
+      font-weight: 700;
+      overflow-y: scroll;
+    }
+    .sidebar a {
+      font-family: "Roboto", sans-serif;
+      display: block;
+      text-decoration: none;
+      color: rgb(111, 111, 111);
+      padding: 9px 16px;
+      text-align:left;
+      width: 100%;
+    }
+    .sidebar a:hover {
+      background-color: rgb(206, 206, 206)!important;
+      color: black;
+    }
+    
+    main {
+      margin-left: 250px;
+      transition: margin 0.3s ease-in;
+    }
+    .topbar p{
+      font-size: 25px!important;
+      display: block;
+    }
+    .container {
+      position: relative;
+      
+    }
+    .container-text {
+      position: absolute;
+      top: 1.5%;
+      left: 3.5%;
+      font-size: 30px;
+      color: white;
+    }
+    .clear {
+      clear: both;
+      content: "";
+      display: table;
+    }
+
+    .cart-div{ position:relative; }
+    .tag {
+      color: white;background-color:black;position:absolute;top:-15px;left:0px;padding:5px 10px;
+    }
+    
+    .cart {
+      position:absolute;top:45%;left:50%;transform: translate(-50%, -50%);padding:10px 15px;color:white;background-color:black;white-space: nowrap;display: none;
+    }
+    .cart-div:hover .cart{
+      display: block;
+    }
+    .cart:hover, .btn-hover:hover {background-color: rgb(197, 197, 197)!important;color: black!important;}
+    .btn {padding:10px 15px;border: none;}
+    .icons:hover { color: gray;}
+    section {padding: 36px 15px;background-color: black;color:white}
+    .overlay {
+      position: fixed;
+      background-color: rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 3;
+    }
+    .overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .news {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      width: 55%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: 4;
+      background-color: white;
+      text-align: center;
+      padding: 30px;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .news.show {
+      visibility: visible;
+      opacity: 1;
+      top: 30%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    @media (max-width:1000px) {
+      nav {display: none;}
+      main {margin: 0;padding-top: 85px;}
+      .nav-small {display: block;}
+
+
+    }
+
+    @media (max-width:600px) {
+      .hide-text {display: none;}
+      .container-text {font-size: 20px;margin-left: 10px;}
+      
+    }
+
+    @media (min-width:1000px) {
+      .nav-small {display: none;}
+      .grid-width {display: flex;gap:35px}
+    }
+
+    .grid {
+      display: flex;
+      width: 100%;
+      gap:30px;
+    }
+
+    .nav-small {
+      background-color: black;
+      color: white;
+      width: 100%;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      z-index: 1;
+    }
+    .nav-small span:hover { background-color: gainsboro;color:black}
+
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <div>
+    <h3 style="padding:5px 0;margin-left:-120px;letter-spacing:4px;font-size:25px">LOGO</h3>
+    </div>
+    <div style="padding: 64px 0;">
+      <a href="#">Shirts</a>
+      <a href="#">Dresses</a>
+      <a onclick="opensidebar()" href="#" style="color:black">Jeans <i class="fa fa-caret-down"></i></a>
+        <div class="sidebar-jeans" style="font-size: 15px;margin-left:10px;padding:16px;width:65%">
+          <a href="#"  style="color:black;background-color:rgb(239, 239, 239)"><i class="fa fa-caret-right" style="margin-right: 10px;"></i> Skinny</a>
+          <a href="#">Relaxed</a>
+          <a href="#">Bootcut</a>
+          <a href="#">Straight</a>
+        </div>
+      <a href="#">Jackets</a>
+      <a href="#">Gymwear</a>
+      <a href="#">Blazers</a>
+      <a href="#">Shoes</a>
+    </div>
+
+    <div style="padding:16px 0;font-size:15px;font-weight:200;">
+      <a style="color:black!important" href="#contact">Contact</a>
+      <a style="color:black!important" onclick="newsLetter()">Newsletter</a>
+      <a style="color:black!important" href="#subscribe">Subscribe</a>
+    </div>
+  </nav>
+
+  <div class="overlay">
+    <div class="news">
+      <h1 style="font-weight: 200;">NEWSLETTER</h1>
+      <span class="btn btn-hover" onclick="closenewsLetter()" style="display: block;float:right;margin-top:-80px;font-size:36px"><i class="fa fa-remove"></i></span>
+      <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
+      <input placeholder="Enter e-mail" style="width: 95%;padding:10px"><br><br>
+      <button class="btn btn-hover" style="color:white;background-color:red;padding:15px 25px;font-family:inherit">Subscribe</button>
+    </div>
+  </div>
+
+  <div class="nav-small">
+    <h2 style="float: left;margin:13px auto;font-weight:200;padding:15px;letter-spacing:4px">LOGO</h2>
+    <span style="float: right;padding:26px 15px;font-size:25px"><i class="fa fa-bars"></i></span>
+  </div>
+
+  <main>
+    <div style="padding: 0 15px;">
+    <div class="topbar">
+      <p style="float:left">Jeans</p>
+      <p style="float:right">
+        <i class="fa fa-shopping-cart w3-margin-right" style="margin-right: 15px;"></i>
+        <i class="fa fa-search"></i>
+      </p>
+    </div>
+    <div class="container clear">
+      <img src="https://www.w3schools.com/w3images/jeans.jpg" alt="jeans" width="100%">
+      <div class="container-text">
+        <h1 style="font-weight: 200!important;">New arrivals</h1>
+        <h3 class="hide-text" style="font-weight: 200!important;margin-top:-15px;margin-bottom:20px">COLLECTION 2016</h3>
+        <a href="#shopnow" class="btn-hover" style="text-decoration:none;font-size:18px;font-family:inherit;background-color: black;padding:15px 25px;border:none;color:white">SHOP NOW</a>
+      </div>
+    </div>
+    
+    <p style="color: gray;" id="shopnow">8 items</p>
+    <!-- Items-->
+    <div class="grid-width">
+    <div class="grid clear" style="padding-bottom: 15px;">
+      <div class="row">
+        <div class="items">
+          <img src="https://www.w3schools.com/w3images/jeans1.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+          <p><span>Ripped Skinny Jeans</span><br>
+          <span><b>$24.99</b></span></p>
+        </div>
+        <div class="items">
+          <img src="https://www.w3schools.com/w3images/jeans2.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+          <p><span>Mega Ripped Jeans</span><br>
+          <span><b>$19.99</b></span></p>
+        </div>
+        </div>
+  
+      <div class="row">
+        <div class="items">
+          <div class="cart-div">
+          <img src="https://www.w3schools.com/w3images/jeans2.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+          <p class="tag">New</p>
+          <p class="cart">Buy now <i class="fa fa-shopping-cart"></i></p>
+        </div>
+          <p><span>Mega Ripped Jeans</span><br>
+          <span><b>$19.99</b></span></p>
+        </div>
+        <div class="items">
+          <img src="https://www.w3schools.com/w3images/jeans3.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+          <p><span>Washed Skinny Jeans</span><br>
+          <span><b>$20.50</b></span></p>
+        </div>
+        </div>
+        </div>
+
+        <div class="grid clear" style="padding-bottom: 15px;">
+        <div class="row">
+          <div class="items">
+            <img src="https://www.w3schools.com/w3images/jeans3.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+            <p><span>Washed Skinny Jeans</span><br>
+            <span><b>$20.50</b></span></p>
+          </div>
+          <div class="items">
+            <div class="cart-div">
+            <img src="https://www.w3schools.com/w3images/jeans4.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+            <p class="tag">Sale</p>
+            <p class="cart">Buy now <i class="fa fa-shopping-cart"></i></p>
+            </div>
+            <p><span>Vintage Skinny Jeans</span><br>
+            <span style="color: brown;"><b>$14.99</b></span></p>
+          </div>
+        </div>
+    
+        <div class="row">
+        <div class="items">
+          <img src="https://www.w3schools.com/w3images/jeans4.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+          <p><span>Vintage Skinny Jeans</span><br>
+          <span><b>$14.99</b></span></p>
+        </div>
+        <div class="items">
+          <img src="https://www.w3schools.com/w3images/jeans1.jpg" alt="jeans" width="100%" style="filter: grayscale(70%);">
+          <p><span>Ripped Skinny Jeans</span><br>
+          <span><b>$24.99</b></span></p>
+        </div>
+      </div>
+      </div>
+      </div>
+
+    <!-- Items -->
+    
+    <div style="margin: -15px;">
+    <section id="subscribe">
+      <h1 style="font-size: 36px;font-weight:200">Subscribe</h1>
+      <p>To get special offers and VIP treatment:</p>
+      <input placeholder="Enter e-mail" style="width: 98%;padding:10px"><br><br>
+      <button class="btn btn-hover" style="color:white;background-color:red;font-family:inherit">Subscribe</button>
+    </section>
+
+    <aside id="contact" style="display:flex;padding:64px 15px;background-color:rgb(244, 244, 244);">
+      <div style="display: block;width:33.33%">
+        <h3 style="text-align: center;font-weight:200">Contact</h3>
+        <p style="text-align: center;font-size:13px">Questions? Go ahead.</p>
+        <form>
+        <input placeholder="Name" type="text" style="width: 100%;padding:8px;margin-bottom:10px">
+        <input placeholder="Email" type="email" style="width: 100%;padding:8px;margin-bottom:10px">
+        <input placeholder="Subject" type="text" style="width: 100%;padding:8px;margin-bottom:10px">
+        <input placeholder="Message" type="text" style="width: 100%;padding:8px;margin-bottom:10px"><br>
+        <button class="btn-hover" style="border:none;background-color: black;color:white;width:106%;padding:10px;">Send</button>
+        </form>
+      </div>
+      <div style="text-align: center;display:block;width:33.33%;">
+        <h3 style="font-weight: 200;">About</h3>
+        <div style="font-size:13px">
+        <a href="#" style="color:black;display:block;padding:5.5px">About us</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">We're hiring</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Support</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Find store</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Shipment</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Payment</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Gift card</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Return</a>
+        <a href="#" style="color:black;display:block;padding:5.5px">Help</a>
+        </div>
+      </div>
+      <div style="display: block;width:33.33%;">
+        <h3 style="font-weight: 200;">Store</h3>
+        <p style="font-size:13px;"><i class="fa fa-map-marker" style="width:5%;"></i> Company Name</p>
+        <p style="font-size:13px;"><i class="fa fa-phone" style="width:5%;"></i> 0044123123</p>
+        <p style="font-size:13px;"><i class="fa fa-envelope" style="width:5%;"></i> ex@mail.com</p>
+        <h3 style="font-weight: 200;">We accept</h3>
+        <p style="font-size:13px"><i class="fa fa-cc-amex"></i> Amex</p>
+        <p style="font-size:13px"><i class="fa fa-credit-card"></i> Credit Card</p>
+        <div style="font-size: 18px;padding-top:5px">
+          <i class="fa fa-facebook-official icons"></i>
+          <i class="fa fa-instagram icons"></i>
+          <i class="fa fa-snapchat icons"></i>
+          <i class="fa fa-pinterest-p icons"></i>
+          <i class="fa fa-twitter icons"></i>
+          <i class="fa fa-linkedin icons"></i>
+        </div>
+      </div>
+    </aside>
+
+    <footer style="padding: 16px;background-color:black;color:white;text-align:center">
+      <p>Powered by w3.css</p>
+    </footer>
+  </div>
+
+  </main>
+
+  <script>
+    function opensidebar() {
+      let jeansbar = document.querySelector(".sidebar-jeans");
+      if ( jeansbar.style.display == "none"){
+        jeansbar.style.display = "block";
+      } else {
+        jeansbar.style.display = "none"
+      }
+    }
+
+    function newsLetter() {
+      document.querySelector(".overlay").classList.add("show");
+      document.querySelector(".news").classList.add("show");
+    }
+
+    function closenewsLetter() {
+      document.querySelector(".overlay").classList.remove("show");
+      document.querySelector(".news").classList.remove("show");
+    }
+
+  </script>
+
+</body>
+</html>
