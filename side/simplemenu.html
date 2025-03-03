@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {max-width: 700px;margin: auto;}
+        .eatbtn.active, .drinkbtn.active { background-color: gray;color: black;}
+        .bvr { display: none;}
+        a {text-decoration: none;}
+
+    </style>
+</head>
+<body>
+    The menu
+    <div>
+        <a href="javascript:void(0)" class="eatbtn" onclick="openmenu('food')">eat</a>
+        <a href="javascript:void(0)" class="drinkbtn" onclick="openmenu('bvr')">drink</a>
+    </div>
+    <div style="position: relative;">
+    <div class="food" style="position: absolute;"> 
+        1.eat
+        1.eat
+        1.eat
+    </div>        
+    <div class="bvr" style="position: absolute;">
+        1.drink
+        1.drink
+        1.drink
+    </div>
+    </div>
+
+    <script>
+        function openmenu(type) {
+            if (type === "food"){
+                document.querySelector(".food").style.display = "block";
+                document.querySelector(".bvr").style.display = "none";
+                document.querySelector(".eatbtn").classList.add("active");
+                document.querySelector(".drinkbtn").classList.remove("active");
+            } else {
+                document.querySelector(".food").style.display = "none";
+                document.querySelector(".bvr").style.display = "block";
+                document.querySelector(".eatbtn").classList.remove("active");
+                document.querySelector(".drinkbtn").classList.add("active");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            openmenu("food");
+        })
+
+    </script>
+</body>
+</html>
