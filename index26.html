@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    body, html {margin: 0;height: 100%;overflow-x: hidden;}
+    p {font-size: 15px;line-height: 1.8;}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 1;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    }
+    nav a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 21px 16px;
+      color: black;
+      font-size: 15px;
+    }
+    .nav-right {float: right;}
+    nav a:hover, .btn-cnt:hover, .btn-snup:hover, .btn-top:hover {background-color: rgb(210, 210, 210);cursor: pointer;}
+    .img1 {
+      background-image: url("https://www.w3schools.com/w3images/mac.jpg");
+      min-height: 100%;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      filter: grayscale(50%);
+    }
+    .headertxt-mid {
+      position: absolute;
+      color: white;
+      top: 28%;
+      left: 3.1%;
+    }
+    .btn-strt {
+      border: none;
+      background-color:rgb(164, 164, 164);
+      padding: 18px 24px;
+      font-size: 18px;
+      font-family: "Raleway", sans-serif;
+    }
+    .btn-strt:hover {background-color: gainsboro;cursor: pointer;}
+    .icon-container {
+      position: absolute;
+      bottom: 4%;
+      left: 3.1%;
+      color: rgb(119, 119, 119);
+      font-size: 18px;
+    }
+    .icons:hover {opacity: 0.6;}
+    .btn-view {padding:10px 16px;background-color:black;color:white}
+    #about, #team, #work, #pricing, #contact {
+      padding: 125px 16px;
+    }
+    .row {clear: both;content: "";display: table;}
+    .col-div {
+      display: flex;text-align:center
+    }
+    .col {
+      display: block;
+      float: left;
+      width: 23.33%;
+      padding: 0 8px;
+      margin-left: 8px;
+    }
+    section { display: block;padding: 125px 32px;margin: auto;background-color: rgb(238, 238, 238);overflow: hidden;}
+    .col-2 {float: left;width: 49.999%;}
+    .team-container {
+      display: flex;
+      gap:15px;
+      margin: 15px;
+    }
+    .team-col {
+      display: block;
+      width: 24.99%;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    }
+    .btn-cnt {
+      width: 100%;
+      border:none;
+      padding: 15px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+    .col-3-div{
+      display: flex;background-color:rgb(72, 72, 72);color:white;padding:60px
+    }
+    .col-3 {
+      display: block;float:left;width:24.99%;text-align: center;
+    }
+    .img-row {
+      display: flex;
+      gap: 15px;
+      width: 100%;
+      padding: 8px;
+      margin: auto;
+      justify-content: center; 
+    }
+    .skill-div {background-color: rgb(237, 237, 237);display:flex;}
+    .skill-col {display: block;width:50%;padding:52px 35px;}
+    .chart {display: block;width:50%;padding:52px 25px;}
+
+    @media (max-width:990px){
+      .img-row {display: block;}
+      .img-col {float: left;width: 46.99%;padding-right: 16px;}
+      .nav-right a {margin-left: -4px!important;}
+      .headertxt-mid,.icon-container  {margin-left: 25px;margin-top: -40px;}
+      .headertxt-mid h1 {margin-top: 0;line-height: 1.8;}
+      .headertxt-mid button {background-color: rgba(255, 255, 255, 0.589);}
+      .headertxt-mid p {margin-top: -25px;}
+      .headertxt-mid button {margin-top: -5px;}
+      .img-row {display: block;overflow: hidden;}
+      .team-container {display: block;margin-left: 15px;margin-right: -15px;}
+      .team-col {width: 47%!important;margin-right: 15px;float: left;margin-bottom:15px!important}
+      .img-row {margin-right: -25px;}
+    }
+
+    @media (min-width:990px) {
+      .hide-large {display: none!important;}
+    }
+
+    @media (max-width:600px){
+      .headertxt-mid h1 {font-size: 36px!important;}
+      .headertxt-mid {margin-left: 35px;margin-top: 30px;}
+      .icon-container {margin-left: 35px;}
+      .headertxt-mid button {background-color: rgba(255, 255, 255, 0.589);}
+      .img-row {display: block;overflow: hidden;}
+      .img-col {float: left;width: 100%;}
+      .hide-small {display: none;}
+      .bar, .col-div, .team-container, .skill-div, .price-div {display: block!important;}
+      .team-col {width: 100%!important;margin-bottom:15px!important}
+      .col-3-div {display: block;overflow: hidden;}
+      .col-3, .skill-col, .col {width: 100%!important;}
+      .chart{width: 86%;margin-top: -100px;margin-left: 10px;}
+      .price-col {width: 100%!important;padding-bottom: 15px;}
+      .price-col:first-child {padding-bottom: 30px;}
+    }
+
+    .img-col:hover { opacity: 0.6;}
+    .price-div {display: flex;gap:15px;padding:15px}
+    .price-col {display: block;width:33.33%;text-align:center}
+    ul {list-style: none;padding: 0;margin: 0;}
+    li {
+      background-color: white;
+      border-bottom: 1px solid gainsboro;
+      color: black;
+    }
+    .btn-snup { background-color: black;color: white;padding: 15px 24px; font-family: inherit;border:none}
+    .btn-msg {margin-bottom: 60px;background-color: black;color: white;padding: 16px 24px;border:none}
+    .btn-msg:hover, .btn-view:hover, .close-btn:hover {background-color: rgb(210, 210, 210);color:black;cursor: pointer;}
+    footer {
+      background-color: black;color:white;text-align:center;padding:64px 0;
+    }
+    .btn-top {padding: 12px 16px;font-size: 15px;font-family: inherit;text-decoration: none;background-color: rgb(240, 240, 240);color: black;}
+    .container-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 1;
+      display: none;
+      color: rgb(172, 172, 172);
+    }
+    .content {
+      padding: 160px 0;
+      text-align: center;
+      z-index: 2;
+      width: 550px;
+      margin: auto;
+    }
+    .imgele {
+      width: 55%;
+      margin: auto;
+    }
+    .close-btn {float:right;font-size:20px;padding:30px 25px;display:block;color:white;}
+    .sidebar {
+      position: fixed;
+      width: 200px;
+      top: 0;
+      left: 0;
+      background-color: black;
+      height: 100%;
+      z-index: 2;
+      display: none;
+      animation: animateleft 0.4s;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      font-size:15px;
+    }
+    .sidebar a:hover {background-color: gainsboro;color: black;}
+
+    @keyframes animateleft {
+      from { left: -30%;}
+      to { left: 0%;}
+    }
+  </style>
+
+</head>
+<body>
+  <nav>
+    <a href="#home" style="letter-spacing: 4px;">LOGO</a>
+    <div class="nav-right">
+    <a href="#about" class="hide-small">ABOUT</a>
+    <a href="#team" class="hide-small"><i class="fa fa-user"></i> TEAM</a>
+    <a href="#work" class="hide-small"><i class="fa fa-th"></i> WORK</a>
+    <a href="#pricing" class="hide-small"><i class="fa fa-usd"></i> PRICING</a>
+    <a href="#contact" class="hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="javascript:void(0)" class="bar" style="display: none;" onclick="openBar()"><i class="fa fa-bars"></i></a>
+    </div>
+  </nav>
+
+  <div class="sidebar hide-large">
+    <a href="javascript:void(0)" onclick="document.querySelector('.sidebar').style.display='none'" style="padding:21px 16px;font-size:18px">Close ×</a>
+    <a href="#about">ABOUT</a>
+    <a href="#team">TEAM</a>
+    <a href="#work">WORK</a>
+    <a href="#pricing">PRICING</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+
+  <header class="img1" id="home">
+    <div class="headertxt-mid">
+      <h1 style="font-size: 64px;font-weight: 200;padding-top:3px">Start something that matters</h1>
+      <p  style="font-size: 18px;padding-top:8px;padding-bottom:15px">Stop wasting valuable time with projects that just isn't you.</p>
+      <button class="btn-strt">Learn more and start today</button>
+    </div>
+    <div class="icon-container">
+      <i class="fa fa-facebook-official icons"></i>
+      <i class="fa fa-instagram icons"></i>
+      <i class="fa fa-snapchat icons"></i>
+      <i class="fa fa-pinterest-p icons"></i>
+      <i class="fa fa-twitter icons"></i>
+      <i class="fa fa-linkedin icons"></i>
+    </div>
+  </header>
+
+  <div id="about">
+    <h2 style="font-weight: 200;text-align:center;">ABOUT THE COMPANY</h2>
+    <h3 style="font-weight: 200;padding-top:10px;padding-bottom:52px;font-size:18px;text-align:center;">Key features of our company</h3>
+    <div class="row col-div">
+    <div class="col">
+      <i class="fa fa-desktop" style="font-size: 64px;margin-bottom:20px"></i>
+      <h3 style="font-weight: 200;font-size:18px">Responsive</h3>
+      <p style="line-height: 1.8;padding-top:5px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="col">
+      <i class="fa fa-heart" style="font-size: 64px;margin-bottom:20px"></i>
+      <h3 style="font-weight: 200;font-size:18px">Passion</h3>
+      <p style="line-height: 1.8;padding-top:5px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="col">
+      <i class="fa fa-diamond" style="font-size: 64px;margin-bottom:20px"></i>
+      <h3 style="font-weight: 200;font-size:18px">Design</h3>
+      <p style="line-height: 1.8;padding-top:5px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="col">
+      <i class="fa fa-cog" style="font-size: 64px;margin-bottom:20px"></i>
+      <h3 style="font-weight: 200;font-size:18px">Support</h3>
+      <p style="line-height: 1.8;padding-top:5px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+  </div>
+  </div>
+  
+  <section>
+    <div class="col-2">
+    <h2 style="font-weight: 200;">We know design.</h2>
+    <p style="line-height: 1.8;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+    <p style="font-size: 16px;margin-top:25px;"><a class="btn-view"><i class="fa fa-th"> View Our Works</i></a></p>
+    </div>
+    <div class="col-2">
+    <img src="https://www.w3schools.com/w3images/phone_buildings.jpg" alt="phone_buildings" width="97%" style="border-radius: 8px;">
+    </div>
+  </section>
+
+  <div id="team">
+    <h2 style="font-weight: 200;text-align:center;">THE TEAM</h2>
+    <h3 style="font-weight: 200;text-align:center;padding-top:10px;padding-bottom:52px;font-size:18px">The ones who runs this company</h3>
+    <div class="team-container">
+      <div class="team-col">
+        <img src="https://www.w3schools.com/w3images/team2.jpg" alt="team" width="100%" style="filter: grayscale(70%);">
+        <div style="padding: 0 15px; padding-bottom:15px">
+        <h2 style="font-weight:200;margin-top:12px">John Doe</h2>
+        <p style="color: gray;padding-top:5px">CEO & Founder</p>
+        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <button class="btn-cnt"><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+      </div>
+      <div class="team-col">
+        <img src="https://www.w3schools.com/w3images/team1.jpg" alt="team" width="100%" style="filter: grayscale(70%);">
+        <div style="padding: 0 15px; padding-bottom:15px">
+        <h2 style="font-weight:200;margin-top:12px">Anja Doe</h2>
+        <p style="color: gray;padding-top:5px">Art Director</p>
+        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <button class="btn-cnt"><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+      </div>
+      <div class="team-col">
+        <img src="https://www.w3schools.com/w3images/team3.jpg" alt="team" width="100%" style="filter: grayscale(70%);">
+        <div style="padding: 0 15px; padding-bottom:15px">
+        <h2 style="font-weight:200;margin-top:12px">Mike Ross</h2>
+        <p style="color: gray;padding-top:5px">Web Designer</p>
+        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <button class="btn-cnt"><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+      </div>
+      <div class="team-col">
+        <img src="https://www.w3schools.com/w3images/team4.jpg" alt="team" width="100%" style="filter: grayscale(70%);">
+        <div style="padding: 0 15px; padding-bottom:15px">
+        <h2 style="font-weight:200;margin-top:12px">Dan Star</h2>
+        <p style="color: gray;padding-top:5px">Designer</p>
+        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <button class="btn-cnt"><i class="fa fa-envelope"></i> Contact</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3-div">
+    <div class="col-3">
+      <h1>14+</h1>
+      <span>Partners</span>
+    </div>
+    <div class="col-3">
+      <h1>55+</h1>
+      <span>Projects Done</span>
+    </div>
+    <div class="col-3">
+      <h1>89+</h1>
+      <span>Happy Clients</span>
+    </div>
+    <div class="col-3">
+      <h1>150+</h1>
+      <span>Meetings</span>
+    </div>
+  </div>
+
+  <div id="work" style="padding-bottom: 130px;">
+    <h2 style="font-weight: 200;text-align:center;">OUR WORK</h2>
+    <h3 style="font-weight: 200;text-align:center;padding-top:10px;padding-bottom:52px;font-size:18px">What we've done for people</h3>
+    
+    <div class="row img-row">
+      <img src="https://www.w3schools.com/w3images/tech_mic.jpg" alt="A microphone" width="100%" onclick="zoomin(this)" class="img-col">
+      <img src="https://www.w3schools.com/w3images/tech_phone.jpg" alt="A phone" width="100%" onclick="zoomin(this)" class="img-col">
+      <img src="https://www.w3schools.com/w3images/tech_drone.jpg" alt="A drone" width="100%" onclick="zoomin(this)" class="img-col img-pad">
+      <img src="https://www.w3schools.com/w3images/tech_sound.jpg" alt="Soundbox" width="100%" onclick="zoomin(this)" class="img-col img-pad">
+    </div>
+    <div class="row img-row">
+      <img src="https://www.w3schools.com/w3images/tech_tablet.jpg" alt="A tablet" width="100%" onclick="zoomin(this)" class="img-col">
+      <img src="https://www.w3schools.com/w3images/tech_camera.jpg" alt="A camera" width="100%" onclick="zoomin(this)" class="img-col">
+      <img src="https://www.w3schools.com/w3images/tech_typewriter.jpg" alt="A typewriter" width="100%" onclick="zoomin(this)" class="img-col">
+      <img src="https://www.w3schools.com/w3images/tech_tableturner.jpg" alt="A tableturner" width="100%" onclick="zoomin(this)" class="img-col">
+    </div>
+  </div>
+
+  <div class="container-overlay" onclick="this.style.display='none'">
+    <span class="close-btn"><b>x</b></span>
+    <div class="content">
+      <img class="imgele">
+      <p class="caption"></p>
+    </div>
+  </div>
+    <div class="skill-div">
+      <div class="skill-col">
+      <h3 style="font-weight: 200;font-size:25px">Our Skills.</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+      </div>
+      <div class="chart">
+        <p style="letter-spacing:4px"><i class="fa fa-camera" style="margin-right: 15px;"></i>Photography</p>
+        <div style="width: 100%;background-color:rgb(153, 151, 151);">
+          <div style="width: 90%;padding:5px;background-color:rgb(92, 92, 92);color:white;text-align:center">90%</div>
+        </div>
+        <p style="letter-spacing:4px"><i class="fa fa-desktop" style="margin-right: 15px;"></i>Web Design</p>
+        <div style="width: 100%;background-color:rgb(153, 151, 151);">
+          <div style="width: 85%;padding:5px;background-color:rgb(92, 92, 92);color:white;text-align:center">85%</div>
+        </div>
+        <p style="letter-spacing:4px"><i class="fa fa-photo" style="margin-right: 15px;"></i>Photoshop</p>
+        <div style="width: 100%;background-color:rgb(153, 151, 151);">
+          <div style="width: 75%;padding:5px;background-color:rgb(92, 92, 92);color:white;text-align:center">75%</div>
+        </div>
+      </div>
+  </div>
+  <div id="pricing" style="background-color:rgb(72, 72, 72);color:white">
+    <h2 style="font-weight: 200;text-align:center;">PRICING</h2>
+    <h3 style="font-weight: 200;text-align:center;padding-top:10px;padding-bottom:70px;font-size:18px">Choose a pricing plan that fits your needs.</h3>
+
+    <div class="price-div">
+      <div class="price-col">
+        <ul>
+          <li style="background-color: black;color:white;padding:18px;"><h2 style="font-weight:200">Basic</h2></li>
+          <li style="padding: 20px;"><b>10GB</b> Storage</li>
+          <li style="padding: 20px;"><b>10</b> Emails</li>
+          <li style="padding: 20px;"><b>10</b> Domains</li>
+          <li style="padding: 20px;"><b>Endless</b> Support</li>
+          <li style="padding-bottom: 15px;"><h1 style="margin: 0;padding:30px;letter-spacing:4px;font-weight:200">$ 10</h1><span style="color: gray;">per month</span></li>
+          <li style="padding: 30px;"><button class="btn-snup">Sign Up</button></li>
+        </ul>
+      </div>
+      <div class="price-col">
+        <ul>
+          <li style="background-color: rgb(236, 62, 62);color:white;padding:33px;margin-top:-15px;"><h2 style="font-weight:200">Pro</h2></li>
+          <li style="padding: 20px;"><b>25GB</b> Storage</li>
+          <li style="padding: 20px;"><b>25</b> Emails</li>
+          <li style="padding: 20px;"><b>25</b> Domains</li>
+          <li style="padding: 20px;"><b>Endless</b> Support</li>
+          <li style="padding-bottom: 15px;"><h1 style="margin: 0;padding:30px;letter-spacing:4px;font-weight:200">$ 25</h1><span style="color: gray;">per month</span></li>
+          <li style="padding: 30px;"><button class="btn-snup">Sign Up</button></li>
+        </ul>
+      </div>
+      <div class="price-col">
+        <ul>
+          <li style="background-color: black;color:white;padding:18px;"><h2 style="font-weight:200">Premium</h2></li>
+          <li style="padding: 20px;"><b>50GB</b> Storage</li>
+          <li style="padding: 20px;"><b>50</b> Emails</li>
+          <li style="padding: 20px;"><b>50</b> Domains</li>
+          <li style="padding: 20px;"><b>Endless</b> Support</li>
+          <li style="padding-bottom: 15px;"><h1 style="margin: 0;padding:30px;letter-spacing:4px;font-weight:200">$ 50</h1><span style="color: gray;">per month</span></li>
+          <li style="padding: 30px;"><button class="btn-snup">Sign Up</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" style="background-color: rgb(244, 244, 244);padding-bottom:120px">
+    <h2 style="font-weight: 200;text-align:center;">CONTACT</h2>
+    <h3 style="font-weight: 200;text-align:center;padding-top:10px;padding-bottom:70px;font-size:18px">Lets get in touch. Send us a message:</h3>
+    <p style="padding: 0 10px;"><i class="fa fa-map-marker" style="width: 2%;margin:auto;font-size: 36px;text-align:center;margin-right:25px"></i> Chicago, US</p>
+    <p style="padding: 0 10px;"><i class="fa fa-phone" style="width: 2%;margin:auto;font-size: 36px;text-align:center;margin-right:25px"></i> Phone: +00 151515</p>
+    <p style="padding: 0 10px;"><i class="fa fa-envelope" style="width: 2%;margin:auto;font-size: 36px;text-align:center;margin-right:25px"></i> Email: mail@mail.com</p>
+    <form action="/action_page.php">
+      <input type="text" placeholder="Name" required name="Name" style="padding:15px 10px;font-size:15px;border:1px solid gainsboro;width:100%;box-sizing:border-box;margin:8px;margin-left:-2px">
+      <input type="text" placeholder="Email" required name="Email" style="padding:15px 10px;font-size:15px;border:1px solid gainsboro;width:100%;box-sizing:border-box;margin:8px;margin-left:-2px">
+      <input type="text" placeholder="Subject" required name="Subject" style="padding:15px 10px;font-size:15px;border:1px solid gainsboro;width:100%;box-sizing:border-box;margin:8px;margin-left:-2px">
+      <input type="text" placeholder="Message" required name="Message" style="padding:15px 10px;font-size:15px;border:1px solid gainsboro;width:100%;box-sizing:border-box;margin:8px;margin-left:-2px;margin-bottom:16px">
+      <button class="btn-msg"><i class="fa fa-paper-plane"></i> SEND MESSAGE</button>
+    </form>
+    <img src="https://www.w3schools.com/w3images/map.jpg" alt="map" width="100%" style="filter: grayscale(70%);">
+  </div>
+  
+  <footer>
+    <a class="btn-top" href="#home"><i class="fa fa-arrow-up" style="margin-right: 15px;"></i>To the top</a><br><br>
+    <div style="margin: 20px 0;font-size:24px">
+      <i class="fa fa-facebook-official icons"></i>
+      <i class="fa fa-instagram icons"></i>
+      <i class="fa fa-snapchat icons"></i>
+      <i class="fa fa-pinterest-p icons"></i>
+      <i class="fa fa-twitter icons"></i>
+      <i class="fa fa-linkedin icons"></i>
+    </div>
+    <p>Powered by w3.css</p>
+  </footer>
+
+
+  <script>
+    function openBar(){
+      let x = document.querySelector('.sidebar');
+      if (x.style.display == "block"){
+        x.style.display = 'none';
+      } else {
+        x.style.display = 'block';
+      }
+    }
+
+    function zoomin(element){
+      document.querySelector(".container-overlay").style.display = "block";
+      document.querySelector(".imgele").src = element.src;
+      let caption = document.querySelector(".caption");
+      caption.innerHTML = element.alt;
+      caption.style.fontSize = "20px";
+    }
+    
+
+  </script>
+</body>
+</html>

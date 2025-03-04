@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+    body,html {height: 100%;margin: 0;background-color: black;}
+    nav {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      background-color: black;
+      opacity: 0.6;
+      width: 100%;
+    }
+    nav a { display: inline-block;color: white; padding: 11px 15px;text-decoration: none;font-size: 24px;}
+    nav:hover {opacity: 1;}
+    nav a:hover {background-color: gainsboro;color: black;}
+    .img1{
+      background-image: url("https://www.w3schools.com/w3images/pizza.jpg");
+      min-height: 90%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: grayscale(50%);
+    }
+    header { position: relative;}
+    .hdrtxt-mid {
+      position: absolute; top: 49%; left: 50%; transform: translate(-50%, -50%);
+      color: white;text-align: center;
+    }
+    .hdrtxt-bott {
+      background-color: black;color:white;padding:3px 8px; position: absolute;
+      bottom: -2.5%;left: 1%;font-size: 24px;
+    }
+    h2 {text-align: center;font-size: 64px;color:white;font-weight: 200}
+    main {max-width: 980px;margin: auto;}
+    .menu-links a {display: block;width: 33.33%;text-align: center;text-decoration: none;color: white;font-size: 35px;padding:15px }
+    .menu-links a.active { background-color: red;}
+    .menu {display: none;}
+    .menu.active {display: block;}
+    .row {clear: both; content: ""; display: table;}
+    .col {float: left;width: 50%;margin-top: -20px;}
+    .btn:hover {background-color: gainsboro!important;color: black!important;}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#menu">MENU</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+  <header class="img1">
+    <div class="hdrtxt-mid">
+      <span style="line-height: 1.5;font-size: 100px;">thin<br>CRUST PIZZA</span>
+      <p style="margin-top: 26px;"><a class="btn" style="text-decoration: none;color:white;background-color:black;padding:12px 16px;font-size:36px" href="#menu">Let me see the menu</a></p>
+    </div>
+    <p class="hdrtxt-bott">Open from 10am to 12pm</p>
+  </header>
+
+  <main style="padding-bottom: 65px;padding-top:15px" id="menu">
+    <h2 style="padding-top:15px;padding-bottom: 30px;">THE MENU</h2>
+    <div class="menu-links" style="display: flex;border: 1px solid rgb(94, 94, 94);">
+      <a href="javascript:void(0)" class="pizzaBtn" onclick="openMenu('pizza')">Pizza</a>
+      <a href="javascript:void(0)" class="saladsBtn" onclick="openMenu('salads')">Salads</a>
+      <a href="javascript:void(0)" class="starterBtn" onclick="openMenu('starter')">Starter</a>
+    </div>
+
+    <div class="menu pizza" style="background-color: white;padding:20px 15px;">
+      <h1 style="font-size:37px">Margherita<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$12.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Fresh tomatoes, fresh mozzarella, fresh basil</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Formaggio<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$15.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Chicken<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$17.00</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Fresh tomatoes, mozzarella, chicken, onions</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Pineapple'o'clock<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$16.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Meat Town <span style="border-radius:4px;font-weight:200;background-color:red;color:white;padding:5px 8px">Hot!</span><span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$20.00</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Parma <span style="border-radius:4px;font-weight:200;background-color:rgb(157, 157, 157);color:black;padding:5px 8px">New</span><span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$21.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Fresh tomatoes, mozzarella, parma, bacon, fresh arugula</p>
+      <hr style="opacity: 0.2;">
+    </div>
+    <div class="menu salads" style="background-color: white;padding:20px 15px;">
+      <h1 style="font-size:37px">Lasagna <span style="border-radius:4px;font-weight:200;background-color:rgb(157, 157, 157);color:black;padding:5px 8px">Popular</span><span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$13.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Special sauce, mozzarella, parmesan, ground beef</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Ravioli<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$14.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Ravioli filled with cheese</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Spaghetti Classica<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$11.00</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Fresh tomatoes, onions, ground beef</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Seafood pasta<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$25.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Salmon, shrimp, lobster, garlic</p>
+      <hr style="opacity: 0.2;">
+    </div>
+    <div class="menu starter" style="background-color: white;padding:20px 15px;">
+      <h1 style="font-size:37px">Today's Soup <span style="border-radius:4px;font-weight:200;background-color:rgb(157, 157, 157);color:black;padding:5px 8px">Seasonal</span><span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$5.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Ask the waiter</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Bruschetta<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$8.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Bread with pesto, tomatoes, onion, garlic</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Garlic bread<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$9.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Grilled ciabatta, garlic butter, onions</p>
+      <hr style="opacity: 0.2;">
+      <h1 style="font-size:37px">Tomozzarella<span style="float: right;background-color:rgb(93, 93, 93);color:white;padding:4px 8px;font-size:35px;border-radius:4px;font-weight:200">$10.50</span></h1>
+      <p style="font-size: 37px;color:gray;padding-top:8px">Tomatoes and mozzarella</p>
+      <hr style="opacity: 0.2;">
+    </div>
+  </main>
+
+  <article style="background-color:rgb(142, 97, 97);font-size:24px;line-height:1.5;padding-bottom:65px" id="about">
+    <div style="max-width: 980px;margin: auto;color:white;">
+    <h2 style="padding-top: 75px;padding-bottom: 10px;">About</h2>
+    <p>The Pizza Restaurant was founded in blabla by Mr. Italiano in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div>
+      <p><b>The Chef?</b> Mr. Italiano himself <img src="https://www.w3schools.com/w3images/chef.jpg" alt="chef" width="150px" style="border-radius: 50%;float:right"></p>
+      <p>We are proud of our interiors.</p>
+    </div>
+    <img src="https://www.w3schools.com/w3images/onepage_restaurant.jpg" alt="onepage_restaurant" width="100%" style="padding-top: 15px;margin-bottom:-10px">
+    <h1>Opening Hours</h1>
+    <div class="row" style="display: flex">
+      <div class="col">
+        <p>Mon & Tue CLOSED</p>
+        <p>Wednesday 10.00 - 24.00</p>
+        <p>Thursday 10:00 - 24:00</p>
+      </div>
+      <div class="col">
+        <p>Friday 10:00 - 12:00</p>
+        <p>Saturday 10:00 - 23:00</p>
+        <p>Sunday Closed</p>
+      </div>
+    </div>
+    </div>
+  </article>
+
+  <aside style="background-color:rgb(106, 122, 130);color:white;font-size:25px;padding-bottom:90px">
+    <img src="https://www.w3schools.com/w3images/map.jpg" alt="map" width="100%" style="filter: grayscale(70%);">
+    <div style="max-width: 980px;margin: auto;padding-top:15px" id="contact">
+      <h2 style="padding-top:15px;padding-bottom: 30px;">Contact</h2>
+      <p>Find us at some address at some place or call us at 05050515-122330</p>
+      <p style="line-height: 1.5;"><span style="background-color:black;color:white;padding:2px 8px;">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+      <p style="font-size: 36px;"><b>Reserve</b> a table, ask for today's special or just send us a message:</p>
+      <form action="/action_page.php">
+        <p><input placeholder="Name" type="text" required name="Name" style="width:100%;padding:18px 8px;box-sizing:border-box;font-size:24px;font-family:inherit"></p>
+        <p><input placeholder="How Many People" type="number" required name="People" style="width:100%;padding:18px 8px;box-sizing:border-box;font-size:24px;font-family:inherit"></p>
+        <p><input type="datetime-local" value="2020-11-16T20:00" required name="Date" style="width:100%;padding:18px 8px;box-sizing:border-box;font-size:24px;font-family:inherit"></p>
+        <p><input placeholder="Message \ Special Requirements" type="text" required name="Message" style="width:100%;padding:18px 8px;box-sizing:border-box;font-size:24px;font-family:inherit"></p>
+        <button style="width:100%;padding:10px 8px;font-family:inherit;font-size:24px">SEND MESSAGE</button>
+      </form>
+    </div>
+  </aside>
+
+  <footer style="padding: 50px;">
+    <p style="text-align: center;color:white;font-size: 36px;">Powered by w3.css</p>
+  </footer>
+
+
+
+  <script>
+    function openMenu(type) {
+      document.querySelectorAll(".menu-links a").forEach( btn => {
+        btn.classList.remove("active");
+      });
+      document.querySelectorAll(".menu").forEach( menu => {
+        menu.classList.remove("active");
+      });
+
+      document.querySelector(`.${type}`).classList.add("active");
+      document.querySelector(`.${type}Btn`).classList.add("active");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      openMenu("pizza");
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+    body,h1,h5 {font-family: "Raleway", sans-serif}
+    body, html { height: 100%;margin: 0;}
+    p {font-size: 15px;}
+    .img1 {
+      background-image: url('https://www.w3schools.com/w3images/onepage_restaurant.jpg');
+      min-height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+    header {
+      color:white;
+      position: relative;
+    }
+    nav {
+      position: absolute;
+      top: 5%;
+      left: 1%;
+    }
+    .bars {
+      padding: 11px 15px;
+      background-color: black;
+      text-decoration: none;
+      color: white;
+      margin: 35px 0;
+      font-size: 24px;
+    }
+    .text-mid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+    }
+    .text-bott {
+      position: absolute;
+      bottom: 0;
+      left: 1%;
+    }
+    .row {
+      clear: both;
+      content: "";
+      display: table;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      display: none;
+      overflow: auto;
+    }
+    .menu {
+      max-width: 900px;
+      margin: auto;
+      padding-top: 100px;
+      z-index: 2;
+      animation: animatezoom 0.6s;
+    }
+    .title {
+      font-size: 18px;
+      background-color: black;
+      padding: 15px;
+    }
+    .title h1 {
+      background-color: black;
+      color: white;
+      font-weight: 200;
+      margin: 0;
+    }
+    .content {
+      background-color: white;
+      font-size: 22px;
+      padding: 1px 0;
+    }
+    .content h5 {
+      font-weight: 500;
+      margin: 15px;
+    }
+    .contact {
+      z-index: 1;
+      width: 60%;
+      margin: auto;
+      padding-top: 100px;
+      animation: animatezoom 0.6s;
+    }
+
+    .btn:hover, .btn-snd:hover, .bars:hover {background-color: gainsboro;color:black!important;}
+    input { margin: 8px 0;padding:18px 8px;box-sizing: border-box;border:1px solid rgb(200, 200, 200);
+            font-size: 15px;font-family: inherit;}
+    .btn-snd {background-color: white;border:none;padding:12px 16px;font-size:15px;font-family: inherit;}
+
+    @keyframes animatezoom {
+      from {transform: scale(0);}
+      to {transform: scale(1);}
+    }
+
+    @media (max-width:1000px) {
+      .menu {margin: 15px;}
+      .contact {min-width: 550px;margin:auto}
+    }
+  </style>
+</head>
+<body>
+  <header class="img1">
+    <nav class="row">
+      <a href="javascript:void(0)" class="bars" onclick="openMenu()">menu</a>
+      <a href="javascript:void(0)" class="bars" style="display: flex;" onclick="openContact()">contact</a>
+    </nav>
+
+    <div class="text-mid" >
+    <p style="font-size: 64px;">logo</p>
+    </div>
+
+    <div class="text-bott" >
+      <p style="font-size: 24px;margin:30px 0">monday - friday 10-23 | saturday 14-02</p>
+      <p style="font-size: 18px;margin:25px 0">42 village St, New York</p>
+      <p>powered by w3.css</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="overlay">
+      <div class="menu" style="display: none;">
+        <div class="title" style="position: relative;">
+          <span class="btn" style="position: absolute;top:0;right:0;color:white;padding: 10px 16px" onclick="closeBar()">x</span>
+          <h1>Starters</h1>
+        </div>
+        <div class="content">
+          <h5>Tomato Soup <b>$2.50</b></h5>
+          <h5>Chicken Salad <b>$3.50</b></h5>
+          <h5>Bread and Butter <b>$1.00</b></h5>
+        </div>
+        <div class="title">
+          <h1>Main Courses</h1>
+        </div>
+        <div class="content">
+          <h5>Grilled Fish and Potatoes <b>$8.50</b></h5>
+          <h5>Italian Pizza <b>$5.50</b></h5>
+          <h5>Veggie Pasta <b>$4.00</b></h5>
+          <h5>Chicken and Potatoes <b>$6.50</b></h5>
+          <h5>Deluxe Burger <b>$5.00</b></h5>
+        </div>
+        <div class="title">
+          <h1>Desserts</h1>
+        </div>
+        <div class="content">
+          <h5>Fruit Salad <b>$2.50</b></h5>
+          <h5>Ice cream <b>$2.00</b></h5>
+          <h5>Chocolate Cake <b>$4.00</b></h5>
+          <h5>Cheese <b>$5.50</b></h5>
+        </div>
+      </div>
+      
+      <div class="contact">
+        <div style="background-color: black;margin:0;position:relative">
+          <span class="btn" style="position: absolute;top:0;right:0;color:white;padding: 10px 16px" onclick="closeBar()">x</span>
+          <h1 style="color:white;margin:0;padding:15px;font-weight:200">Contact</h1>
+        </div>
+        <div style="background-color:white;padding:10px 15px;">
+        <p>Reserve a table, ask for today's special or just send us a message:</p>
+        <form action="/action_page.php">
+        <input placeholder="Name" required name="Name" type="text" style="width: 100%;">
+        <input placeholder="How many people" required name="People" type="text" style="width: 100%;">
+        <input value="2020-11-16T20:00" required name="Date" type="datetime-local" style="width: 100%;">
+        <input placeholder="Message \ Special requirements" required name="Message" type="text" style="width: 100%;">
+        <button class="btn-snd" style="margin: 10px 0;">SEND MESSAGE</button>
+        </form>
+        </div>
+    </div>
+  </main>
+  
+
+
+<script>
+  function openMenu() {
+    document.querySelector(".overlay").style.display = "block";
+    document.querySelector(".menu").style.display = "block";
+    document.querySelector(".contact").style.display = "none";
+
+  }
+
+  function openContact() {
+    document.querySelector(".overlay").style.display = "block";
+    document.querySelector(".contact").style.display = "block";
+    document.querySelector(".menu").style.display = "none";
+  }
+
+  function closeBar() {
+    document.querySelector(".overlay").style.display = "none";
+  }
+</script>
+
+
+</body>
+</html>

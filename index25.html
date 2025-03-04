@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+      body,html {height:100%;margin: 0;}
+      h1,button {font-family: "Montserrat", sans-serif}
+        nav {
+            background-color: #f44336;
+            position: fixed;
+            top: 0;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.35);
+            width: 100%;
+            display: flex;
+            z-index: 2;
+        }
+        nav a {
+            font-size: 18px;
+            color: white;
+            display: inline-block;
+            padding: 14px 24px;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif
+        }
+        nav a:hover {background-color: white;color:black}
+        header {
+            background-color: #f44336;
+            color: white;
+            min-height: 69%;
+            position: relative;
+        }
+        .header-mid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .btn-strt {background-color: black;color:white;padding:14px 24px;font-size:18px;border:none}
+        .btn-strt:hover ,.btn:hover {background-color: gainsboro!important;color: black;}
+        .container {
+            max-width: 980px;
+            margin: auto;
+            padding: 50px;
+        }
+        .col-wide {
+            width: 66.66%;float: left;
+        }
+        .col {
+            width: 33.33%;float: left;text-align: center;margin-top: 80px;
+        }
+        .row {
+            clear: both; display: table; content: "";
+        }
+        aside {
+            padding: 60px;
+            background-color: rgb(99, 99, 99);
+            color: white;
+            font-size: 24px;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+          }
+          footer {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background-color:rgb(239, 239, 239);
+            text-align: center;
+          }
+          footer i:hover {opacity: 0.5;}
+
+          @media (max-width:600px) {
+            .hide-small {display: none;}
+            .bar {display: block;}
+            .col-wide {width: 100%;}
+            .col {width: 100%;padding-bottom:80px}
+          }
+          @media (min-width:600px) {
+            .bar {display: none!important;}
+          }
+          .bar {
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            right: 0;
+            color: white;
+            padding: 14.9px 24px;
+            font-size: 18px;
+          }
+          .bar:hover {background-color: white;color: black;}
+          .sidebar {
+            position: fixed;
+            top: 6.7%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 2;
+            display: none;
+          }
+          .sidebar a {
+            text-decoration: none;
+            display: block;
+            color: black;
+            padding: 15px 24px;
+            font-size: 18px;
+          }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="btn" style="color: black;background-color:white">Home</a>
+        <a href="#" class="hide-small">Link 1</a>
+        <a href="#" class="hide-small">Link 2</a>
+        <a href="#" class="hide-small">Link 3</a>
+        <a href="#" class="hide-small">Link 4</a>
+        <span class="bar" onclick="openBar()"><i class="fa fa-bars"></i></span>
+    </nav>
+
+    <div class="sidebar">
+        <a href="#" class="btn">Link 1</a>
+        <a href="#" class="btn">Link 2</a>
+        <a href="#" class="btn">Link 3</a>
+        <a href="#" class="btn">Link 4</a>
+    </div>
+    
+
+    <header>
+        <div class="header-mid">
+        <p style="font-size: 64px;font-family: 'Montserrat', sans-serif;margin-top:20px;white-space:nowrap;">START PAGE</p>
+        <p style="margin-top: -30px;margin-bottom:45px;font-size:24px">Template by w3.css</p>
+        <button class="btn-strt">Get Started</button>
+        </div>
+    </header>
+
+        <div class="container row">
+            <div class="col-wide">
+            <h1 style="font-weight: 200;font-size:36px">Lorem Ipsum</h1>
+            <h3 style="font-weight: 200;line-height:1.5;margin:50px 0;font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
+            <p style="color: gray;line-height:1.5;font-size:15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="col">
+                <i class="fa fa-anchor" style="font-size: 200px;color: #f44336;"></i>
+            </div>
+        </div>
+    <div style="background-color:rgb(239, 239, 239);overflow:hidden;padding-bottom:50px">
+        <div class="container">
+            <div class="col">
+                <i class="fa fa-coffee" style="font-size: 200px;color: #f44336;"></i>
+            </div>
+            <div class="col-wide">
+            <h1 style="font-weight: 200;font-size:36px">Lorem Ipsum</h1>
+            <h3 style="font-weight: 200;line-height:1.5;margin:50px 0;font-size:18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
+            <p style="color: gray;line-height:1.5;font-size:15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+    </div>
+
+    <aside>
+        <p>Quote of the day: live life</p>
+      </aside>
+
+    <footer  style="background-color:rgb(239, 239, 239);">
+        <div style="font-size: 24px;color:rgb(92, 92, 92)">
+            <i class="fa fa-facebook-official"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-snapchat"></i>
+            <i class="fa fa-pinterest-p"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p style="font-size: 15px;margin-top:50px;color:gray">Powered by w3.css</p>
+    </footer>
+
+    <script>
+        function openBar() {
+            let x = document.querySelector(".sidebar");
+            if (x.style.display == "block"){
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
