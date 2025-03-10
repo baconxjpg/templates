@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+    h1 {font-size: 36px;}
+    h2 {font-weight: 200;}
+    p {font-size: 15px;line-height: 1.5;}
+    hr {text-align: center;border: 3px solid rgb(102, 102, 102);margin-top: -5px;}
+    body {margin: 0;}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgb(242, 242, 242);
+      z-index: 1;
+    }
+    nav a {
+      display: block;
+      float: left;
+      width: 24.99%;
+      padding: 11px 0px;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+    nav a:hover {background-color: rgb(198, 198, 198);}
+    main {max-width: 1070px;margin: auto;}
+    .hdr-container {
+      position: relative;
+      margin-top: 32px;
+    }
+    .hdr-txt1 {
+      padding: 12px 24px;background-color:white;position:absolute;top:1%;left:1.5%;animation: animatebott 0.35s ease-in-out;
+    }
+    .hdr-txt2 {
+      padding: 12px 24px;background-color:white;position:absolute;top:47%;left:50%;transform:translate(-50%, -50%);animation: animatebott 0.35s ease-in-out;
+    }
+    .hdr-txt3 {
+      padding: 12px 24px;background-color:white;position:absolute;top:1%;right:1.5%;animation: animatebott 0.35s ease-in-out;
+    }
+    @keyframes animatebott {
+      from {margin-top: 300px; opacity: 0;}
+      to {margin-top: 20px; opacity: 1;}
+    }
+    .btns-container {
+      padding: 15px;
+      background-color: rgb(95, 95, 95);
+      margin-top: -3px;
+    }
+    .btn-prv { float: left; font-size: 24px;background-color: transparent;border: none;color:white;margin-left: -3px;}
+    .btn-next { float: right; font-size: 24px;background-color: transparent;border: none;color:white;margin-right: -3px;}
+    .box {
+      display: inline-block;
+      height: 13px;
+      width: 13px;
+      border: 1px solid rgb(231, 231, 231);
+      margin-top:5px;
+      margin-right: 2px;
+    }
+    .hidden {display: none;}
+    .active {background-color: white;}
+    .offers-container {display: flex;}
+    .offers {
+      margin-top: 40px;
+      display: block;
+      float: left;
+      width: 23.99%;
+      padding: 10px 16px;
+      padding-bottom: 15px;
+    }
+    .plans-container {
+      display: flex;
+      gap: 16px;
+    }
+    .plans {
+      display: block;
+      width: 33.33%;
+    }
+    ul {margin: 0;padding: 0;text-align: center;border: 1px solid rgb(222, 221, 221);}
+    li:not(:last-child) {padding: 18px;border-bottom: 1px solid rgb(222, 221, 221);font-size: 15px;}
+    .btn-sgup {background-color: rgb(9, 165, 9);color: white;padding: 14px 24px;font-family: inherit;border: none;font-size:15px}
+    .team-container {display: flex; gap:16px;padding-top: 40px;}
+    .team {display: block;width: 33.33%;box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.45);}
+    .btn-contc {background-color: rgb(243, 243, 243);text-align: center;width: 100%;border: none;padding: 10px;font-size: 15px;font-family: inherit;}
+    input {width: 100%;padding: 11px;border: 1px solid rgb(216, 216, 216);margin-top:2px;margin-bottom: 18px;box-sizing: border-box;}
+    .btn-send {width: 100%;border: none;padding: 10px;background-color: black;color: white;font-size: 15px;font-family: inherit;}
+    .btn-top {background-color: black;color: white;text-decoration: none;padding: 10px 16px;font-size: 15px;}
+    .btn-sgup:hover, .btn-contc:hover, .btn-send:hover, .btn-top:hover {background-color: gainsboro;color: black;}
+    .btn-prv:hover, .btn-next:hover { color: rgb(14, 151, 205);}
+    .box:hover {background-color: white;}
+    ul:hover {box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.45);}
+    input:hover {border: 1px solid black;}
+    .icons:hover {opacity: 0.6;}
+
+    @media (max-width:1200px) {
+      main {margin: 0 15px;};
+    }
+
+    @media (max-width:600px) {
+      .offers-container {display: block;overflow: hidden;padding-bottom: 40px;}
+      .offers {width: 100%;margin-bottom: -40px;}
+      .plans-container, .team-container {display: block;}
+      .plans {width: 100%;padding-bottom: 15px;}
+      .team {width: 100%;margin-bottom: 15px;}
+    }
+    
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#plans">Plans</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+    
+  <main>
+    <div style="padding-top: 70px;" id="home">
+      <h1>MARKETING</h1>
+      <p>Template by w3.css</p>
+      <div class="hdr-container">
+      <header>
+        <p class="hdr-txt1">Lorem ipsum</p>
+        <img src="https://www.w3schools.com/w3images/coffee.jpg" alt="coffee" width="100%">
+      </header>
+      <header class="hidden">
+        <p class="hdr-txt2">Klorim tipsum</p>
+        <img src="https://www.w3schools.com/w3images/workbench.jpg" alt="workbench" width="100%">
+      </header>
+      <header class="hidden">
+        <p class="hdr-txt3">Blorum pipsum</p>
+        <img src="https://www.w3schools.com/w3images/sound.jpg" alt="sound" width="100%">
+      </header>
+      </div>
+      <div class="btns-container">
+        <button class="btn-prv" onclick="prvHdr()"><i class="fa fa-arrow-circle-left"></i></button>
+        <button class="btn-next" onclick="nextHdr()"><i class="fa fa-arrow-circle-right"></i></button>
+        <div style="text-align:center">
+          <span class="box" onclick="currentHdr(0)"></span>
+          <span class="box" onclick="currentHdr(1)"></span>
+          <span class="box" onclick="currentHdr(2)"></span>
+        </div>
+      </div>
+      
+    </div>
+
+    <div  style="padding-top: 45px;">
+      <h2 style="text-align: center;">What We Offer</h2>
+      <hr style="width: 15%;">
+      <div class="offers-container">
+        <div class="offers" style="background-color: rgb(236, 236, 236);">
+          <h2>Design</h2>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+        <div class="offers" style="background-color: rgb(151, 151, 151);">
+          <h2>Branding</h2>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+        <div class="offers" style="background-color: rgb(90, 90, 90);color:white">
+          <h2>Consultation</h2>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+        <div class="offers" style="background-color: black;color:white">
+          <h2>Promises</h2>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        </div>
+      </div>
+    </div>
+
+    <div  style="padding-top: 55px;padding-bottom:15px" id="plans">
+      <h2 style="text-align: center;">Pricing Plans</h2>
+      <p style="text-align: center;padding-bottom:65px">Choose a pricing plan that fits your needs.</p>
+      <div class="plans-container">
+        <div class="plans">
+          <ul style="list-style: none;">
+            <li style="background-color: black;color:white"><h2>Basic</h2></li>
+            <li><b>10GB</b> Storage</li>
+            <li><b>10</b> Emails</li>
+            <li><b>10</b> Domains</li>
+            <li><b>Endless</b> Support</li>
+            <li><h2 style="font-size: 30px;letter-spacing:4px;margin:12px;">$ 10</h2><span style="color: gray;">per month</span></li>
+            <li style="background-color: rgb(236, 236, 236);padding:25px 0"><button class="btn-sgup">Sign Up</button></li>
+          </ul>
+        </div>
+        <div class="plans">
+          <ul style="list-style: none;">
+            <li style="background-color: rgb(90, 90, 90);color:white"><h2>Pro</h2></li>
+            <li><b>25GB</b> Storage</li>
+            <li><b>25</b> Emails</li>
+            <li><b>25</b> Domains</li>
+            <li><b>Endless</b> Support</li>
+            <li><h2 style="font-size: 30px;letter-spacing:4px;margin:12px;">$ 25</h2><span style="color: gray;">per month</span></li>
+            <li style="background-color: rgb(236, 236, 236);padding:25px 0"><button class="btn-sgup">Sign Up</button></li>
+          </ul>
+        </div>
+        <div class="plans">
+          <ul style="list-style: none;">
+            <li style="background-color: black;color:white"><h2>Premium</h2></li>
+            <li><b>50GB</b> Storage</li>
+            <li><b>50</b> Emails</li>
+            <li><b>50</b> Domains</li>
+            <li><b>Endless</b> Support</li>
+            <li><h2 style="font-size: 30px;letter-spacing:4px;margin:12px;">$ 50</h2><span style="color: gray;">per month</span></li>
+            <li style="background-color: rgb(236, 236, 236);padding:25px 0"><button class="btn-sgup">Sign Up</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div  style="padding-top: 45px;padding-bottom:15px" id="about">
+      <h2 style="text-align: center;">Who We Are</h2>
+      <hr style="width: 13%;">
+      <div class="team-container">
+        <div class="team">
+          <img src="https://www.w3schools.com/w3images/team1.jpg" alt="team" width="100%">
+          <div style="padding: 15px;margin-top:-25px">
+          <h2>Jane Doe</h2>
+          <p style="color: gray;">CEO & Founder</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <button class="btn-contc">Contact</button>
+          </div>
+        </div>
+        <div class="team">
+          <img src="https://www.w3schools.com/w3images/team2.jpg" alt="team" width="100%">
+          <div style="padding: 15px;margin-top:-25px">
+          <h2>Mike Ross</h2>
+          <p style="color: gray;">Art Director</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <button class="btn-contc">Contact</button>
+          </div>
+        </div>
+        <div class="team">
+          <img src="https://www.w3schools.com/w3images/team3.jpg" alt="team" width="100%">
+          <div style="padding: 15px;margin-top:-25px">
+          <h2>John Doe</h2>
+          <p style="color: gray;">Designer</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <button class="btn-contc">Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div  style="padding-top: 45px;" id="contact">
+      <h2 style="text-align: center;">Contact Us</h2>
+      <hr style="width: 11%;">
+      <form action="/action_page.php" style="padding-top:50px; padding-bottom:80px">
+        <label style="font-size: 15px;">Name</label><br>
+        <input type="text" required name="Name">
+        <br>
+        <label style="font-size: 15px;">Email</label><br>
+        <input type="email" required name="Email">
+        <br>
+        <label style="font-size: 15px;">Subject</label><br>
+        <input type="text" required name="Subject">
+        <br>
+        <label style="font-size: 15px;">Message</label><br>
+        <input type="text" required name="Message">
+        <br>
+        <button class="btn-send">Send</button>
+      </form>
+    </div>
+  </main>
+
+  <footer style="text-align: center;background-color:rgb(237, 237, 237);padding:30px">
+    <h3 style="padding-bottom: 20px;font-weight:200">Footer</h3>
+    <a class="btn-top" href="#home"><i class="fa fa-arrow-up" style="margin-right: 15px;"></i>To the top</a><br><br>
+    <div style="margin: 20px 0;font-size:24px">
+      <i class="fa fa-facebook-official icons"></i>
+      <i class="fa fa-instagram icons"></i>
+      <i class="fa fa-snapchat icons"></i>
+      <i class="fa fa-pinterest-p icons"></i>
+      <i class="fa fa-twitter icons"></i>
+      <i class="fa fa-linkedin icons"></i>
+    </div>
+    <p>Powered by w3.css</p>
+  </footer>
+
+
+  <script>
+    let index = 0;
+    const headers = document.querySelectorAll("header");
+    const boxes = document.querySelectorAll(".box");
+    
+    function showHdr(newIndex) {
+      headers[index].classList.add("hidden");
+      boxes[index].classList.remove("active");
+      index = newIndex;
+      headers[index].classList.remove("hidden");
+      boxes[index].classList.add("active");
+    }
+
+    function prvHdr() {
+      let newIndex = (index - 1 + headers.length) % headers.length;
+      showHdr(newIndex);
+    };
+
+    function nextHdr() {
+      let newIndex = (index + 1) % headers.length;
+      showHdr(newIndex);
+    };
+
+    function currentHdr(n) {
+      showHdr(n);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      showHdr(0);
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+    body {margin: 0;}
+    h1 {color: rgb(6, 140, 126);font-weight: 200;font-size: 36px;margin-top: 15px;}
+    p {line-height: 1.5;font-size: 15px;}
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      background-color: black;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      padding: 10px 16px;
+      display: inline-block;
+      margin-right: -4px;
+    }
+    .sidebar {
+      position: fixed;
+      top: 5.7%;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: rgb(235, 235, 235);
+      z-index: 2;
+    }
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: black;
+      padding: 11px 16px;
+      font-size: 18px;
+    }
+    main {padding: 0 16px;margin-left: 250px;}
+    .row {
+      clear: both;
+      display: table;
+      content: "";
+    }
+    .pad64 {padding: 64px 0;}
+    .col-66 {display: block;width: 66%;float: left;}
+    .col-33 {display: block;width: 33%;float: right;text-align: center;}
+    .pagination {display: flex;gap: 4px;justify-content: center;padding: 24px 0;}
+    .pagination a {
+      text-decoration: none;
+      color: black;
+      padding: 8px 16px;
+    }
+    footer {
+      color: white;
+      margin-left: 250px;
+    }
+    nav a:first-child:hover {background-color: gainsboro!important;color: black;}
+    nav a:hover, nav a:last-child:hover {background-color: white!important;color:black}
+    .sidebar a:hover, .pagination a:hover, .close-btn:hover {background-color: black;color: white;}
+    .close-btn {float: right;font-size:24px;padding:12px 24px}
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 2;
+    }
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .sidebar.show {
+      opacity: 1;
+      visibility: visible;
+      animation: animateleft 0.4s;
+    }
+    @keyframes animateleft {
+      from {left: -50%;}
+      to {left: 0%;}
+    }
+
+    @media (max-width:990px) {
+      .hide-small {display: none!important;}
+      main, footer {margin: 0; transition: margin 0.5s ease-in-out;}
+      .sidebar {visibility: hidden;opacity: 0;}
+
+    }
+
+    @media (min-width:990px) {
+      .hide-large {display: none!important;}
+      .overlay {visibility: hidden!important;;opacity: 0!important;}
+    }
+
+    @media (max-width:600px) {
+      .hide-small, .hide-xsmall {display: none!important;}
+      .col-66, .col-33 {width: 100%;}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" style="background-color: rgb(55, 55, 55);">Logo</a>
+    <a href="#" class="hide-xsmall">About</a>
+    <a href="#" class="hide-xsmall">Values</a>
+    <a href="#" class="hide-xsmall">News</a>
+    <a href="#" class="hide-xsmall">Contact</a>
+    <a href="#" class="hide-small">Clients</a>
+    <a href="#" class="hide-small">Partners</a>
+    <a href="javascript:void(0)" onclick="openSidebar()" class="hide-large" style="float: right;margin:auto;background-color: rgb(55, 55, 55);"><i class="fa fa-bars"></i></a>
+  </nav>
+
+
+  <div class="overlay"></div>
+  <div class="sidebar">
+    <span class="close-btn hide-large" onclick="closeSidebar()"><i class="fa fa-remove"></i></span>
+    <h3 style="margin-top:15px;margin-bottom: 15px;padding:8px 16px">Menu</h3>  
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+  </div>
+
+  <main>
+    <div class="container row pad64">
+      <div class="col-66">
+        <h1>Heading</h1>
+        <p style="padding-right: 35px;text-align:justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div class="col-33">
+        <p style="border: 1px solid gainsboro;padding:34px">AD</p>
+        <p style="border: 1px solid gainsboro;padding:64px">AD</p>
+      </div>
+    </div>
+    <div class="container row">
+      <div class="col-66">
+        <h1>Heading</h1>
+        <p style="padding-right: 35px;text-align:justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div class="col-33">
+        <p style="border: 1px solid gainsboro;padding:34px">AD</p>
+        <p style="border: 1px solid gainsboro;padding:64px">AD</p>
+      </div>
+    </div>
+    <div class="container row pad64">
+      <div class="col-66">
+        <h1>Heading</h1>
+        <p style="padding-right: 35px;text-align:justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div class="col-33">
+        <p style="border: 1px solid gainsboro;padding:34px">AD</p>
+        <p style="border: 1px solid gainsboro;padding:64px">AD</p>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <a href="#" style="background-color: black;color:white">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">»</a>
+    </div>
+  </main>
+  <footer>
+    <p style="background-color: rgb(100, 99, 99);padding: 40px 15px;font-size:20px;margin-bottom:-15px">Footer</p>
+    <p style="background-color: rgb(45, 45, 45);padding: 15px 15px;margin-bottom:-15px">Powered by w3.css</p>
+  </footer>
+
+  <script>
+    function openSidebar() {
+      document.querySelector(".overlay").classList.add("show");
+      document.querySelector(".sidebar").classList.add("show");
+    }
+
+    function closeSidebar() {
+      document.querySelector(".overlay").classList.remove("show");
+      document.querySelector(".sidebar").classList.remove("show");
+    }
+  </script>
+</body>
+</html>

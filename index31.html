@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+        body {margin: 0;background-color: #f1f1f1;}
+        h3 {font-weight: 200;margin: 12px;font-size: 20px;}
+        p {font-size: 15px; line-height: 1.5;}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            background-color: #4d636f;
+        }
+        nav a {
+            margin-right: -3px;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            padding: 11px 24px;
+            font-size: 18px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .dropdown-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 13px 24px;
+            font-size: 18px;
+        }
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            display: none;
+        }
+        .dropdown-content a {color: black!important;width: 260px;}
+        nav a:first-child:hover, .btn-ctn:hover, .btn-close:hover, .btn:hover, .btn2:hover, .btn3:hover, .btn4:hover, .sidebar a:hover {background-color: gainsboro!important;color: black!important;cursor: pointer;}
+        nav a:hover {background-color: white;color: black;cursor: pointer;}
+        .dropdown-content a { color: white;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .dropdown:hover .dropdown-btn {background-color: gainsboro;color: black;cursor: pointer;}
+        .dropdown-content a:hover { background-color: gainsboro;}
+        .bs {box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);}
+        .card {box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); padding: 0.01em 16px;margin-bottom: 25px;background-color: white;border-radius: 4px;}
+        .card2 {box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); padding: 0.01em 16px;margin-bottom: 15px;background-color: white;border-radius: 4px;}
+        .container-sizing { max-width: 1370px;margin: auto;padding-top: 76px; display: flex;gap: 15px;}
+        .col-left { width: 25%; float: left;}
+        .col-mid { width: 56%; float: left;}
+        .col-right { width: 17%; float: left;}
+        .col-left i {margin-right: 18px;}
+        .btn-ctn {border: none;background-color: transparent;color: white;width: 100%;padding: 9px 18px;text-align: start;font-size:15px;font-family: inherit;}
+        .btn-ctn.active {background-color: #57707d;}
+        .groups, .events, .photos {display: none;padding: 0.01em 16px;background-color: white;color: black;}
+        .photos {padding-top: 8px;padding-bottom: 8px;overflow: hidden;}
+        .photos img { padding: 8px 0;margin: 0 8px;float: left;}
+        .tag {display:inline-block;padding:0.1em 8px;font-size:12px}
+        .btn-close {background-color:#becbd2;float:right;padding:8px 16px;margin:-1px -16px;}
+        .bubble {background-color:#dfe5e8;padding:0.1em 16px;border-radius:4px;border:1px solid rgb(204, 204, 204)}
+        .btn {background-color: #57707d;color: white;border: none;padding: 10px 16px;margin: 15px 0;font-size:15px;font-family: inherit;}
+        .btn2 {background-color: #4d636f;color: white;border: none;padding: 10px 16px;margin: 15px 0;font-size:15px;font-family: inherit;}
+        .row {clear: both; display: table; content: "";}
+        .img-container {display: flex;gap:16px}
+        .img-container img { width: 49%;}
+        .btn3 {background-color: #dfe5e8;color: black;width: 100%;border: none;padding: 10px 16px;margin: 15px 0;font-size:15px;font-family: inherit;}
+        .btn4 {float: left;opacity: 0.5;background-color: #dfe5e8;color: black;width: 50%;border: none;padding: 10px 16px;margin: 15px 0;font-size:15px;font-family: inherit;}
+
+        @media (max-width:600px) {
+            .container-sizing, .img-container {display: block; margin: 0 16px;}
+            .col-left, .col-mid, .col-right, .btn4 { width: 100%; float: none;}
+            .photos img {width: 94%;padding:15px;margin: auto;}
+            .img-container img {width: 100%;padding-bottom: 8px;}
+            .hide-small {display: none;}
+        }
+        @media (max-width:1400px) {
+            .container-sizing {margin: 15px;}
+        }
+        @media (min-width:600px) {
+            .hide-large {display: none!important;}
+        }
+        .sidebar {
+            position: relative;
+            padding-top: 50px;
+            top: 0%;
+            left: 0;
+            width: 100%;
+            background-color: #4d636f;
+            display: none;
+            margin-bottom: 3px;
+        }
+        .sidebar a{
+            text-decoration: none;
+            color: white;
+            padding: 14px 24px;
+            display: block;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" style="background-color:#3a4b53;"><i class="fa fa-home" style="margin-right: 15px;"></i> Logo</a>
+        <a href="#" class="hide-small"><i class="fa fa-globe"></i></a>
+        <a href="#" class="hide-small"><i class="fa fa-user"></i></a>
+        <a href="#" class="hide-small"><i class="fa fa-envelope"></i></a>
+        <div class="dropdown hide-small">
+            <button class="dropdown-btn"><i class="fa fa-bell"></i><span style="padding: 2px 8px;color:white!important;background-color:rgb(44, 167, 44);border-radius:50%;font-size:12px;float:right;margin-top:-2px">3</span></button>
+            <div class="dropdown-content bs">
+                <a href="#">One new friend request</a>
+                <a href="#">John Doe posted on your wall</a>
+                <a href="#">Jane likes your post</a>
+            </div>
+        </div>
+        <a href="#"style="float: right;" class="hide-small"><img src="https://www.w3schools.com/w3images/avatar2.png" alt="avatar2" width="20px" style="border-radius: 50%;margin-bottom:-3px"></a>
+        <a href="javascript:void(0)"style="float: right;" class="hide-large" onclick="openSidebar()"><i class="fa fa-bars"></i></a>
+    </nav>
+    <div class="sidebar hide-large">
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">My Profile</a>
+    </div>
+
+    <div class="container-sizing">
+        <!-- block-->
+        <div class="col-left">
+            <div class="card" style="text-align: center;">
+                <h3>My Profile</h3>
+                <img src="https://www.w3schools.com/w3images/avatar3.png" alt="avatar3" width="105px" style="border-radius: 50%;margin:8px 0">
+                <hr style="opacity: 0.2;">
+                <div style="text-align: left;">
+                    <p><i class="fa fa-pencil" style="color:#607d8b "></i> Designer, UI</p>
+                    <p><i class="fa fa-home" style="color:#607d8b "></i> London, UK</p>
+                    <p><i class="fa fa-birthday-cake" style="color:#607d8b "></i> April 1, 1988</p>
+                </div>
+            </div>
+            <div class="card" style="background-color: #7d97a5;color:white;padding: 0;border-radius: 0px;">
+                <button class="btn-ctn" onclick="shows('groups')"><i class="fa fa-circle-o-notch"></i> My Groups</button>
+                <div class="groups">
+                    <p>Some text..</p>
+                </div>
+                <button class="btn-ctn" onclick="shows('events')"><i class="fa fa-calendar-check-o"></i> My Events</button>
+                <div class="events">
+                    <p>Some other text..</p>
+                </div>
+                <button class="btn-ctn" onclick="shows('photos')"><i class="fa fa-users"></i> My Photos</button>
+                <div class="photos">
+                    <img src="https://www.w3schools.com/w3images/lights.jpg" alt="lights" width="140px">
+                    <img src="https://www.w3schools.com/w3images/nature.jpg" alt="nature" width="140px">
+                    <img src="https://www.w3schools.com/w3images/mountains.jpg" alt="mountains" width="140px">
+                    <img src="https://www.w3schools.com/w3images/forest.jpg" alt="forest" width="140px">
+                    <img src="https://www.w3schools.com/w3images/nature.jpg" alt="nature" width="140px">
+                    <img src="https://www.w3schools.com/w3images/snow.jpg" alt="snow" width="140px">
+                </div>
+            </div>
+            <div class="card hide-small" style="padding-bottom: 15px;">
+                <p>Interests</p>
+                <div>
+                <span class="tag" style="color: white;background-color:#242f34">News</span> <span class="tag" style="color: white;background-color:#3d4f57">W3Schools</span> <span class="tag" style="color: white;background-color:#43555e">Labels</span>
+                <span class="tag"  style="color: white;background-color:#4e6875">Games</span> <span class="tag"  style="color: white;background-color:#567381">Friends</span> <span class="tag"  class="tag" style="color: white;background-color:rgb(93, 115, 126)">Games</span>
+                <span class="tag"  style="color: white;background-color:rgb(101, 142, 160)">Friends</span> <span class="tag"   style="color: rgb(0, 0, 0);background-color:#7fa8bb">Food</span> <span class="tag" style="color: rgb(0, 0, 0);background-color:#9cb9c6">Design</span>
+                <span class="tag"  style="color: rgb(0, 0, 0);background-color:#becbd0">Art</span> <span class="tag"  style="color: rgb(0, 0, 0);background-color:#e9eaea">Photos</span>
+                </div>
+            </div>
+            <div class="bubble hide-small">
+                <span class="btn-close" onclick="document.querySelector('.bubble').style.display='none'"><i class="fa fa-remove" style="margin:0"></i></span>
+                <h4 style="margin: 15px 0;">Hey!</h4>
+                <p>People are looking at your profile. Find out who.</p>
+            </div>
+            </div>
+            
+            <!-- block-->
+            <div class="col-mid">
+                <div class="card2">
+                    <p style="color: gray;">Social Media template by w3.css</p>
+                    <input value="Status: Feeling Blue" style="padding: 10px 16px;font-size:15px;font-family:inherit;border:1px solid rgb(198, 198, 198);width:100%;box-sizing:border-box">
+                    <button class="btn" style="background-color: #607d8b;"><i class="fa fa-pencil"></i>&nbsp Post</button>
+                </div>   
+                <div class="card2" style="overflow: hidden;">
+                    <div style="padding-top: 22px;">
+                    <img src="https://www.w3schools.com/w3images/avatar2.png" alt="avatar2" width="60px" style="border-radius:50%;float: left;margin-right:4px">
+                    <h3 style="float: left;">John Doe</h3>
+                    <p style="float: right;color:gray;margin-top:0">1 min</p>
+                    </div>
+                    <div class="row" style="padding-top: 26px;">
+                    <hr style="opacity: 0.2;">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="img-container">
+                    <img src="https://www.w3schools.com/w3images/lights.jpg" alt="lights">
+                    <img src="https://www.w3schools.com/w3images/nature.jpg" alt="nature">
+                    </div>
+                    <button class="btn" style="margin-right:4px"><i class="fa fa-thumbs-up"></i>&nbsp Like</button>
+                    <button class="btn2"><i class="fa fa-comment"></i>&nbsp Comment</button>
+                    </div>
+                </div>
+                <div class="card2" style="overflow: hidden;">
+                    <div style="padding-top: 22px;">
+                    <img src="https://www.w3schools.com/w3images/avatar5.png" alt="avatar5" width="60px" style="border-radius:50%;float: left;margin-right:4px">
+                    <h3 style="float: left;">Jane Doe</h3>
+                    <p style="float: right;color:gray;margin-top:0">16 min</p>
+                    </div>
+                    <div class="row" style="padding-top: 26px;">
+                    <hr style="opacity: 0.2;">
+                    <p style="margin-bottom: 0;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <button class="btn" style="margin-right:4px"><i class="fa fa-thumbs-up"></i>&nbsp Like</button>
+                    <button class="btn2"><i class="fa fa-comment"></i>&nbsp Comment</button>
+                    </div>
+                </div>
+                <div class="card2" style="overflow: hidden;">
+                    <div style="padding-top: 22px;">
+                    <img src="https://www.w3schools.com/w3images/avatar6.png" alt="avatar6" width="60px" style="border-radius:50%;float: left;margin-right:4px">
+                    <h3 style="float: left;">Angie Jane</h3>
+                    <p style="float: right;color:gray;margin-top:0">32 min</p>
+                    </div>
+                    <div class="row" style="padding-top: 26px;">
+                    <hr style="opacity: 0.2;">
+                    <p>Have you seen this?</p>
+                    <img src="https://www.w3schools.com/w3images/nature.jpg" alt="nature" width="100%">
+                    <p style="margin-bottom: 0;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <button class="btn" style="margin-right:4px"><i class="fa fa-thumbs-up"></i>&nbsp Like</button>
+                    <button class="btn2"><i class="fa fa-comment"></i>&nbsp Comment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- block-->
+            <div class="col-right">
+                <div class="card" style="text-align: center;">
+                    <p>Upcoming Events:</p>
+                    <img src="https://www.w3schools.com/w3images/forest.jpg" alt="forest" width="100%">
+                    <h4 style="margin: 10px;font-size:15px">Holiday</h4>
+                    <p style="margin-top: 15px;margin-bottom:0">Friday 15:00</p>
+                    <button class="btn3">Info</button>
+                </div>
+                <div class="card" style="text-align: center;overflow: hidden;">
+                    <p>Friend Request</p>
+                    <img src="https://www.w3schools.com/w3images/avatar6.png" alt="avatar6" width="50%">
+                    <p style="margin:0px;margin-top: -5px">Jane Doe</p>
+                    
+                    <button class="btn4" style="background-color: #309933;color:white"><i class="fa fa-check"></i></button>
+                    <button class="btn4" style="background-color: red;color:white"><i class="fa fa-remove"></i></button>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <p style="padding: 15px;">ADS</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <i class="fa fa-bug" style="padding: 46px;font-size:34px"></i>
+                </div>
+            </div>
+    </div>
+    <footer>
+        <p style="background-color: #435761;color:white;padding:27px 15px;font-size:18px">Footer</p>
+        <p style="background-color: #303e45;color:white;padding:15px;margin:-18px 0">Powered by w3.css</p>
+    </footer>
+    
+    <script>
+        function openSidebar() {
+            if (document.querySelector(".sidebar").style.display == "block") {
+                document.querySelector(".sidebar").style.display = "none";
+            } else {
+                document.querySelector(".sidebar").style.display = "block";
+            }
+        }
+
+        function shows(section) {
+            const content = document.querySelector(`.${section}`);
+            const button = document.querySelector(`button[onclick="shows('${section}')"]`);
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                button.classList.remove("active");
+            } else {
+                content.style.display = "block";
+                button.classList.add("active");
+            }
+        }
+    </script>
+</body>
+</html>

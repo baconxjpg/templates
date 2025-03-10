@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+        body {margin: 0;background-color: black;}
+        p {line-height: 1.5;}
+        header {
+            position: relative;
+            animation: opac 0.6s;
+        }
+        @keyframes opac {
+            from { opacity: 0;}
+            to { opacity: 1;}
+        }
+        .hdr-left {
+            position: absolute;
+            top: 49%;
+            left: 1.2%;
+            transform: translate(0%, -50%);
+            background-color: black;
+            color: white;
+            padding: 4px 24px;
+            border-radius: 8px;
+            width: 29.5%;
+            text-align: center;
+            opacity: 0.6;
+        }
+        .hdr-left:hover { opacity: 1;}
+        .btn-dwnl {
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            border-radius: 4px;
+            margin-bottom: 22px;
+        }
+        .hdr-right {
+            position: absolute;
+            top: 49%;
+            right: 1.2%;
+            transform: translate(0%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+        }
+        .hdr-right a {color: white;text-decoration: none;display: block;padding: 8px 16px;border-radius: 4px;}
+        .btn-dwnl:hover, .hdr-right a:hover, .fdwnl-btn:hover,.btn-close:hover, .dwnl-btn:hover, .btn-dwnld2:hover, .tour-hide-large:hover, .dwnl-btn-small:hover { 
+            background-color: gainsboro!important;
+            color: black!important;
+            cursor: pointer;
+        }
+        .hidden {display: none;opacity: 1;}
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s;
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .download-tab {
+            background-color: white;
+            width: 54%;
+            position: relative;
+            top: 14%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            padding: 16px 45px;
+            padding-bottom: 45px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s;
+        }
+        .download-tab.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .btn-close {
+            position:absolute;top:9%;right:5%;padding:8px 16px;font-size: 25px;padding: 2px 18px;
+        }
+        .fdwnl-btn {
+            background-color: rgb(246, 59, 59);
+            color: white;
+            padding: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            width: 100%;
+            border: none;
+        }
+        .row {
+            clear: both;
+            content: "";
+            display: table;
+        }
+        .container {
+            padding: 15px 18px;
+            margin-top: -6px;
+            display: flex;
+            padding-bottom: 65px;
+        }
+        .col-wide {
+            float: left;
+            width: 66%;
+        }
+        .col {
+            float: right;
+            width: 33%;
+            margin-top: 35px;
+            text-align: end;
+        }
+        .dwnl-btn {
+            background-color: rgb(240, 240, 240);
+            padding: 12px 24px;
+            font-family: inherit;
+            border: none;
+            font-size: 15px;
+            margin: 15px 0;
+        }
+        .col-2 {
+            float: left;
+            width: 33%;
+            margin-top: 35px;
+            text-align: end;
+            margin-right: 160px;
+            margin-left: -150px;
+        }
+        .jumbo-iconsContainer{
+            text-align: center;
+            margin: 0 15px;
+        }
+        .jumbo-icons {
+            float: left;
+            width: 24.99%;
+            margin-bottom: 65px;
+        }
+        .package-div {
+            display: flex;
+            gap: 15px;
+            margin:  15px;
+            padding: 20px 0;
+        }
+        .package {
+            box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 49.99%;
+        }
+        .package:hover {
+            box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.4);
+        }
+        ul{ margin: 0;padding: 0; }
+        li { padding: 16px;border-bottom: 1px solid rgb(214, 214, 214); }
+        .btn-dwnld2 { padding: 12px 24px; background-color: black; color: white;font-size: 16px;font-family: inherit;border: none; }
+        .small-icons:hover {opacity: 0.6;}
+        .btn-hide-large {
+            background-color: rgb(85, 169, 85);
+            border-radius:0px;
+            position:inherit;
+            top:0%;
+            z-index: 1;
+            margin-bottom: 0;
+        }
+        .tour-hide-large {
+            text-decoration: none;
+            color: white;
+            position: inherit;
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 5px;
+            z-index: 1;
+            padding: 6px;
+            text-align: center;
+        }
+        .download-tab {width: 80%;top: 7%;}
+        .dwnl-btn-small { 
+            background-color: white;
+            padding: 12px 24px;
+            font-family: inherit;
+            border: none;
+            font-size: 16px;
+            margin: 15px 0;
+            width: 95%;
+        }
+
+        @media (min-width:1500px) {
+            body {margin:0px 5px;}
+        }
+
+        @media (max-width:600px) {
+            header {animation: none;}
+            header img {animation: opac 0.6s;}
+            .hide-small {display: none!important};
+            .container {display: block!important;}
+            .col-wide {display:block!important;width: 100%!important;}
+            .dwnl-btn {display: block;width: 100%;}
+            .package-div {display: block;}
+            .package {width: 100%;margin-bottom: 30px!important;}
+        }
+        @media (min-width:600px) {
+            .btn-hide-large, .tour-hide-large, .hide-large {display: none;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button onclick="openDwnltab()" class="btn-dwnl btn-hide-large">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+        <img src="https://www.w3schools.com/w3images/app.jpg" alt="app" width="100%">
+        <div class="hdr-left hide-small">
+            <h2 style="font-weight: 200;">Take photos with our app</h2>
+            <hr style="opacity: 0.6;">
+            <p>Super simple installment: free of charge</p>
+            <button onclick="openDwnltab()" class="btn-dwnl" style="background-color: rgb(85, 169, 85);">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+        </div>
+        <div class="hdr-right hide-small">
+            <a href="javascript:void(0)" onclick="changeHdr()">Take Tour <i class="fa fa-angle-right"></i></a>
+        </div>
+        <a href="javascript:void(0)" onclick="changeHdr()" class="tour-hide-large">Take Tour <i class="fa fa-angle-right"></i></a>
+    </header>
+    <header class="hidden">
+        <button onclick="openDwnltab()" class="btn-dwnl btn-hide-large">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+        <img src="https://www.w3schools.com/w3images/app2.jpg" alt="app2" width="100%">
+        <div class="hdr-left hide-small">
+            <h2 style="color: red;">CLICK! Fast and Easy</h2>
+            <hr style="opacity: 0.6;">
+            <p>Choose from thousands of features</p>
+            <button onclick="openDwnltab()" class="btn-dwnl" style="background-color: rgb(242, 66, 66);">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+        </div>
+        <div class="hdr-right hide-small">
+            <a href="javascript:void(0)" onclick="changeHdr()">Take Tour <i class="fa fa-angle-right"></i></a>
+        </div>
+        <a href="javascript:void(0)" onclick="changeHdr()" class="tour-hide-large">Take Tour <i class="fa fa-angle-right"></i></a>
+    </header>
+    <header class="hidden">
+        <button onclick="openDwnltab()" class="btn-dwnl btn-hide-large">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+        <img src="https://www.w3schools.com/w3images/app4.jpg" alt="app4" width="100%">
+        <div class="hdr-left hide-small">
+            <h2 style="font-weight: 200;">Smart Design</h2>
+            <hr style="opacity: 0.6;">
+            <p>Customize photos as you go</p>
+            <button onclick="openDwnltab()" class="btn-dwnl" style="background-color: rgb(81, 81, 241);">Download <i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></button>
+        </div>
+        <div class="hdr-right hide-small">
+            <a href="javascript:void(0)" onclick="changeHdr()">Take Tour <i class="fa fa-angle-right"></i></a>
+        </div>
+        <a href="javascript:void(0)" onclick="changeHdr()" class="tour-hide-large">Take Tour <i class="fa fa-angle-right"></i></a>
+    </header>
+
+    <div class="overlay">
+    <div class="download-tab">
+        <span class="btn-close" onclick="closeDwnltab()"><i class="fa fa-remove"></i></span>
+        <h1 style="font-weight: 200;letter-spacing:4px;font-size: 30px;margin-top:25px">DOWNLOAD</h1>
+        <p>Download the app in AppStore, Google Play or Microsoft Store.</p>
+        <p style="font-size: 18px;"><i class="fa fa-android"></i> <i class="fa fa-apple"></i> <i class="fa fa-windows"></i></p>
+        <input placeholder="Enter e-mail" style="border:1px solid rgb(191, 191, 191);width:100%;font-size: 15px;font-family:inherit;padding:8px;margin-bottom:15px;box-sizing:border-box">
+        <button onclick="closeDwnltab()" class="fdwnl-btn" >Fake Download</button>
+    </div>
+    </div>
+
+    <section class="row container" style="background-color: white;">
+        <div class="col-wide">
+            <h1 style="font-size: 64px;">The App</h1>
+            <h2 style="font-size: 48px;color:#4CAF50;margin-top:-50px;margin-bottom:0">Why buy it?</h2>
+            <p><span style="font-size: 24px;">Take photos like a pro.</span> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <button onclick="openDwnltab()" class="dwnl-btn hide-small"><i class="fa fa-download"></i> Download Application</button>
+            <p>Available for <i class="fa fa-android" style="color: #4CAF50;font-size:24px"></i> <i class="fa fa-apple" style="font-size:24px"></i> <i class="fa fa-windows" style="color: rgb(32, 141, 244);font-size:24px"></i></p>
+        </div>
+        <div class="col hide-small">
+            <img src="https://www.w3schools.com/w3images/img_app.jpg" alt="img_app" width="335px">
+        </div>
+    </section>
+    <div class="hide-large" style="background-color: white;text-align: center;margin-top:-80px;padding-bottom:50px">
+        <button onclick="openDwnltab()" class="dwnl-btn-small"><i class="fa fa-download"></i> Download Application</button>
+        <img src="https://www.w3schools.com/w3images/img_app.jpg" alt="img_app" width="335px">
+    </div>
+
+    <section class="row container" style="background-color:rgb(242, 242, 242);padding-top:30px;">
+        <div class="col-2 hide-small">
+            <img src="https://www.w3schools.com/w3images/app5.jpg" alt="img_app" width="335px">
+        </div>
+        <div class="col-wide">
+            <h1 style="font-size: 64px;">Clarity</h1>
+            <h2 style="font-size: 48px;color:#ef3030;margin-top:-50px;margin-bottom:0">Pixels, who?</h2>
+            <p><span style="font-size: 24px;">A revolution in resolution.</span> Sharp and clear photos with the world's best photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </section>
+    
+    <section class="row" style="background-color:rgb(97, 97, 97);color:white;width:100%;padding-top:20px">
+        <h1 style="font-size: 64px;text-align:center">Features</h1>
+        <p  style="text-align:center;margin-top:-35px;margin-bottom:60px">This app is just so lorem ipsum.</p>
+        <div class="jumbo-iconsContainer">
+            <div class="jumbo-icons">
+                <i class="fa fa-bolt" style="color: #ff9800; font-size: 64px;"></i>
+                <p>Fast</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-heart" style="color:#f44336; font-size: 64px;"></i>
+                <p>Loved</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-camera" style="color: #d2be0e; font-size: 64px;"></i>
+                <p>Clarity</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-battery-full" style="color: #4CAF50; font-size: 64px;"></i>
+                <p>Power</p>
+            </div>
+        </div>
+        <div class="jumbo-iconsContainer">
+            <div class="jumbo-icons">
+                <i class="fa fa-diamond" style="color: white; font-size: 64px;"></i>
+                <p>Sharp</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-cloud" style="color: #2196F3; font-size: 64px;"></i>
+                <p>Cloud</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-globe" style="color: #ffc107; font-size: 64px;"></i>
+                <p>Global</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-hdd-o" style="color: #00bcd4; font-size: 64px;"></i>
+                <p>Storage</p>
+            </div>
+        </div>
+        <div class="jumbo-iconsContainer">
+            <div class="jumbo-icons">
+                <i class="fa fa-user" style="color: white; font-size: 64px;"></i>
+                <p>Safe</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-shield" style="color: #ff9800; font-size: 64px;"></i>
+                <p>Stabile</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-wifi" style="color: #757575; font-size: 64px;"></i>
+                <p>Connected</p>
+            </div>
+            <div class="jumbo-icons">
+                <i class="fa fa-image" style="color: #e91e63; font-size: 64px;"></i>
+                <p>HD</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="row" style="background-color:white;width:100%;padding-top:20px;padding-bottom: 70px;">
+        <h1 style="font-size: 64px;text-align:center">Pricing</h1>
+        <p  style="text-align:center;margin-top:-35px;margin-bottom:60px;font-size:18px">Choose a pricing plan that fits your needs.</p>
+        <div class="package-div">
+            <div class="package">
+                <ul style="list-style: none;">
+                    <li style="background-color:rgb(97, 97, 97);"><h1 style="color:white;font-weight:200;margin:17px">Basic</h1></li>
+                    <li><b>250</b> Photos</li>
+                    <li><b>10</b> Features</li>
+                    <li><b>No</b> Ads</li>
+                    <li><b>Office</b> hours Support</li>
+                    <li><h1 style="color: rgb(103, 103, 103);font-weight:200;margin:10px;font-size:28px">$ 25</h1></li>
+                    <li style="background-color: rgb(242, 242, 242);padding:25px 0"><button onclick="openDwnltab()" class="btn-dwnld2"><i class="fa fa-download"></i> Download</button></li>
+                </ul>
+            </div>
+            <div class="package">
+                <ul style="list-style: none;">
+                    <li style="background-color:red;"><h1 style="color:white;font-weight:200;margin:17px">Premium</h1></li>
+                    <li><b>1000</b> Photos</li>
+                    <li><b>50</b> Features</li>
+                    <li><b>No</b> Ads</li>
+                    <li><b>Endless</b> Support</li>
+                    <li><h1 style="color: rgb(103, 103, 103);font-weight:200;margin:10px;font-size:28px">$ 99</h1></li>
+                    <li style="background-color: rgb(242, 242, 242);padding:25px 0"><button onclick="openDwnltab()" class="btn-dwnld2"><i class="fa fa-download"></i> Download</button></li>
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+
+    <footer style="background-color:rgb(242, 242, 242);padding-top:50px;padding-bottom:30px;text-align:center">
+        <div style="font-size: 24px;">
+            <i class="fa fa-facebook-official small-icons"></i>
+            <i class="fa fa-instagram small-icons"></i>
+            <i class="fa fa-snapchat small-icons"></i>
+            <i class="fa fa-pinterest-p small-icons"></i>
+            <i class="fa fa-twitter small-icons"></i>
+            <i class="fa fa-linkedin small-icons"></i>
+        </div>
+        <p style="font-size: 15px;">Powered by w3.css</p>
+    </footer>
+    
+
+    <script>
+        let index = 0;
+        const headers = document.querySelectorAll("header");
+
+        function changeHdr() {
+            headers[index].classList.add("hidden");
+            index = (index + 1) % headers.length;
+            headers[index].classList.remove("hidden");
+        }
+
+        function openDwnltab() {
+            document.querySelector(".overlay").classList.add("active");
+            document.querySelector(".download-tab").classList.add("active");
+        }
+
+        function closeDwnltab() {
+            document.querySelector(".overlay").classList.remove("active");
+            document.querySelector(".download-tab").classList.remove("active");
+        }
+        
+    </script>
+
+</body>
+</html>

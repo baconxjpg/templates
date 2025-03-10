@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,html {margin: 0; font-family: Verdana, sans-serif;height: 100%;}
+        h1 {font-weight: 450;font-size: 30px;font-family: "Segoe UI", Arial, sans-serif;}
+        h2 {font-weight: 450;font-family: "Segoe UI", Arial, sans-serif;}
+        p {font-size: 15px;line-height: 1.5;}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            z-index: 1;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            float: left;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background-color: black;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            font-family: inherit;
+            font-size: 15px;
+            padding-top: 9px;
+        }
+        .dropdown-content {
+            position: absolute;
+            z-index: 2;
+            background-color: white;
+            display: none;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+        }
+        .dropdown-content a {
+            box-sizing: border-box;
+            text-decoration: none;
+            color: black;
+            width: 100%;
+            padding-right: 120px;
+        }
+        .logo-icon:hover {background-color: gainsboro!important;}
+        .src-icon:hover, .css-btn:hover {background-color: rgb(8, 149, 149);color:white}
+        .dropdown:hover .dropdown-content {display: block;}
+        nav a:hover {background-color: white;color:black}
+        .dropdown:hover .dropdown-btn:hover, .btn-close:hover, .btn-sgnup:hover, .btn-snd:hover, .btn-top:hover{background-color: gainsboro;color:black;cursor: pointer;}
+        .dropdown-content a:hover {background-color: gainsboro;}
+        .dropdown:hover .dropdown-btn {background-color: gainsboro;color:black}
+        .img-container {
+            animation: opac 0.8s;
+            position: relative;
+        }
+        @keyframes opac {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .img1 {
+            width: 100%;
+            min-height: 350px;
+            max-height: 600px;
+        }
+        .css-btn {padding: 8px 16px; background-color: black;color: white;position: absolute;bottom: 3%;left: 1%;font-size:24px;border: none;}
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 2;
+        }
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .css-tab {
+            position: absolute;
+            top: 13%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width: 58%;
+            background-color: #009688;
+            color: white;
+            padding: 2px 16px;
+            visibility: hidden;
+            opacity: 0;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes animatetop {
+            from {top: -30%;}
+            to {top: 13%;}
+        }
+        .css-tab.active {
+            visibility: visible;
+            opacity: 1;
+            animation: animatetop 0.3s;
+        }
+        .btn-close {position: absolute;right:0;top: 0;padding: 10px 16px;}
+        section {padding: 46px 15px;}
+        .team-container {display: flex;gap: 20px;padding: 25px 0;}
+        .team, .work {display: block;width: 24.99%;}
+        .work {display: block;width: 24.99%;}
+        .work-container, .package-container {display: flex;gap:15px;}
+        .package {display: block; width: 33.33%;padding-top: 20px;}
+        ul {list-style: none;margin: 0px;padding: 0;border: 1px solid gainsboro;}
+        li { padding: 18px;border-bottom: 1px solid rgb(226, 226, 226);}
+        .btn-sgnup {padding: 12px 24px; background-color: #009688;color:white;border: none;font-size: 15px;}
+        ul:hover { box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.5);}
+        .contact-block1 {display: block;float: left;width: 42%;}
+        .contact-block2 {display: block;float: left;width: 58%;}
+        .cont-font {font-weight: 500;border-bottom:6px solid #009688;width:19%;white-space:nowrap;}
+        form {background-color: white;box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);padding: 30px 15px;}
+        input {box-sizing: border-box;border: none;border-bottom: 1px solid rgb(219, 219, 219);width: 100%;margin-bottom: 15px;padding:10px}
+        .input-check {width: 24px;height: 24px;float: left;}
+        .btn-snd {background-color: black;color: white;padding: 10px 16px;border: none;font-family: inherit;font-size: 15px;}
+        footer {text-align: center;background-color: black;color: white;padding-top: 30px;padding-bottom: 80px;margin-bottom: -50px;}
+        .icons {padding: 12px 16px; background-color: #009688;color: white;}
+        .btn-top-container{position:absolute;top:0;right:1%;}
+        .btn-top {padding: 15px;color: white;}
+        .btn-top-hide {background-color: #009688;color: white;padding: 8px 16px;display: none;}
+        .btn-top:hover, .icons:hover, .sidebar a:hover {background-color: gainsboro;color: black;}
+        .btn-top-container:hover .btn-top-hide{display: inline-block;}
+        .imgteam:hover {opacity: 0.6;}
+
+        @media (max-width: 600px){
+            .hide-small {display: none;}
+            .css-tab {white-space: nowrap;width:90%}
+            .team-container, .work-container, .package-container {display: block;}
+            .team, .work, .package {width: 100%;}
+            .contact-block1, .contact-block2 {float: none;width: 100%;}
+            .btn-add {bottom: -1%!important;right: 4%!important;}
+            .cont-font {width: 26%;}
+            .btn-top-hide {display: none!important;}
+        }
+        @media (min-width:590px) {
+            .bar {display: none;}
+            .hide-large {display: none!important;}
+        }
+        .sidebar {
+            position: fixed;
+            width: 100%;
+            background-color: black;
+            z-index: 2;
+            top: 5%;
+            margin-top: -2px;
+            display: none;
+        }
+        .sidebar a{
+            padding: 8px 16px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .btn-add {
+            position: absolute;
+            bottom: -5%;
+            right: 2%;
+            background-color: #009688;
+            color: white;
+            border-radius: 50%;
+            padding: 16px 20px;
+            font-size: 20px;
+        }
+        .sidebar-2 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            z-index: 1;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+            animation: animateleft 0.5s;
+        }
+        @keyframes animateleft {
+            from {left: -30%;}
+            to {left: 0%;}
+        }
+        .sidebar-2 a {text-decoration: none;color: black;display: block;padding: 16px;font-size: 36px;}
+        .sidebar-2 a:hover, .btn-add:hover {background-color: gainsboro;color: black!important;cursor: pointer;}
+    </style>
+</head>
+<body>
+   <nav>
+    <a href="#" style="background-color:#009688;" class="logo-icon"><i class="fa fa-home" style="margin-right: 10px;"></i> Logo</a>
+    <a href="#team" class="hide-small">Team</a>
+    <a href="#work" class="hide-small">Work</a>
+    <a href="#price" class="hide-small">Price</a>
+    <a href="#contact" class="hide-small">Contact</a>
+    <div class="dropdown">
+        <button class="dropdown-btn hide-small">Dropdown <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+        </div>
+    </div>
+    <a href="#" style="float: right;" class="src-icon hide-small"><i class="fa fa-search"></i></a>
+    <a href="javascript:void(0)" style="float: right;" class="bar" onclick="openSidebar()"><i class="fa fa-bars"></i></a>
+   </nav>
+   <div class="sidebar hide-large">
+    <a href="#team">Team</a>
+    <a href="#work">Work</a>
+    <a href="#price">Price</a>
+    <a href="#contact">Contact</a>
+    <a href="#search">Search</a>
+   </div>
+
+   <div class="img-container">
+    <img src="https://www.w3schools.com/w3images/sailboat.jpg" alt="sailboat" class="img1">
+    <button onclick="openBar()" class="css-btn">LEARN CSS</button>
+   </div>
+
+   <div class="overlay">
+    <div class="css-tab">
+        <span class="btn-close" onclick="closeBar()"><i class="fa fa-remove"></i></span>
+        <p style="font-size: 18px;">Oh snap! We just showed you a modal..</p>
+        <p>Because we can <i class="fa fa-smile-o"></i></p>
+        <div style="background-color: white;color:black;margin:0 -16px;padding:2px 16px">
+            <p>Cool huh? Ok, enough teasing around..</p>
+            <p>Go to our CSS Tutorial to learn more!</p>
+        </div>
+        <p>Modal footer</p>
+    </div>
+   </div>
+
+   <section id="team" style="text-align: center;">
+    <h1>OUR TEAM</h1>
+    <p style="margin-top: -5px;">Meet the team - our office rats:</p>
+    <div class="team-container">
+        <div class="team">
+            <img class="imgteam" src="https://www.w3schools.com/w3images/avatar.jpg" alt="avatar" width="160px" style="border-radius: 50%;">
+            <h2>Johnny Walker</h2>
+            <p>Web Designer</p>
+        </div>
+        <div class="team">
+            <img class="imgteam" src="https://www.w3schools.com/w3images/avatar.jpg" alt="avatar" width="160px" style="border-radius: 50%;">
+            <h2>Rebecca Flex</h2>
+            <p>Support</p>
+        </div>
+        <div class="team">
+            <img class="imgteam" src="https://www.w3schools.com/w3images/avatar.jpg" alt="avatar" width="160px" style="border-radius: 50%;">
+            <h2>Jan Ringo</h2>
+            <p>Boss man</p>
+        </div>
+        <div class="team">
+            <img class="imgteam" src="https://www.w3schools.com/w3images/avatar.jpg" alt="avatar" width="160px" style="border-radius: 50%;">
+            <h2>Kai Ringo</h2>
+            <p>Fixer</p>
+        </div>  
+    </div>
+   </section>
+   <section style="background-color: rgb(48, 48, 48);position:relative" id="work">
+       <div class="work-container">
+        <div class="work" style="color:white;">
+            <h1>Our Work</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="work" style="margin-top: 15px;background-color: white;">
+            <img src="https://www.w3schools.com/w3images/snow.jpg" alt="snow" width="100%">
+            <div style="padding: 0 16px;margin-top:-10px">
+            <h2>Customer 1</h2>
+            <p style="font-size: 18px;">Trade</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            </div>
+        </div>
+        <div class="work" style="margin-top: 15px;background-color: white;">
+            <img src="https://www.w3schools.com/w3images/lights.jpg" alt="lights" width="100%">
+            <div style="padding: 0 16px;margin-top:-10px">
+            <h2>Customer 2</h2>
+            <p style="font-size: 18px;">Trade</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            </div>
+        </div>
+        <div class="work" style="margin-top: 15px;background-color: white;">
+            <img src="https://www.w3schools.com/w3images/mountains.jpg" alt="mountains" width="100%">
+            <div style="padding: 0 16px;margin-top:-10px">
+            <h2>Customer 3</h2>
+            <p style="font-size: 18px;">Trade</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            <p>Blablabla</p>
+            </div>
+        </div>
+    </div>
+        <span class="btn-add" onclick="openSidebar2()">+</span>
+   </section>
+
+   <div class="sidebar-2">
+    <a href="javascript:void(0)" onclick="closeSidebar2()" style="margin-bottom: 75px;color:#009688">Close <span><i class="fa fa-remove"></i></span></a>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <a href="#">Link 4</a>
+    <a href="#">Link 5</a>
+   </div>
+
+   <section style="text-align: center;padding-bottom:80px" id="price" >
+    <h1>PRICING</h1>
+    <p style="margin-top: -5px;">Choose a pricing plan that fits your needs.</p>
+    <div class="package-container">
+        <div class="package">
+            <ul>
+                <li style="background-color: black;color:white;font-size:18px;"><h2 style="margin: 15px;">Basic</h2></li>
+                <li><b>10GB</b> Storage</li>
+                <li><b>10</b> Emails</li>
+                <li><b>10</b> Domains</li>
+                <li><b>Endless</b> Support</li>
+                <li><h2 style="font-size:30px;letter-spacing:4px;margin:13px"><i class="fa fa-dollar"></i> 10</h2> <span style="color: gray;">per month</span></li>
+                <li style="padding: 25px;background-color:#f0f0f0"><button class="btn-sgnup"><i class="fa fa-check"></i> Sign Up</button></li>
+            </ul>
+        </div>
+        <div class="package">
+            <ul>
+                <li style="background-color: rgb(100, 100, 100);color:white;font-size:18px;"><h2 style="margin: 15px;">Pro</h2></li>
+                <li><b>25GB</b> Storage</li>
+                <li><b>25</b> Emails</li>
+                <li><b>25</b> Domains</li>
+                <li><b>Endless</b> Support</li>
+                <li><h2 style="font-size:30px;letter-spacing:4px;margin:13px"><i class="fa fa-dollar"></i> 25</h2> <span style="color: gray;">per month</span></li>
+                <li style="padding: 25px;background-color:#f0f0f0"><button class="btn-sgnup"><i class="fa fa-check"></i> Sign Up</button></li>
+            </ul>
+        </div>
+        <div class="package">
+            <ul>
+                <li style="background-color: black;color:white;font-size:18px;"><h2 style="margin: 15px;">Premium</h2></li>
+                <li><b>50GB</b> Storage</li>
+                <li><b>50</b> Emails</li>
+                <li><b>50</b> Domains</li>
+                <li><b>Endless</b> Support</li>
+                <li><h2 style="font-size:30px;letter-spacing:4px;margin:13px"><i class="fa fa-dollar"></i> 50</h2> <span style="color: gray;">per month</span></li>
+                <li style="padding: 25px;background-color:#f0f0f0"><button class="btn-sgnup"><i class="fa fa-check"></i> Sign Up</button></li>
+            </ul>
+        </div>
+    </div>
+   </section>
+
+   <section id="contact" style="background-color: rgb(240, 240, 240);overflow:hidden;padding-bottom:64px">
+    <div class="contact-block1">
+        <h2 class="cont-font">Contact Us</h2>
+        <p style="font-size: 20px;">Address</p>
+        <p>Swing by for a cup of coffee, or whatever.</p>
+        <p><i class="fa fa-map-marker" style="font-size:25px;width:3%;margin-right:10px;color: #009688;text-align:center"></i> Chicago, US</p>
+        <p><i class="fa fa-phone" style="font-size:25px;width:3%;margin-right:10px;color: #009688;text-align:center"></i> +00 1515151515</p>
+        <p><i class="fa fa-envelope-o" style="font-size:25px;width:3%;margin-right:10px;color: #009688;text-align:center"></i> test@test.com</p>
+    </div>
+    <div class="contact-block2">
+        <form action="/action.php">
+            <label>Name</label><br>
+            <input type="text" required name="Name"><br>
+            <label>Email</label><br>
+            <input type="text" required name="Email"><br>
+            <label>Message</label><br>
+            <input type="text" required name="Message"><br>
+            <div style="margin-top: 5px;margin-bottom:-15px;overflow:hidden;">
+            <input class="input-check" type="checkbox" checked name="Like"> <label style="float: left;margin-top:5px">I Like it!</label>
+            <button class="btn-snd" style="float: right;">Send</button>
+            </div>
+        </form>
+    </div>
+   </section>
+   <img src="https://www.w3schools.com/w3images/map.jpg" alt="map" width="100%" style="filter: grayscale(50%);margin-bottom:-4px">
+   
+   <footer>
+   <p style="font-size: 18px;">Follow Us</p>
+   <div style="padding-bottom: 15px; position:relative">
+    <a class="icons" href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
+    <a class="icons" href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
+    <a class="icons" href="javascript:void(0)"><i class="fa fa-google-plus"></i></a>
+    <a class="icons" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>
+    <a class="icons" href="javascript:void(0)"><i class="fa fa-linkedin"></i></a>
+    <div class="btn-top-container">
+        <span class="btn-top-hide">Go To Top</span>
+        <a class="btn-top" href="#"><i class="fa fa-chevron-circle-up" style="font-size:24px"></i></a>
+        </div>
+    <p style="color: white;padding-top:15px">Powered by w3.css</p>
+    </div>
+   </footer>
+
+   <script>
+        function openSidebar() {
+            let sidebar = document.querySelector(".sidebar");
+            if (sidebar.style.display == "block"){
+                sidebar.style.display = "none";
+            } else {
+                sidebar.style.display = "block";
+            }
+        }
+
+
+        function openSidebar2() {
+            document.querySelector(".sidebar-2").style.display = "block";
+        }
+        function closeSidebar2() {
+            document.querySelector(".sidebar-2").style.display = "none";
+        }
+        
+
+        function openBar() {
+            document.querySelector(".overlay").classList.add("active");
+            document.querySelector(".css-tab").classList.add("active");
+        }
+
+        function closeBar() {
+            document.querySelector(".overlay").classList.remove("active");
+            document.querySelector(".css-tab").classList.remove("active");
+        }
+   </script>
+</body>
+</html>
