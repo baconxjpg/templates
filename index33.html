@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+        body{ max-width: 1000px;margin: auto;}
+        p {font-size: 15px; line-height: 1.5;}
+        .sidebar {
+            position: fixed;
+            top: 0;
+            width: 265px;
+            height: 100%;
+            overflow-y: scroll;
+            background-color: rgb(243, 243, 243);
+            border-left: 1px solid rgb(219, 219, 219);
+            z-index: 1;
+        }
+        form, label, .nav-input {margin: 15px 0;font-size: 15px;}
+        .btn-smt {background-color: #4CAF50 ;color: white;font-size: 15px;text-align: left;padding: 10px 16px;width: 100%;border: none;font-family: inherit;}
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 20px 16px;
+            font-size: 15px;
+        }
+        .btn-smt:hover, .sidebar a:hover, .btn-close:hover, .btn-close2:hover {background-color: gainsboro;color: black;}
+        main {
+            margin-top: -5px;
+            margin-left: 265px;
+            width: 690px;
+            padding: 0 15px;
+            border-right: 1px solid gainsboro;
+            transition: margin-left 0.35s ease-in-out;
+        }
+        .container {position: relative;}
+        .hidden {display: none;}
+        .dis-desc {position: absolute;bottom: -1.5%;background-color: black;color: white;padding: 16px;font-size: 15px;}
+        .room-con {display: flex;gap: 16px;margin-top: 6px;}
+        .room {display: block;width: 25%;opacity: 0.6;}
+        .room:hover, .room.active {opacity: 1;cursor: pointer;}
+        .col {float: left; width: 50%;}
+        .col p {font-size: 18px;margin-left:5px}
+        .btn {background-color: #4CAF50 ;color: white;font-size: 15px;padding: 10px;border: none;width: 33.33%;font-family: inherit;}
+        footer {margin-top: 50px;}
+        .btn-close {color: black;float:right;margin-top:-23px;margin-right:-15px;font-size:15px;padding:8px 15px}
+        .btn-close2 {color: black;float:right;font-size:24px;padding:8px 15px}
+        .btn-sub {background-color: #4CAF50 ;color: white;padding:16px 24px;border: none;font-family: inherit;font-size: 15px;}
+        @media (max-width:990px) {
+            nav {visibility: hidden;opacity: 0;}
+            main {margin: 0;width: 96%;margin-top: 95px!important;}
+            .sub-tab {width: 65%!important;}
+            
+        }
+        @media (min-width:990px) {
+            .hide-large {display: none;}
+            .overlay {visibility: hidden!important;opacity: 0!important;}
+        }
+        .top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            z-index: 1;
+        }
+        .top a, span {
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            font-size: 24px;
+            display: block;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+        }
+        .overlay-sub {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+        }
+        .overlay.show, .overlay-sub.show {
+            visibility: visible;
+            opacity: 1;
+        }
+        .sidebar.show, .sub-tab.show{
+            visibility: visible;
+            opacity: 1;
+        }
+        .sub-tab {
+            position: fixed;
+            top: 13.5%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width:55%;
+            z-index: 1;
+            background-color: white;
+            padding: 12px 36px;
+            padding-bottom: 24px;
+            text-align: center;
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="top hide-large">
+        <span style="float: left;">Rental</span>
+        <a href="javascript:void(0)" onclick="openBar()" style="float: right;"><i class="fa fa-bars"></i></a>
+    </div>
+    
+    <div class="overlay"></div>
+    <nav class="sidebar">
+        <div style="margin: 17px;">
+            <span class="hide-large btn-close" onclick="closeBar()"><i class="fa fa-remove"></i></span>
+            <h2 style="font-weight:500;padding-top:10px">Rental</h2>
+            <h2 style="font-weight:500;margin-top:-5px">from $99</h2>
+            <p style="font-size: 15px;font-weight:200;margin-top:-5px">per night</p>
+            <br>
+            <form action="/action.php" target="_blank">
+            <label><i class="fa fa-calendar-check-o"></i> Check In</label>
+            <input class="nav-input" type="date" required name="Checkin" style="padding: 12px 8px;border:1px solid gainsboro;width:100%;box-sizing:border-box">
+            <label><i class="fa fa-calendar-o"></i> Check Out</label>
+            <input class="nav-input" type="date" required name="Checkout" style="padding: 12px 8px;border:1px solid gainsboro;width:100%;box-sizing:border-box">
+            <label><i class="fa fa-male" ></i> Adults</label>
+            <input class="nav-input" type="number" min="1" required name="Checkout" value="1" style="padding: 12px 8px;border:1px solid gainsboro;width:100%;box-sizing:border-box">
+            <label><i class="fa fa-child" ></i> Kids</label>
+            <input class="nav-input" type="number" min="0" required name="Checkout" value="0" style="padding: 12px 8px;border:1px solid gainsboro;width:100%;box-sizing:border-box">
+            <button class="btn-smt" type="submit"><i class="fa fa-search" style="margin-right:20px"></i> Search availability</button>
+            </form>
+            <br>
+            <div style="margin: -2px -16px;margin-bottom:-16px">
+                <a href="#apartment"><i class="fa fa-building"></i> Apartment</a>
+                <a href="javascript:void(0)" onclick="openSubbar()"><i class="fa fa-rss"></i> Subscribe</a>
+                <a href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="overlay-sub"></div>
+        <div class="sub-tab">
+            <span class="btn-close2" onclick="closeSubbar()"><i class="fa fa-remove"></i></span>
+            <h1 style="font-weight:200;letter-spacing:4px">SUBSCRIBE</h1>
+            <p>Join our mailing list to receive updates on available dates and special offers.</p>
+            <input placeholder="Enter e-mail" type="email" required name="sub-Email" style="font-size:15px;font-family:inherit;margin-bottom:15px;padding: 12px 8px;border:1px solid gainsboro;width:100%;box-sizing:border-box"><br>
+            <button class="btn-sub" onclick="closeSubbar()">Subscribe</button>
+        </div>
+
+    <main id="apartment">
+        <h1 style="color:#4CAF50;font-weight:200;font-size:30px;margin-bottom:15px">The Apartment</h1>
+        <div class="container">
+            <div class="dis-con">
+                <img src="https://www.w3schools.com/w3images/livingroom.jpg" alt="livingroom" width="100%">
+                <p class="dis-desc">Living Room</p>
+            </div>
+            <div class="dis-con hidden">
+                <img src="https://www.w3schools.com/w3images/diningroom.jpg" alt="diningroom" width="100%">
+                <p class="dis-desc">Dining Room</p>
+            </div>
+            <div class="dis-con hidden">
+                <img src="https://www.w3schools.com/w3images/bedroom.jpg" alt="bedroom" width="100%">
+                <p class="dis-desc">Bedroom</p>
+            </div>
+            <div class="dis-con hidden">
+                <img src="https://www.w3schools.com/w3images/livingroom2.jpg" alt="livingroom2" width="100%">
+                <p class="dis-desc">Living Room II</p>
+            </div>
+        </div>
+        <div class="room-con">
+            <div class="room" onclick="disRoom(0)">
+                <img src="https://www.w3schools.com/w3images/livingroom.jpg" alt="livingroom" width="100%">
+            </div>
+            <div class="room" onclick="disRoom(1)">
+                <img src="https://www.w3schools.com/w3images/diningroom.jpg" alt="diningroom" width="100%">
+            </div>
+            <div class="room" onclick="disRoom(2)">
+                <img src="https://www.w3schools.com/w3images/bedroom.jpg" alt="bedroom" width="100%">
+            </div>
+            <div class="room" onclick="disRoom(3)">
+                <img src="https://www.w3schools.com/w3images/livingroom2.jpg" alt="livingroom2" width="100%">
+            </div>
+        </div>
+
+        <div style="overflow: hidden;">
+            <h3 style="font-size: 21px;">The space</h3>
+            <div class="col">
+                <p><i class="fa fa-male"></i> Max people: 4</p>
+                <p><i class="fa fa-bath"></i> Bathrooms: 2</p>
+                <p><i class="fa fa-bed"></i> Bedrooms: 1</p>
+            </div> 
+            <div class="col">
+                <p><i class="fa fa-clock-o"></i> Check In: After 3PM</p>
+                <p><i class="fa fa-clock-o"></i> Check Out: 12PM</p>
+            </div>
+        </div>
+        <div style="overflow: hidden;">
+            <hr style="opacity: 0.2;margin:20px 0">
+            <h3>Amenities</h3>
+            <div class="col">
+                <p><i class="fa fa-shower"></i> Shower</p>
+                <p><i class="fa fa-wifi"></i> WiFi</p>
+                <p><i class="fa fa-tv"></i> TV</p>
+            </div>
+            <div class="col">
+                <p><i class="fa fa-cutlery"></i> Kitchen</p>
+                <p><i class="fa fa-thermometer"></i> Heating</p>
+                <p><i class="fa fa-wheelchair"></i> Accessible</p>
+            </div>
+        </div>
+        <hr style="opacity: 0.2;margin-top:15px">
+        <div>
+            <h3>Extra Info</h3>
+            <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>We accept: <i class="fa fa-credit-card" style="font-size: 18px;"></i> <i class="fa fa-cc-mastercard" style="font-size: 18px;"></i> <i class="fa fa-cc-amex" style="font-size: 18px;"></i> <i class="fa fa-cc-paypal" style="font-size: 18px;"></i></p>
+        </div>
+        <hr style="opacity: 0.2;margin-top:15px">
+        <div>
+            <h3>Rules</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Subscribe to receive updates on available dates and special offers.</p>
+            <button type="submit" class="btn" onclick="openSubbar()">Subscribe</button>
+        </div>
+        <div id="contact">
+            <hr style="opacity: 0.2;margin:20px -15px">
+            <h1 style="font-weight: 200;">Contact</h1>
+            <div>
+                <p style="display:block;margin:5px 0;font-size:15px"><i class="fa fa-map-marker" style="margin-right: 15px;width:2%;text-align:center"></i> Chicago, US</p>
+                <p style="display:block;margin:5px 0;font-size:15px"><i class="fa fa-phone" style="margin-right: 15px;width:2%;text-align:center"></i> Phone: +00 151515</p>
+                <p style="display:block;margin:5px 0;font-size:15px"><i class="fa fa-envelope" style="margin-right: 15px;width:2%;text-align:center"></i> Email: mail@mail.com</p>
+                <p>Questions? Go ahead, ask them:</p>
+                <form action="/action.php">
+                    <input placeholder="Name" type="text" name="Name" required style="margin:8px 0;padding: 10px 8px;width:100%;border:1px solid gainsboro;box-sizing:border-box">
+                    <input placeholder="Email" type="email" name="Email" required style="margin:8px 0;padding: 10px 8px;width:100%;border:1px solid gainsboro;box-sizing:border-box">
+                    <input placeholder="Message" type="text" name="Message" required style="margin:8px 0;padding: 10px 8px;width:100%;border:1px solid gainsboro;box-sizing:border-box">
+                    <button type="submit" class="btn" style="margin-top: 5px;">Send a Message</button>
+                </form>
+            </div> 
+        </div>
+
+        <footer>
+            <p>Powered by w3.css</p>
+        </footer>
+    </main>
+
+
+    <script>
+        function openBar() {
+            document.querySelector(".overlay").classList.add("show");
+            document.querySelector(".sidebar").classList.add("show");
+        }
+
+        document.querySelector(".overlay").addEventListener("click", closeBar);
+
+        function closeBar() {
+            document.querySelector(".overlay").classList.remove("show");
+            document.querySelector(".sidebar").classList.remove("show");
+        }
+
+        function openSubbar() {
+            document.querySelector(".overlay-sub").classList.add("show");
+            document.querySelector(".sub-tab").classList.add("show");
+        }
+
+        function closeSubbar() {
+            document.querySelector(".overlay-sub").classList.remove("show");
+            document.querySelector(".sub-tab").classList.remove("show");
+        }
+
+
+        let index = 0;
+        const disImg = document.querySelectorAll(".dis-con");
+        const rooms = document.querySelectorAll(".room");
+
+        function roomShow(newIndex) {
+            disImg[index].classList.add("hidden");
+            rooms[index].classList.remove("active");
+            index = newIndex;
+            disImg[index].classList.remove("hidden");
+            rooms[index].classList.add("active");
+        }
+
+        function disRoom(n) {
+            roomShow(n);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            roomShow(0);
+        })
+    </script>
+
+</body>
+</html>
