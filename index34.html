@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+        body {margin: 10px;background-color: rgb(234, 234, 234);overflow-x: hidden;}
+        h2 {font-weight:200;font-size:24px}
+        p {font-size: 15px;line-height: 1.5;}
+        nav {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            margin: -10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            padding: 11px 16px;
+            font-size: 18px;
+            margin-right: -4px;
+        }
+        nav a:hover, .btn:hover, .nav-small a:hover {background-color: gainsboro!important;color:black!important;cursor: pointer;}
+        .search-container {position: relative;}
+        .search-tab {
+            position: absolute;
+            top: 50%;
+            left: 1.1%;
+            transform: translate(0, -50%);
+            width: 48%;
+            background-color: white;
+            padding-bottom: 15px;
+            font-size: 15px;
+        }
+        .flex, .room-flex, .about-flex, .flex-img, .flex-div {display: flex; gap: 16px;}
+        .pad16 {padding: 16px;}
+        .col {display: block;float: left;width: 50%;}
+        input {
+            margin-top: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 8px;
+            border: 1px solid rgb(206, 206, 206);
+            font-family: inherit;
+        }
+        .btn-srch {background-color: rgb(97, 97, 97);color:white;padding:10px 16px;margin-left: 16px;border: none;font-family: inherit;font-size: 15px;margin-top: 5px;}
+        .btn-srch:hover, .btn-subs:hover, .btn-send:hover {background-color: gainsboro;color:black;cursor: pointer;}
+        #rooms {padding: 6px 5px;font-size: 15px;}
+        .col-25 {
+            width: 25%;display: block;float:left
+        }
+        .col-16 {
+            width: 16.66%;display: block;float:left
+        }
+        .btn {background-color: black;color:white;margin-top: 2px;width: 100%;box-sizing: border-box;padding: 12px 8px;border: 1px solid rgb(206, 206, 206);font-family: inherit;border: none;}
+        .room-opts {
+            display: block;
+            float: left;
+            width: 33.33%;
+        }
+        .col-33, .about-col-33{
+            width: 33.33%;display: block;float:left;
+        }
+        .col-66, .about-col-66{
+            width: 66.66%;display: block;float:left;
+        }
+        .col-50 {
+            width: 50%;display: block;float:left;
+        }
+        .btn-subs {background-color: #f44336;color:white;padding: 8px 16px;font-family: inherit;border: none;font-size:15px}
+        .offers-container {padding: 16px;color:white;background-color:black;opacity:0.6;margin: 40px -10px;padding-bottom: 30px;}
+        .offers-container:hover {opacity: 1;}
+        .btn-send {background-color: black;color:white;padding: 12px 24px;font-family: inherit;border: none;font-size:15px}
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: -10px;
+            margin-top: 30px;
+            padding: 30px;
+        }
+        .icons:hover {opacity: 0.6;}
+        .nav-small {
+            position: static;
+            top: 0;
+            margin: -10px;
+            margin-bottom: 10px;
+        }
+        .nav-small a {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            padding: 11px 0;
+            font-size: 18px;
+        }
+       @media (max-width:1500px) {
+        .search-container {margin: -10px!important;}
+            
+       }
+       @media (max-width:990px) {
+        .search-container img {min-height: 530px!important;width: 1000px!important;}
+        .search-tab {width: 62%;left:2%}
+        .about-flex {display: block;}
+        .about-col-33, .about-col-66 {width: 100%;float: none;}
+       }
+       @media (max-width:600px) {
+        .hide-small {display: none;}
+        .search-tab {width: 95%;}
+        .search-tab .flex, .room-flex {display: block!important;}
+        .col, .col-25, .col-16 {display: block!important;width: 100%!important;}
+        .flex-div {display: block!important;overflow: hidden;margin: 20px 0;}
+        .col-33 {display: block!important;width: 100%!important;margin: 3px 0;}
+        .col label {margin-bottom: 2px;}
+        .col input {margin-bottom: 12px;}
+        .room-opts {display: block!important;width: 100%!important;margin-bottom: 15px;}
+        .room-opts:first-child {margin-top: 15px;}
+        .room-opts:last-child {margin-bottom: 40px;}
+        .flex-img {display: block!important;overflow: hidden;}
+        .flex-img .col-50 {width: 100%;}
+        .flex-img .col-50 p {left: 3%!important;bottom: 1%!important;}
+        .flex-img img {padding-bottom: 10px;}
+       }
+       @media (min-width:600px) {
+        .hide-large {display: none;}
+       }
+
+    </style>
+</head>
+<body>
+    <nav class="hide-small">
+        <a href="#" style="background-color: #f44336;color:white"><i class="fa fa-bed" style="margin-right: 15px;"></i>Logo</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" style="float:right;background-color:rgb(243, 243, 243);margin-right: -20px;">Book Now</a>
+    </nav>
+    <div class="nav-small hide-large">
+        <a href="#" style="background-color: #f44336;color:white"><i class="fa fa-bed" style="margin-right: 15px;"></i>Logo</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" style="background-color:rgb(243, 243, 243);">Book Now</a>
+    </div>
+
+    <div class="search-container">
+        <img src="https://www.w3schools.com/w3images/hotel.jpg" alt="hotel" width="100%">
+        <div class="search-tab">
+            <div style="background-color: #f44336;color:white;padding:16px">
+                <h1 style="margin: 0;font-weight:200;"><i class="fa fa-bed" style="margin-right:8px"></i> Hotel Name</h1>
+            </div>
+            <form action="/action.php">
+                <div class="flex pad16">
+                    <div class="col">
+                        <label><i class="fa fa-calendar-o"></i> Check In</label>
+                        <input type="date" required name="CheckIn">
+                    </div>
+                    <div class="col">
+                        <label><i class="fa fa-calendar-o"></i> Check Out</label>
+                        <input type="date" required name="CheckOut">
+                    </div>
+                </div>
+                <div class="flex pad16">
+                    <div class="col">
+                        <label><i class="fa fa-male"></i> Adults</label>
+                        <input type="number" min="1" value="1" required name="Adults">
+                    </div>
+                    <div class="col">
+                        <label><i class="fa fa-child"></i> Kids</label>
+                        <input type="number" min="0" value="0" required name="Kids">
+                    </div>
+                </div>
+                <button class="btn-srch" type="submit"><i class="fa fa-search" style="margin-right:20px"></i>Search availability</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="rooms">
+        <h2>Rooms</h2>
+        <p>Make yourself at home is our slogan. We offer the best beds in the industry. Sleep well and rest well.</p>
+        <div class="room-flex">
+            <div class="col-25">
+                <label><i class="fa fa-calendar-o"></i> Check In</label>
+                <input type="date" required name="CheckIn">
+            </div>
+            <div class="col-25">
+                <label><i class="fa fa-calendar-o"></i> Check Out</label>
+                <input type="date" required name="CheckOut">
+            </div>
+            <div class="col-16">
+                <label><i class="fa fa-male"></i> Adults</label>
+                <input type="number" min="1" value="1" required name="Adults">
+            </div>
+            <div class="col-16">
+                <label><i class="fa fa-child"></i> Kids</label>
+                <input type="number" min="0" value="0" required name="Kids">
+            </div>
+            <div class="col-16">
+                <label><i class="fa fa-search"></i> Search</label>
+                <button class="btn">Search</button>
+            </div>
+        </div>
+
+        <div class="room-flex" style="padding: 16px 0;">
+            <div class="room-opts">
+                <img src="https://www.w3schools.com/w3images/room_single.jpg" alt="room_single" width="100%">
+                <div style="padding: 0.1em 16px;background-color:white;margin-top:-2px;padding-bottom:16px">
+                <h2 style="margin: 15px 0;">Single Room</h2>
+                <p style="color:gray">From $99</p>
+                <p>Single bed</p>
+                <p>15m<sup>2</sup></p>
+                <p style="font-size: 18px;"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
+                <button class="btn">Choose Room</button>
+                </div>
+            </div>
+            <div class="room-opts">
+                <img src="https://www.w3schools.com/w3images/room_double.jpg" alt="room_double" width="100%">
+                <div style="padding: 0.1em 16px;background-color:white;margin-top:-2px;padding-bottom:16px">
+                <h2 style="margin: 15px 0;">Double Room</h2>
+                <p style="color:gray">From $149</p>
+                <p>Queen-size bed</p>
+                <p>25m<sup>2</sup></p>
+                <p style="font-size: 18px;"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i></p>
+                <button class="btn">Choose Room</button>
+                </div>
+            </div>
+            <div class="room-opts">
+                <img src="https://www.w3schools.com/w3images/room_deluxe.jpg" alt="room_deluxe" width="100%">
+                <div style="padding: 0.1em 16px;background-color:white;margin-top:-2px;padding-bottom:16px">
+                <h2 style="margin: 15px 0;">Deluxe Room</h2>
+                <p style="color:gray">From $199</p>
+                <p>King-size bed</p>
+                <p>40m<sup>2</sup></p>
+                <p style="font-size: 18px;"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> <i class="fa fa-tv"></i> <i class="fa fa-glass"></i> <i class="fa fa-cutlery"></i></p>
+                <button class="btn">Choose Room</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" >
+    <div class="about-flex" style="padding:8px">
+        <div class="about-col-33">
+            <h2>About</h2>
+            <p style="font-size: 16px;">Our hotel is one of a kind. It is truely amazing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <p style="font-size: 16px;">We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex"></i> <i class="fa fa-cc-cc-visa"></i><i class="fa fa-cc-paypal"></i></p>
+        </div>
+        <div class="about-col-66">
+            <img src="https://www.w3schools.com/w3images/map.jpg" alt="map" width="100%" style="filter: grayscale(70%);">
+        </div>
+    </div>
+    <div class="flex-div" style="text-align: center;padding-bottom:28px">
+        <h4 class="col-33" style="font-weight: 590;font-size:18px"><i class="fa fa-map-marker" style="color:#f44336"></i> 423 Some adr, Chicago, US</h4>
+        <h4 class="col-33" style="font-weight: 590;font-size:18px"><i class="fa fa-phone" style="color:#f44336"></i> Phone: +00 151515</h4>
+        <h4 class="col-33" style="font-weight: 590;font-size:18px"><i class="fa fa-envelope" style="color:#f44336"></i> Email: mail@mail.com</h4>
+    </div>
+    <div style="margin:-16px;background-color: rgb(181, 181, 181);">
+    <div style="background-color: #f44336;margin-left:12px;color:white;padding:28px 16px;">
+        <p style="font-size: 16px;"><i class="fa fa-info" style="margin-right: 15px;background-color:#ff5722;padding:8px 16px"></i> On demand, we can offer playstation, babycall, children care, dog equipment, etc.</p>
+    </div>
+    </div>
+    <div style="padding: 16px 6px;">
+        <h2 style="padding-top:8px;">Our Hotels</h2>
+        <p style="padding-bottom: 8px;font-size:16px">You can find our hotels anywhere in the world:</p>
+        <div class="flex-img">
+            <div class="col-50" style="position: relative;">
+                <img src="https://www.w3schools.com/w3images/cinqueterre.jpg" alt="cinqueterre" width="100%">
+                <p style="position: absolute;bottom:-1.3%;left:2%;color:white;font-size:18px">Cinque Terre</p>
+            </div>
+            <div class="col-50">
+                <div class="flex-img" style="padding-bottom:8px">
+                    <div class="col-50" style="position: relative;">
+                        <img src="https://www.w3schools.com/w3images/newyork2.jpg" alt="newyork2" width="100%">
+                        <p style="position: absolute;bottom:-2%;left:4%;color:white;font-size:18px">New York</p>
+                    </div>
+                    <div class="col-50" style="position: relative;">
+                        <img src="https://www.w3schools.com/w3images/sanfran.jpg" alt="sanfran" width="100%">
+                        <p style="position: absolute;bottom:-2%;left:4%;color:white;font-size:18px">San Francisco</p>
+                    </div>
+                </div>
+                <div class="flex-img">
+                    <div class="col-50" style="position: relative;">
+                        <img src="https://www.w3schools.com/w3images/pisa.jpg" alt="pisa" width="100%">
+                        <p style="position: absolute;bottom:-2%;left:4%;color:white;font-size:18px">Pisa</p>
+                    </div>
+                    <div class="col-50" style="position: relative;">
+                        <img src="https://www.w3schools.com/w3images/paris.jpg" alt="paris" width="100%">
+                        <p style="position: absolute;bottom:-2%;left:4%;color:white;font-size:18px">Paris</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offers-container">
+        <h2 style="font-size: 28px;">Get the best offers first!</h2>
+        <p>Join our newsletter.</p>
+        <form action="/action.php">
+            <label>E-mail</label>
+            <input type="email" placeholder="Your Email address" required name="Email" style="padding: 12px 8px;width:100%;box-sizing:border-box"><br><br>
+            <button type="submit" class="btn-subs">Subscribe</button>
+        </form>
+    </div>
+    <div style="padding: 0 12px;" id="contact">
+        <h1 style="font-weight: 200;">Contact</h1>
+        <p>If you have any questions, do not hesitate to ask them.</p>
+        <div style="margin: 8px 0;">
+            <p style="font-size: 15px;margin:2px 0"><i class="fa fa-map-marker" style="color:#f44336;margin-right: 16px;width:1%;text-align:center"></i> Chicago, US</p>
+            <p style="font-size: 15px;margin:2px 0"><i class="fa fa-phone" style="color:#f44336;margin-right: 16px;width:1%;text-align:center"></i> Phone: +00 151515</p>
+            <p style="font-size: 15px;margin:2px 0"><i class="fa fa-envelope" style="color:#f44336;margin-right: 16px;width:1%;text-align:center"></i> Email: mail@mail.com</p>
+        </div>
+        <form action="/action.php">
+        <input placeholder="Name" type="text" required name="Name" style="padding: 18px 8px;font-size:15px;width:100%;box-sizing:border-box;font-family:inherit;margin:8px 0;">
+        <input placeholder="Email" type="email" required name="Email" style="padding: 18px 8px;font-size:15px;width:100%;box-sizing:border-box;font-family:inherit;margin:8px 0;">
+        <input placeholder="Message" type="text" required name="Message" style="padding: 18px 8px;font-size:15px;width:100%;box-sizing:border-box;font-family:inherit;margin:8px 0;margin-bottom:16px">
+        <button class="btn-send">SEND MESSAGE</button>
+        </form>
+    </div>
+    <footer>
+        <h4 style="font-size: 18px;font-weight:200">Find Us On</h4>
+        <div style="font-size: 24px;margin:36px 0">
+            <i class="fa fa-facebook-official icons"></i>
+            <i class="fa fa-instagram icons"></i>
+            <i class="fa fa-snapchat icons"></i>
+            <i class="fa fa-pinterest-p icons"></i>
+            <i class="fa fa-twitter icons"></i>
+            <i class="fa fa-linkedin icons"></i>
+        </div>
+        <p>Powered by w3.css</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <style>
+        body {font-family: Verdana, sans-serif;margin: 0;}
+        h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI", Arial, sans-serif;}
+        h1 {font-size: 48px;} h2{font-size: 30px;} h3 {font-size: 20px;}
+        h1, h2 {text-align: center;font-weight: 400;}
+        h3 {font-weight: 400;}
+        p {font-size: 15px; line-height: 1.5;}
+        .ta {text-align: center;}
+        header {text-align: center;background-color: black;color:white;padding: 8px 16px;padding-bottom: 46px;}
+        .hdrClosebtn {float: left;font-size:24px;padding: 8px 16px;}
+        .hdrBtn {margin-top: 100px;background-color: rgb(88, 88, 88);border: none;padding: 10px 16px;color: white;font-size: 24px;;font-weight: 600;font-family: inherit;}
+        .btnHvr:hover, .sidebar a:hover, .navBar a:hover, .dropdown-btn:hover, .dropdown:hover .dropdown-btn, 
+        .sec-btn:hover, .city-btn:hover, .dd-content a:hover {background-color: gainsboro!important;color:black!important;cursor: pointer;}
+        .btnHvr2:hover {background-color: gainsboro;color:black;}
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 36px;
+            z-index: 1;
+            background-color: white;
+            padding-top: 120px;
+            text-align: center;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .sidebar a {
+            display: block;
+            padding: 16px;
+            text-decoration: none;
+            color: black;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            visibility: hidden;
+            opacity: 0;
+        }
+        .tab {position: absolute;top: 32%;left: 50%;transform: translate(-50%, -50%);
+            width: 60%;z-index: 1;background-color: rgb(46, 46, 46);color:white;
+            padding:8px 16px;visibility: hidden;opacity: 0;}
+        .sidebar.active {visibility: visible;opacity: 1;animation: anileft 0.4s;}
+        @keyframes anileft {
+            from {left: -20%;}
+            to {left: 0;}
+        }
+        .overlay.active {visibility: visible;opacity: 1;}
+        .tab.active {visibility: visible;opacity: 1;animation: moves 0.5s;}
+        @keyframes moves {
+            from {top: -20%;transform: translate(-50%, -50%)}
+            to {top: 32%;transform: translate(-50%, -50%)}
+        }
+        .anitoptxt {
+            padding-top: 120px;
+            position: absolute;
+            animation:  anitop 0.6s;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+        @keyframes anitop {
+            from {top: 60%;}
+            to {top: 10%;}
+        }
+        .flex {display: flex;} .gap {gap: 16px;} .bs {box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);}
+        .col50 {width: 50%;} .col33 {width: 33.33%;} .col25 {width: 25%;} .icons {padding: 16px;font-size: 120px;}
+        main {padding: 16px;} hr {opacity: 0.2;margin-top: 20px;} .clr-block {width:16.66%} .clrThm h3 {font-size:24px;margin: 0;}
+        .pd {padding: 0.01em 16px;} .clrThm li {padding: 16px;border-bottom: 1px solid gainsboro;} .clrThm li p {margin-bottom: 6px;}
+        table {width: 100%;border-collapse: collapse;} tr:first-child {text-align: left;background-color: black;color:white}
+        th, td {padding: 8px 16px;} tr {border-bottom: 1px solid gainsboro;} th:first-child, tr:first-child {padding-right: 24px;}
+        .input1 {padding: 8px;width:100%;box-sizing:border-box;border: none;border-bottom: 1px solid gainsboro;} ul {list-style: none;padding:0}
+        .input-group {display: flex;align-items: center;} .input-group input {width: 25px;height: 25px;margin-right: 6px;}
+        .fnl li {padding: 8px 16px;border-bottom: 1px solid gainsboro;} .loadBtn {background-color: black;color:white;padding:12px 16px;border: none;font-family: inherit;font-size: 15px;}
+        .loadBtn:hover {box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.7);} .hidden {display: none;} .container, .slides {position: relative;}
+        .slidesBtn1 {position: absolute;top: 45%;left: 23%;padding:8px 16px;border:none;background-color:transparent} .slidesBtn2 {position: absolute;top: 45%;right: 23%;padding:8px 16px;border:none;background-color:transparent}
+        .btnHvr3:hover {background-color: rgb(87, 87, 87);color:white;cursor: pointer;} .btn2 {border-radius: 50%;}
+        .slides.flash {animation: flash 0.6s;}
+        @keyframes flash {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+        .navBar {background-color: black;}
+        .navBar a {text-decoration: none;color:white;display: inline-block;padding: 16px;margin-top: -1px;}
+        .dropdown {display: inline-block;position: relative;}
+        .dropdown-btn {background-color: transparent;color:white;border: none;font-family: inherit;padding: 16px;font-size: 15px;}
+        .dropdown-content {display: none;position: absolute;margin-top: 1px;background-color: white;z-index: 1;}
+        .dropdown-content a {color:black;width: 130px;} .sec2 a {text-decoration: none;display: block;padding: 8px 16px;margin: 0 -16px;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .sec-btn {background-color: black;color:white;padding:16px;width: 100%;text-align: left;border: none;font-family: inherit;font-size: 15px;}
+        .city-btn.active {background-color: gray;} .btn1 {background-color: black;color:white;padding: 10px 16px;font-size: 15px;font-family: inherit;border: none;}
+        .cityLink {position: relative;width: 100%;background-color: black;} .btn2 {padding:12px 16px;background-color: black;color:white;border: none;}
+        .cityLink a {text-decoration: none;padding: 16px;color:white;display: inline-block;margin-right: -6px;} .btn2:nth-child(3) {background-color: white;color:black}
+        .cities {opacity: 0;} .btn-nt:hover {cursor: not-allowed;background-color: gainsboro;color:black} .btn-nt {opacity: 0.2;}
+        .cities.active {opacity: 1;transition: opacity 0.6s ease-in-out;}
+        .dd {position: relative;} .dd-btn {background-color: black;color:white;border: none;padding: 8px 16px;font-size: 15px;}
+        .dd-content {display: none;position: absolute;left: 46.2%;background-color: white;z-index: 1;border: 1px solid gainsboro;} 
+        .dd-content a {text-align: left;padding: 8px 16px;display: block;text-decoration: none;color: black;width: 120px;} 
+        .dd:hover .dd-content {display: block;} .page a {margin-right: -6px;text-decoration: none;color:black;padding: 10px 16px;font-size: 15px;} .page a:nth-child(2) {background-color: black;color:white}
+        .page a:hover {background-color: black;color:white} footer {background-color: black;color:white;padding: 16px;padding-bottom: 32px;}
+        .top-nav {position:relative} .top-btn {float: right;margin-top:-16px;font-size:24px;text-decoration: none;color: white;}
+        .top-tag {position: absolute;;right:2%;background-color:white;color:black;padding:8px 16px;margin-top:-16px;}
+        .top-nav:hover .top-tag {display: block}
+        @media (max-width:600px) {
+            .flex {display: block;}
+            .col50, .col33, .col25, .clr-block {width: 100%;box-sizing: border-box;}
+            .pad {padding-top: 10px;}
+            .top-tag {right: 5%;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="hdrClosebtn btnHvr" onclick="openSidebar()"><i class="fa fa-bars"></i></span>
+        <br>
+        <div style="padding-top: 16px;">
+            <h3 class="ta">BEAUTIFUL RESPONSIVE WEB SITES</h3>
+            <h1 class="anitoptxt" style="margin-top: 5px;">BUILT WITH W3.CSS</h1>
+            <button onclick="openTab()" class="hdrBtn btnHvr">LEARN W3.CSS</button>
+        </div>
+    </header>
+    <div class="sidebar">
+        <h2>Side Navigation</h2>
+        <a href="javascript:void(0)" style="margin-top: -10px;" onclick="closeSidebar()">Close <i class="fa fa-remove"></i></a>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+    </div>
+    <div class="overlay"></div>
+    <div class="tab">
+            <span style="float: right;padding:8px 16px;margin:-8px -16px" class="btnHvr" onclick="closeTab()">x</span>
+            <p>Oh snap! We just showed you a modal..</p>
+            <p>Because we can </p>
+            <div style="background-color: white;color:black;margin:0 -16px;padding:8px 16px">
+                <p>Cool huh? Ok, enough teasing around..</p>
+                <p>Go to our  to learn more!</p>
+            </div>
+            <p>Modal footer</p>
+    </div>
+    <main>
+        <div class="flex gap ta">
+            <div class="col50 bs pad" style="padding-bottom: 50px;">
+                <h2 style="font-size: 24px;">Responsive</h2>
+                <i class="fa fa-desktop icons"></i>
+                <p>Built-in responsiveness</p>
+                <p>Mobile first fluid grid</p>
+                <p>Fits any screen sizes</p>
+                <p>PC Tablet and Mobile</p>
+            </div>
+            <div class="col50 bs pad" style="padding-bottom: 50px;">
+                <h2 style="font-size: 24px;">Standard CSS</h2>
+                <i class="fa fa-css3 icons"></i>
+                <p>Standard CSS only</p>
+                <p>Easy to learn</p>
+                <p>No need for jQuery</p>
+                <p>No JavaScript library</p>
+            </div>
+            <div class="col50 bs pad" style="padding-bottom: 50px;">
+                <h2 style="font-size: 24px;">Design</h2>
+                <i class="fa fa-diamond icons"></i>
+                <p>Paper like design</p>
+                <p>Bold colors and shadows</p>
+                <p>Equal across platforms</p>
+                <p>Equal across devices</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Color Classes</h2>
+            <div class="flex">
+                <div class="clr-block" style="padding:16px;background-color: #f44336;color:white;">Red</div>
+                <div class="clr-block" style="padding:16px;background-color: #2196F3;color:white;">Blue</div>
+                <div class="clr-block" style="padding:16px;background-color: #607d8b;color:white;">Blue Grey</div>
+                <div class="clr-block" style="padding:16px;background-color: #009688;color:white;">Teal</div>
+                <div class="clr-block" style="padding:16px;background-color: #ffeb3b;color:black;">Yellow</div>
+                <div class="clr-block" style="padding:16px;background-color: #ff9800;color:black;">Orange</div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Built-In Responsiveness</h2>
+            <p class="ta">Resize the page to see the effect!</p>
+            <div class="flex" style="border: 1px solid gainsboro;">
+                <div class="col50 pd" style="background-color: #2196F3;color:white">
+                    <p>w3-half</p>
+                    <p>The w3-half class uses half (50%) of the screen window.</p>
+                    <p>On small screens (max 600 pixels) it automatically resizes to full screen width.</p>
+                </div>
+                <div class="col50 pd">
+                    <p>w3-half</p>
+                </div>
+            </div>
+            <br>
+            <div class="flex" style="border: 1px solid gainsboro;">
+                <div class="col33 pd" style="background-color: #4CAF50;color:white">
+                    <p>w3-third</p>
+                    <p>The w3-third class uses one third (33.33%) of the screen widow.</p>
+                    <p>On small screens (max 600 pixels) it automatically resizes to full screen width.</p>
+                </div>
+                <div class="col33 pd">
+                    <p>w3-third</p>
+                </div>
+                <div class="col33 pd">
+                    <p>w3-third</p>
+                </div>
+            </div>
+            <br>
+            <div class="flex" style="border: 1px solid gainsboro;">
+                <div class="col25 pd" style="background-color: #f44336;color:white">
+                    <p>w3-quarter</p>
+                    <p>The w3-quarter class uses one quarter (25%) of the screen window.</p>
+                    <p>On small screens (max 600 pixels) it automatically resizes to full screen width.</p>
+                </div>
+                <div class="col25 pd">
+                    <p>w3-quarter</p>
+                </div>
+                <div class="col25 pd">
+                    <p>w3-quarter</p>
+                </div>
+                <div class="col25 pd">
+                    <p>w3-quarter</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Containers</h2>
+            <p class="ta">Use containers to create headers, sections and footers.</p>
+            <div>
+                <div>
+                    <h2 style="margin:0;padding:10px 16px;text-align:left;background-color:#607d8b;color:white">Header</h2>
+                    <div class="pd" style="margin-top: -6px;">
+                        <div class="london-arti">
+                            <span class="btnHvr" style="float: right;padding:8px 16px;margin:-19px -16px" onclick="closeArti()"><i class="fa fa-remove"></i></span>
+                            <h2 style="text-align:left">London</h2>
+                            <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+                            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+                            <p>By the way, you can add a close icon to all containers if you want the ability to hide them. Look to your right!</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color:#607d8b;color:white;" class="pd">
+                    <p>Footer</p>
+                    <p style="color:#9cadb4;">Footer information goes here</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="clrThm">
+            <h2>Color Themes</h2>
+            <p class="ta">The color themes have been designed to work harmoniously with each other.</p>
+            <div class="flex gap">
+                <div class="col50 bs">
+                    <h3 style="background-color: #3f51b5;color:white;padding: 12px 16px;">Theme Indigo</h3>
+                    <h3 style="color:#3f51b5;padding: 12px 16px;border-bottom: 1px solid gainsboro;">Movies 2014</h3>
+                    <ul>
+                        <li>
+                            <h3 style="margin-top: -16px;">Frozen</h3>
+                            <p>The response to the animations was ridiculous</p>
+                        </li>
+                        <li>
+                            <h3>The Fault in Our Stars</h3>
+                            <p>Touching, gripping and genuinely well made</p>
+                        </li>
+                        <li>
+                            <h3>The Avengers</h3>
+                            <p>A huge success for Marvel and Disney</p>
+                        </li>
+                        <p style="font-size:16px;float: right;margin:0;padding:0.01em 16px;box-sizing:border-box;text-align:right;width:100%;background-color: #3f51b5;color:white">Next</p>
+                    </ul>
+                </div>
+                <div class="col50 bs">
+                    <h3 style="background-color: black;color:white;padding: 12px 16px;">Theme</h3>
+                    <h3 style="color: black;padding: 12px 16px;margin:0;border-bottom: 1px solid gainsboro;">Movies 2014</h3>
+                    <ul>
+                        <li>
+                            <h3 style="margin-top: -16px;">Frozen</h3>
+                            <p>The response to the animations was ridiculous</p>
+                        </li>
+                        <li>
+                            <h3>The Fault in Our Stars</h3>
+                            <p>Touching, gripping and genuinely well made</p>
+                        </li>
+                        <li>
+                            <h3>The Avengers</h3>
+                            <p>A huge success for Marvel and Disney</p>
+                        </li>
+                        <p style="font-size:16px;float: right;margin:0;padding:0.01em 16px;box-sizing:border-box;text-align:right;margin:0;width:100%;background-color: black;color:white">Next</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2 style="font-size: 24px;">Paper-like Cards with Shadows</h2>
+            <div class="flex gap">
+                <div class="col33 bs">
+                    <img src="https://www.w3schools.com/w3images/car.jpg" alt="car" width="100%">
+                    <p class="pd">w3-card</p>
+                </div>
+                <div class="col33 bs">
+                    <img src="https://www.w3schools.com/w3images/car.jpg" alt="car" width="100%">
+                    <p class="pd">w3-card-4</p>
+                </div>
+                <div class="col33 bs">
+                    <img src="https://www.w3schools.com/w3images/car.jpg" alt="car" width="100%">
+                    <p class="pd">w3-card-4</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Tables</h2>
+            <p class="ta">Don't worry. W3.CSS takes care of your tables.</p>
+            <table class="bs">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                    <td>Adam</td>
+                    <td>Johnson</td>
+                    <td>67</td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div>
+            <h2>Forms and Lists</h2>
+            <div class="flex gap">
+                <div class="col50 bs pd" style="float: left;padding-bottom:16px">
+                    <h2 style="text-align: left;margin-top:16px">Input Form</h2>
+                    <form action="/action.php" target="_self">
+                        <input type="text" required name="Name" class="input1">
+                        <label>Name</label><br><br>
+                        <input type="text" required name="Email" class="input1">
+                        <label>Email</label><br><br>
+                        <input type="text" required name="Subject" class="input1">
+                        <label>Subject</label>
+                        <br><br>
+                        <div class="flex">
+                            <div class="col50">
+                                <div class="input-group">
+                                    <input type="checkbox" name="Milk" checked>
+                                    <label>Milk</label><br>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" name="Sugar">
+                                    <label>Sugar</label><br>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" name="(Disabled)" disabled>
+                                    <label>Lemon (Disabled)</label><br>
+                                </div>
+                            </div>
+                            <div class="col50">
+                                <div class="input-group">
+                                    <input type="radio" name="gender" checked>
+                                    <label>Male</label><br>
+                                </div>
+                                <div class="input-group">
+                                    <input type="radio" name="gender">
+                                    <label>Female</label><br>
+                                </div>
+                                <div class="input-group">
+                                    <input type="radio" name="(Disabled)" disabled>
+                                    <label>Don't know (Disabled)</label><br>
+                                </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col50 bs pd" style="float: left;">
+                    <h2  style="text-align: left;margin-top:16px">Lists</h2>
+                    <ul class="fnl">
+                        <li>Jill</li>
+                        <li>Eve</li>
+                        <li style="border: none;">Adam</li>
+                    </ul>
+                    <br>
+                    <ul class="fnl" style="border: 1px solid gainsboro;">
+                        <li style="background-color: black;color:white">Jill</li>
+                        <li class="btnHvr2">Eve</li>
+                        <li class="btnHvr2">Adam</li>
+                        <li style="border: none;" class="btnHvr2">Steve</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Progress Bars</h2>
+            <div style="background-color: gainsboro;width:100%">
+                <div class="prgBar ta" style="background-color: black;padding:8px;color:white;width:4%;">5%</div>
+            </div><br>
+            <button onclick="loadBar()" class="loadBtn">Click Me</button>
+        </div>
+        <hr>
+        <h2>Slideshows</h2>
+        <div class="container ta">
+            <div class="slides">
+                <img src="https://www.w3schools.com/w3images/snow.jpg" alt="snow" width="54%">
+            </div>
+            <div class="slides hidden">
+                <img src="https://www.w3schools.com/w3images/lights.jpg" alt="lights" width="54%">
+            </div>
+            <div class="slides hidden">
+                <img src="https://www.w3schools.com/w3images/mountains.jpg" alt="mountains" width="54%">
+            </div>
+            <div class="slides hidden">
+                <img src="https://www.w3schools.com/w3images/forest.jpg" alt="forest" width="54%">
+            </div>
+            <div>
+                <button class="slidesBtn1 btnHvr3" onclick="slidePrv()">❮</button>
+                <button class="slidesBtn2 btnHvr3" onclick="slideNxt()">❯</button>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Navigation</h2>
+            <div class="navBar">
+             <a href="#">Home</a>   
+             <a href="#">Link 1</a>   
+             <div class="dropdown">
+                <button class="dropdown-btn">Dropdown <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content bs">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+             </div>
+            </div>
+        </div>
+        <hr>
+        <h2>Accordions</h2>
+        <div>
+            <button class="sec-btn" onclick="openSec('sec1')">Open Section 1</button>
+            <div class="section sec1 pd hidden">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+        <div>
+            <button class="sec-btn" onclick="openSec('sec2')">Open Section 2</button>
+            <div style="background-color: white;color:black" class="section sec2 pd hidden">
+                <a href="#" class="btnHvr">Link 1</a>
+                <a href="#" class="btnHvr">Link 2</a>
+                <a href="#" class="btnHvr">Link 3</a>
+            </div>
+        </div>
+        <div>
+            <button class="sec-btn" onclick="openSec('sec3')">Open Section 3</button>
+            <div style="background-color: black;color:white" class="section sec3 pd hidden">
+                <p>Accordion with Images:</p>
+                <div>
+                    <img src="https://www.w3schools.com/w3css/img_snowtops.jpg" alt="snowtops" width="30%">
+                </div>
+                <p>French Alps</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h2>Tabs</h2>
+            <div class="cityLink">
+                <a href="javascript:void(0)" onclick="cityTab('London')" class="city-btn London">London</a>
+                <a href="javascript:void(0)" onclick="cityTab('Paris')" class="city-btn Paris">Paris</a>
+                <a href="javascript:void(0)" onclick="cityTab('Tokyo')" class="city-btn Tokyo">Tokyo</a>
+            </div>
+            <div>
+                <div  class="London cities pd" style="border: 1px solid gainsboro;">
+                    <h2 style="text-align: left;margin-top:16px">London</h2>
+                    <p>London is the capital city of England.</p>
+                    <p>It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+                </div>
+                <div class="Paris hidden cities pd" style="border: 1px solid gainsboro;">
+                    <h2 style="text-align: left;margin-top:16px">Paris</h2>
+                    <p>Paris is the capital of France.</p>
+                    <p>The Paris area is one of the largest population centers in Europe, with more than 12 million inhabitants.</p>
+                </div>
+                <div class="Tokyo hidden cities pd" style="border: 1px solid gainsboro;">
+                    <h2 style="text-align: left;margin-top:16px">Tokyo</h2>
+                    <p>Tokyo is the capital of Japan.</p>
+                    <p>It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="ta">
+            <h2>Buttons</h2>
+            <button class="btn1 btnHvr">Button</button>
+            <button class="btn1 btnHvr">Button</button>
+            <button disabled class="btn1 btn-nt">Button</button>
+            <br><br>
+            <div>
+            <button class="btn2 btnHvr"><i class="fa fa-plus"></i></button>
+            <button class="btn2 btnHvr"><i class="fa fa-plus"></i></button>
+            <button class="btn2 btnHvr bs"><i class="fa fa-plus"></i></button>
+            <br>
+            </div>
+            <br><br>
+            <div class="dd">
+                <button class="dd-btn">Dropdown <i class="fa fa-caret-down"></i></button>
+                <div class="dd-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="ta">
+            <h2>Pagination</h2>
+            <br>
+            <div class="page">
+                <a href="#">«</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">»</a>
+            </div>
+        </div>
+        <br><br>
+    </main>
+    <footer>
+        <h3 style="font-size: 24px;margin-top:10px">Footer</h3>
+        <div class="top-nav">
+            <a href="#" class="top-btn"><i class="fa fa-chevron-circle-up"></i></a>
+            <span class="top-tag hidden">Go To Top</span>
+        </div>
+        <p>Powered by w3.css</p>
+        <p>Remember to check out our <a style="margin-left:6px;padding: 8px 16px;background-color:white;color:black;text-decoration:none" href="https://www.w3schools.com/w3css/w3css_references.asp" target="_blank">W3.CSS Reference</a></p>
+    </footer>
+    <script>
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.add("active");
+        }
+        function openTab() {
+            document.querySelector(".overlay").classList.add("active");
+            document.querySelector(".tab").classList.add("active");
+        }
+        function closeSidebar() {
+            document.querySelector(".sidebar").classList.remove("active");
+        }
+        function closeTab() {
+            document.querySelector(".overlay").classList.remove("active");
+            document.querySelector(".tab").classList.remove("active");
+        }
+        function closeArti() {
+            document.querySelector(".london-arti").style.display = "none";
+        }
+
+        function loadBar() {
+            const elem = document.querySelector(".prgBar");
+            let width = 0;
+            const id = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    elem.style.width = `${++width}%`;
+                    elem.innerHTML = `${width}%`;
+                }
+            },10);
+        };
+
+        let index = 0;
+        const slide = document.querySelectorAll(".slides");
+        function dis(newIndex) {
+            slide[index].classList.add("hidden");
+            index = newIndex;
+            slide[index].classList.remove("hidden");
+            slide[index].classList.add("flash");
+        }
+
+        function slidePrv() {
+            newIndex = (index -1 + slide.length) % slide.length;
+            dis(newIndex);
+        }
+        function slideNxt() {
+            newIndex = (index +1 )% slide.length;
+            dis(newIndex);
+        }
+
+        function openSec(type) {
+            let section = document.querySelector(`.section.${type}`);
+            section.classList.toggle("hidden");
+        }
+
+        function cityTab(loc) {
+            document.querySelectorAll(".cities").forEach(tab => {
+                tab.classList.add("hidden");
+                tab.classList.remove("active");
+            });
+        
+            document.querySelectorAll(".city-btn").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+
+            document.querySelector(`.cities.${loc}`).classList.remove("hidden");
+            setTimeout (() => {
+                document.querySelector(`.cities.${loc}`).classList.add("active");
+            },5);
+        
+            document.querySelector(`.city-btn.${loc}`).classList.add("active");
+        }
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            cityTab('London');
+        });
+    </script>
+</body>
+</html>

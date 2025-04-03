@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif}
+        body {margin: 0;}
+        h3, h4 {font-weight: 200;}
+        p {font-size: 15px; line-height: 1.5;}
+        nav {
+            position: fixed;
+            left: 0;
+            width: 320px;
+            height: 100%;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+            overflow-y: scroll;
+            animation: left 0.6s;
+            z-index: 1;
+            background-color: white;
+        }
+        @keyframes left {
+            from {left: -30%;}
+            to {left: 0%;}
+        }
+        nav a:first-child {padding: 18px 16px;}
+        nav a {
+            display: block;
+            padding: 18px 16px;
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            animation: left 0.8s;
+        }
+        nav a:hover, .btn:hover, .close-btn:hover, .sidebar a:hover, .btn2:hover {background-color: rgb(187, 187, 187)!important;color: black!important;cursor: pointer;}
+        .iconML {margin-left: 12px;}
+        .iconMR {margin-right: 16px;}
+        .msg-btn {color: white;background-color: rgb(94, 94, 94);padding:22px 16px;}
+        .msg-btn:hover {background-color: black!important;color: white!important;}
+        .msg-btn i {margin-left: 20px;}
+        .inbox-btn {color: white;background-color: #f44336;}
+        .flex {display: flex;overflow: hidden;margin-bottom: -12px;}
+        .flex h3 {color: rgb(93, 93, 93);margin-top: 6px;margin-left: 16px;font-weight: 200;}
+        .inbox {margin-bottom: -8.7px;}
+        .inbox a:first-child {margin-top: -2px;padding: 16px 32px}
+        .inbox a {padding: 16px 32px;margin-top: -10px;margin-bottom: -8px;}
+        .inbox a:hover {background-color: rgb(239, 239, 239);}
+        .inbox p {font-family: "Segoe UI", Arial, sans-serif;}
+        .inbox img {border-radius: 4px;}
+        hr {opacity: 0.4;}
+        .overlay, .overlayNav {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+        }
+        .mailTab {
+            position: absolute;
+            width: 58.5%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 2;
+        }
+        .overlay.active, .overlayNav.active {visibility: visible;opacity: 1;}
+        .mailTab.active {visibility: visible;opacity: 1;animation: animateScale 0.6s;}
+        @keyframes animateScale { 
+            from {transform:  translate(-50%, -50%) scale(0);}
+            to {transform:  translate(-50%, -50%) scale(1);}
+        }
+        form {padding: 16px;font-size: 15px;}
+        .mailTab input {box-sizing: border-box;width: 100%;padding: 10px 16px;margin-top: 2px;margin-bottom: 18px;border: 1px solid rgb(175, 175, 175);}
+        .btn {border: none;padding: 10px 16px;font-family: inherit;font-size: 15px;}
+        .btn-cancel {color: white;background-color: #f44336;}
+        .btn-send {float: right;}
+        .hidden {display: none;}
+        main {margin-left: 336px;padding-top: 265px;}
+        .mail.active {background-color: rgb(239, 239, 239);}
+        .person img {border-radius: 4px;margin-top: 22px;}
+        .container {position: absolute;top: 0;animation: animatetop 0.3s;}
+        @keyframes animatetop {
+            from {top: -30%;}
+            to {top: 0%;}
+        }
+        .sidebar {
+            margin-top: 15px;
+        }
+        .sidebar a {
+            padding: 10px 16px;
+            margin: 23px 16px;
+            text-decoration: none;
+            color: black;
+        }
+        .btn2 {border-top: 1px solid rgb(193, 193, 193);font-size: 18px;}
+
+        @media (max-width:990px) {
+            nav {margin-top: 10px;}
+            .hide-small {display: none;}
+            main {margin: -26px 16px;}
+            .container {margin-top: 58px!important;}
+            .container img {width: 170px;}
+        }
+        @media (min-width:990px) {
+            .hide-large {display: none;}
+            nav {display: block!important;}
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar hide-large">
+        <a href="javascript:void(0)" onclick="openNav()" style="float: left;font-size:24px"><i class="fa fa-bars"></i></a>
+        <a href="javascript:void(0)" onclick="msgTab()" style="float: right;background-color:#f44336;color:white;font-size:15px;margin-top:28px"><i class="fa fa-pencil"></i></a>
+    </div>
+    <div class="overlayNav"></div>
+    <nav class="hide-small">
+        <a><img src="https://www.w3schools.com/images/w3schools.png" alt="w3schools" width="60%"></a>
+        <a href="javascript:void(0)" onclick="closeNav()" class="hide-large btn2">Close <i class="fa fa-remove"></i></a>
+        <a href="javascript:void(0)" onclick="msgTab()" class="msg-btn">New Message<i class="fa fa-pencil"></i></a>
+        <div>
+        <a href="javascript:void(0)" onclick="inboxTab('inbox')" class="inbox-btn"><i class="fa fa-inbox iconMR"></i>Inbox (3) <i class="fa fa-caret-down iconML"></i></a>
+        <div class="inbox">
+            <a href="javascript:void(0)" class="mail Borge" onclick="openMail('Borge')">
+                <div class="flex">
+                <img src="https://www.w3schools.com/w3images/avatar3.png" alt="avatar" width="36px" height="36px">
+                <h3>Borge Refsnes</h3>
+                </div>
+                <p>Subject: Remember Me</p>
+                <p>Hello, i just wanted to let you know that i'll be home at...</p>
+            </a>
+            <hr>
+            <a href="javascript:void(0)" class="mail Jane" onclick="openMail('Jane')">
+                <div class="flex">
+                <img src="https://www.w3schools.com/w3images/avatar5.png" alt="avatar" width="36px" height="36px">
+                <h3>Jane Doe</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </a>
+            <hr>
+            <a href="javascript:void(0)" class="mail John" onclick="openMail('John')">
+                <div class="flex">
+                <img src="https://www.w3schools.com/w3images/avatar2.png" alt="avatar" width="36px" height="36px">
+                <h3>John Doe</h3>
+                </div>
+                <p>Welcome!</p>
+            </a>
+            <hr>
+        </div>
+        </div>
+        <a href="#"><i class="fa fa-paper-plane iconMR"></i>Sent</a>
+        <a href="#"><i class="fa fa-hourglass-end iconMR"></i>Drafts</a>
+        <a href="#"><i class="fa fa-trash iconMR"></i>Trash</a>
+    </nav>
+    <div class="overlay"></div>
+    <div class="mailTab">
+        <span class="close-btn" onclick="closeTab()" style="float:right;color:white;margin:8px 16px;font-size:35px;padding: 10px 16px;"><i class="fa fa-remove"></i></span>
+        <h1 style="background-color: #f44336;color:white;margin:0;padding: 24px 16px;font-weight:200">Send Mail</h1>
+        <form action="/action.php">
+            <label>To</label>
+            <input type="text" name="To" required>
+            <label>From</label>
+            <input type="text" name="From" required>
+            <label>Subject</label>
+            <input type="text" name="Subject" required>
+            <input placeholder="What's on your mind?" type="text" name="Message" style="padding: 64px 8px;">
+            <button type="submit" onclick="closeTab()" class="btn-cancel btn">Cancel <i class="fa fa-remove" style="margin-left: 4px;"></i></button>
+            <button type="submit" onclick="closeTab()" class="btn-send btn">Send <i class="fa fa-paper-plane" style="margin-left: 4px;"></i></button>
+        </form>
+    </div>
+    
+    <main>
+        <div class="hidden person Borge">
+            <div class="container">
+                <img src="https://www.w3schools.com/w3images/avatar3.png" alt="avatar3" width="240px">
+            </div>
+            <h4 style="margin: 8px 0;color:rgb(114, 114, 114);font-size:18px">Subject: Remember Me</h4>
+            <h3 style="font-size: 20px;margin-top:16px;margin-bottom:12px"><i class="fa fa-clock-o"></i> From Borge Refsnes, Sep 27, 2015.</h3>
+            <button class="btn"> Reply <i class="fa fa-mail-reply" style="margin-left: 10px;"></i></button>
+            <button class="btn"> Forward <i class="fa fa-arrow-right" style="margin-left: 10px;"></i></button>
+            <hr style="opacity: 0.2;margin-top:20px">
+            <p>Hello, i just wanted to let you know that i'll be home at lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Best Regards, <br> Borge Refsnes</p>
+        </div>
+        <div class="hidden person Jane">
+            <div  class="container">
+                <img src="https://www.w3schools.com/w3images/avatar5.png" alt="avatar3" width="240px">
+            </div>
+            <h4 style="margin: 8px 0;color:rgb(114, 114, 114);font-size:18px">Subject: None</h4>
+            <h3 style="font-size: 20px;margin-top:16px;margin-bottom:12px"><i class="fa fa-clock-o"></i> From Jane Doe, Sep 25, 2015.</h3>
+            <button class="btn"> Reply <i class="fa fa-mail-reply" style="margin-left: 10px;"></i></button>
+            <button class="btn"> Forward <i class="fa fa-arrow-right" style="margin-left: 10px;"></i></button>
+            <hr style="opacity: 0.2;margin-top:20px">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Forever yours,<br>Jane</p>
+        </div>
+        <div class="hidden person John">
+            <div  class="container">
+                <img src="https://www.w3schools.com/w3images/avatar2.png" alt="avatar3" width="240px">
+            </div>
+            <h4 style="margin: 8px 0;color:rgb(114, 114, 114);font-size:18px">Subject: None</h4>
+            <h3 style="font-size: 20px;margin-top:16px;margin-bottom:12px"><i class="fa fa-clock-o"></i> From John Doe, Sep 23, 2015.</h3>
+            <button class="btn"> Reply <i class="fa fa-mail-reply" style="margin-left: 10px;"></i></button>
+            <button class="btn"> Forward <i class="fa fa-arrow-right" style="margin-left: 10px;"></i></button>
+            <hr style="opacity: 0.2;margin-top:20px">
+            <p>Welcome.</p>
+            <p>That's it!</p>
+        </div>
+    </main>
+
+    <script>
+        function msgTab() {
+            document.querySelector(".overlay").classList.add("active")
+            document.querySelector(".mailTab").classList.add("active")
+        }
+
+        function closeTab() {
+            document.querySelector(".overlay").classList.remove("active")
+            document.querySelector(".mailTab").classList.remove("active")
+        }
+        
+        function inboxTab() {
+            let inbox = document.querySelector(".inbox");
+            if (inbox.style.display == "none") {
+                inbox.style.display = "block";
+            } else {
+                inbox.style.display = "none";
+            }
+        }
+
+       
+        function openMail(type) {
+            document.querySelectorAll(".person").forEach(tab => tab.classList.add("hidden"))
+            document.querySelectorAll(".mail").forEach(btn => btn.classList.remove("active"))
+
+            document.querySelector(`.person.${type}`).classList.remove("hidden");
+            document.querySelector(`.mail.${type}`).classList.add("active");
+
+            if (window.innerWidth <= 990) {
+                closeNav();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            openMail("Borge");
+        })
+
+        function openNav() {
+            document.querySelector("nav").style.display = "block";
+            document.querySelector(".overlayNav").classList.add("active")
+        }
+
+        function closeNav() {
+            document.querySelector("nav").style.display = "none";
+            document.querySelector(".overlayNav").classList.remove("active")
+        }
+
+    </script>
+</body>
+</html>
