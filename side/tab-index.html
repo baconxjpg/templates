@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+        h2 {font-weight: 200;margin-top: 28px;margin-bottom: 16px;} p {font-size: 15px;}
+        body {margin: 5px;}
+        .topbar {
+            position: static;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            margin: -5px;
+            margin-bottom: 1px;
+        }
+        .topbar a {
+            text-decoration: none;
+            padding: 12px 16px;
+        }
+        .topbar a:hover {background-color: #f44336;color:white!important;}
+        header {position: relative;}
+        .tab-container {
+            position: absolute;
+            top: 34%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            background-color: black;
+        }
+        .nav-btn {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 16px;
+            font-size: 15px;
+            margin-right: -4px;
+            border: none;
+            background-color: transparent;
+            font-family: inherit;
+        }
+        .nav-btn:hover {background-color: gainsboro!important;color:black!important;cursor: pointer;}
+        .tab-content {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: white;padding: 0.1em 16px;
+            padding-bottom: 15px;
+        }
+        .flex {display: flex;gap: 16px;}
+        .col-50 {display: block;width: 50%;}
+        label {font-size: 15px;}
+        input {width: 100%;border: 1px solid gainsboro;padding: 10px 8px;font-size: 15px;box-sizing: border-box;font-family: inherit;margin-top: 2px;}
+        .btn {
+            background-color: rgb(102, 102, 102);color: white;padding: 10px 16px;border: none;font-family: inherit;font-size: 15px;
+        }
+        .hidden {display: none;}
+        .nav-btn.active {background-color: #f44336!important;}
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <a href="#" style="display:inline-block;color:#f44336;font-weight:600;font-size:24px"><i class="fa fa-map-marker" style="margin-right: 10px;"></i> Logo</a>
+        <a href="#" style="float: right;color:gray;font-weight:600;font-size:24px;margin-right:-10px"><i class="fa fa-search"></i></a>
+    </div>
+
+    <header>
+        <img src="https://www.w3schools.com/w3images/london2.jpg" alt="london" width="100%">
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="flight nav-btn" onclick="display(0)"><i class="fa fa-plane" style="margin-right: 12px;"></i> Flight</button>
+                <button class="hotel nav-btn" onclick="display(1)"><i class="fa fa-bed" style="margin-right: 12px;"></i> Hotel</button>
+                <button class="rental nav-btn" onclick="display(2)"><i class="fa fa-car" style="margin-right: 12px;"></i> Rental</button>
+            </div>
+            <div class="tab-content flight hidden">
+                <h2>Travel the world with us</h2>
+                <div class="flex">
+                    <div class="col-50">
+                        <label>From</label>
+                        <input type="text" placeholder="Departing from">
+                    </div>
+                    <div class="col-50">
+                        <label>To</label>
+                        <input type="text" placeholder=" Arriving at">
+                    </div>
+                </div>
+                <p><button class="btn">Search and find dates</button></p>
+            </div>
+            <div class="tab-content hotel hidden">
+                <h2>Find the best hotels</h2>
+                <p>Book a hotel with us and get the best fares and promotions.</p>
+                <p>We know hotels - we know comfort.</p>
+                <p><button class="btn">Search Hotels</button></p>
+                
+            </div>
+            <div class="tab-content rental hidden">
+                <h2>Best car rental in the world!</h2>
+                <p><span style="background-color: #ff5722;color:white;padding:2px 8px">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>
+                <input type="text" placeholder="Pick-up point">
+                <p><button class="btn">Search Availability</button></p>
+                
+            </div>
+        </div>
+    </header>
+
+</div>
+
+<script>
+    let index = 0;
+    const tab = document.querySelectorAll(".tab-content");
+    const btn = document.querySelectorAll(".nav-btn");
+
+    function showTab(newIndex) {
+        tab[index].classList.add("hidden");
+        btn[index].classList.remove("active");
+        index = newIndex;
+        tab[index].classList.remove("hidden");
+        btn[index].classList.add("active");
+    }
+
+    function display(n){
+        showTab(n);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        showTab(0);
+    })
+</script>
+</body>
+</html>

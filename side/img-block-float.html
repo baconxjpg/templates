@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            width: 24%;
+            float: left;
+        }
+        .items {
+            padding: 0.01em 16px;
+        }
+
+        @media (max-width:1000px) {
+            .row {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <div class="grid" style="filter: grayscale(75%);display: block;">
+            <div class="row">
+                <div class="items">
+                    <img src="https://www.w3schools.com/w3images/jeans1.jpg" alt="jeans" width="100%">
+                    <p><span>Ripped Skinny Jeans</span><br><b>$24.99</b></p>
+                </div>
+                <div class="items">
+                    <img src="https://www.w3schools.com/w3images/jeans2.jpg" alt="jeans" width="100%">
+                    <p><span>Mega Ripped Jeans</span><br><b>$19.99</b></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="items" style="position: relative;">
+                    <img src="https://www.w3schools.com/w3images/jeans2.jpg" alt="jeans" width="100%">
+                    <p style="color: white; background-color:black; position: absolute; top:-4.2%; left:-5; padding:5px 10px">New</p>
+                    <p><span>Mega Ripped Jeans</span><br><b>$19.99</b></p>
+                </div>
+                <div class="items">
+                    <img src="https://www.w3schools.com/w3images/jeans3.jpg" alt="jeans" width="100%">
+                    <p><span>Washed Skinny Jeans</span><br><b>$20.50</b></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="items">
+                    <img src="https://www.w3schools.com/w3images/jeans3.jpg" alt="jeans" width="100%">
+                    <p><span>Washed Skinny Jeans</span><br><b>$20.50</b></p>
+                </div>
+                <div class="items" style="position: relative;">
+                    <img src="https://www.w3schools.com/w3images/jeans4.jpg" alt="jeans" width="100%">
+                    <p style="color: white; background-color:black; position: absolute; top:-4.2%; left:-5; padding:5px 10px">Sale</p>
+                    <p><span>Vintage Skinny Jeans</span><br><b style="color: brown;">$14.99</b></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="items">
+                    <img src="https://www.w3schools.com/w3images/jeans4.jpg" alt="jeans" width="100%">
+                    <p><span>Vintage Skinny Jeans</span><br><b>$14.99</b></p>
+                </div>
+                <div class="items">
+                    <img src="https://www.w3schools.com/w3images/jeans1.jpg" alt="jeans" width="100%">
+                    <p><span>Ripped Skinny Jeans</span><br><b>$24.99</b></p>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

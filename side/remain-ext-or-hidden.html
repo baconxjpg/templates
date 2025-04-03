@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sec-btn {display: block;padding: 16px;background-color: #009688;color:white}
+        .hidden {display: none;}
+    </style>
+</head>
+<body>
+    <div>
+        <h3 class="t-a">Accordions</h3>
+        <a class="sec-btn" onclick="openMenu('section1')">Open Section 1</a>
+            <div class="section section1 hidden">
+                <p style="padding: 0.01em 16px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        <a class="sec-btn" onclick="openMenu('section2')">Open Section 2</a>
+            <div class="section section2 sec-a hidden">
+                <a href="#" style="display: block;text-decoration:none;color:black;padding:8px 16px">Link 1</a>
+                <a href="#" style="display: block;text-decoration:none;color:black;padding:8px 16px">Link 2</a>
+                <a href="#" style="display: block;text-decoration:none;color:black;padding:8px 16px">Link 3</a>
+            </div>
+        <a class="sec-btn" onclick="openMenu('section3')">Open Section 3</a>
+            <div class="section section3 hidden" style="background-color: black;color:white;padding:0.01em 16px">
+                <p>Accordion with Images:</p>
+                <img src="https://www.w3schools.com/w3images/snow.jpg" alt="snow" width="30%">
+                <p>French Alps</p>
+            </div>
+    </div>
+    
+    <script>
+        function openMenu(type) { 
+            let section = document.querySelector(`.section.${type}`);
+            section.classList.toggle("hidden");
+        }
+
+    </script>
+</body>
+</html>

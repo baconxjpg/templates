@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h5 {
+            text-align: center;
+            padding: 50px 0;
+            font-weight: 400;
+            font-size: 17px;
+        }
+        h5 span {
+            color: white;
+            background-color: black;
+            letter-spacing: 5px;
+            padding: 3px 7px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        div.menu-links {
+            margin-bottom: 20px;
+        }
+        div.menu-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        div.menu-links a.active {
+            background-color: grey;
+            color: white;
+        }
+        .food, .beverage {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h5><span>THE MENU</span></h5>
+
+        <div class="menu-links">
+            <a href="javascript:void(0)" id="eatBtn" onclick="showMenu('food')">Eat</a>
+            <a href="javascript:void(0)" id="drinkBtn" onclick="showMenu('beverage')">Drink</a>
+        </div>
+
+        <div class="food">
+            <h5>Bread Basket</h5>
+            <p>Assortment of fresh baked fruit breads and muffins 5.50</p>
+            <h5>Honey Almond Granola with Fruits</h5>
+            <p>Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p>
+            <h5>Belgian Waffle</h5>
+            <p>Vanilla flavored batter with malted flour 7.50</p>
+            <h5>Scrambled eggs</h5>
+            <p>Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p>
+            <h5>Blueberry Pancakes</h5>
+            <p>With syrup, butter and lots of berries 8.50</p>
+        </div>
+
+        <div class="beverage">
+            <h5>Coffee</h5>
+            <p>Regular coffee 2.50</p>
+            <h5>Chocolato</h5>
+            <p>Chocolate espresso with milk 4.50</p>
+            <h5>Corretto</h5>
+            <p>Whiskey and coffee 5.00</p>
+            <h5>Iced tea</h5>
+            <p>Hot tea, except not hot 3.00</p>
+            <h5>Soda</h5>
+            <p>Coke, Sprite, Fanta, etc. 2.50</p>
+        </div>
+    </section>
+
+    <script>
+        function showMenu(type) {
+            const foodMenu = document.querySelector('.food');
+            const beverageMenu = document.querySelector('.beverage');
+            const eatBtn = document.getElementById('eatBtn');
+            const drinkBtn = document.getElementById('drinkBtn');
+
+            if (type === 'food') {
+                foodMenu.style.display = 'block';
+                beverageMenu.style.display = 'none';
+                eatBtn.classList.add('active');
+                drinkBtn.classList.remove('active');
+            } else {
+                foodMenu.style.display = 'none';
+                beverageMenu.style.display = 'block';
+                eatBtn.classList.remove('active');
+                drinkBtn.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

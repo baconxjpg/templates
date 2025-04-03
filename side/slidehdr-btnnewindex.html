@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {display: none;}
+        .box {
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            border: 1px solid black;
+        }
+        .active {background-color: black;}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://www.w3schools.com/w3images/app.jpg" width="30%">
+    </header>
+    <header class="hidden">
+        <img src="https://www.w3schools.com/w3images/app2.jpg" width="30%">
+    </header>
+    <header class="hidden">
+        <img src="https://www.w3schools.com/w3images/app4.jpg" width="30%">
+    </header>
+    <div>
+        <span class="box" onclick="hdr(0)"></span>
+        <span class="box" onclick="hdr(1)"></span>
+        <span class="box" onclick="hdr(2)"></span>
+    </div>
+    <button onclick="prvH()"><<</button>
+    <button onclick="nextH()">>></button>
+
+    <script>
+        let index = 0;
+        const headers = document.querySelectorAll("header");
+        const boxes = document.querySelectorAll(".box");
+
+        function showHdr(newIndex) {
+            headers[index].classList.add("hidden");
+            boxes[index].classList.remove("active");
+            index = newIndex;
+            headers[index].classList.remove("hidden");
+            boxes[index].classList.add("active");
+        }
+
+        function prvH(){
+            let newIndex = (index -1 + headers.length) % headers.length;
+            showHdr(newIndex);
+        }
+
+        function nextH(){
+            let newIndex = (index +1) % headers.length;
+            showHdr(newIndex);
+        }
+
+        function hdr(n){
+            showHdr(n);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showHdr(0);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        header nav ul {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+        }
+        
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .game-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .game-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .game-card img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .play-now {
+            padding: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .play-now:hover {
+            background-color: #005bb5;
+        }
+        
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/livec">LiveC</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/promotions">Promotions</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="game-list">
+            <div class="game-card">
+                <img src="liveR.jpg" alt="LiveR">
+                <h3>LiveR</h3>
+                <button class="play-now">Play Now</button>
+            </div>
+            <!-- More game cards -->
+        </section>
+    </main>
+    
+    <script>
+        document.querySelector('.play-now').addEventListener('click', function() {
+            // Code to redirect to a specific live game or load the game modal
+            window.location.href = '/liveR';
+        });
+        
+        // Fetch live game data via Fetch API
+        fetch('/api/games')
+            .then(response => response.json())
+            .then(data => {
+                const gameList = document.querySelector('.game-list');
+                data.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.classList.add('game-card');
+                    gameCard.innerHTML = `
+                        <img src="${game.image}" alt="${game.name}">
+                        <h3>${game.name}</h3>
+                        <button class="play-now">Play Now</button>
+                    `;
+                    gameList.appendChild(gameCard);
+                });
+            })
+            .catch(error => console.error('Error fetching game data:', error));
+        
+    </script>
+</body>
+</html>

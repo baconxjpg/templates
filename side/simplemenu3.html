@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Toggle</title>
+    <style>
+        .menu-links a.active {
+            background-color: red;
+        }
+        .menu.active {
+            display: block;
+        }
+        .menu {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-links"> 
+        <a href="javascript:void(0)" class="pizzaBtn" onclick="openMenu('pizza')">Pizza</a>
+        <a href="javascript:void(0)" class="saladsBtn" onclick="openMenu('salads')">Salads</a>
+        <a href="javascript:void(0)" class="starterBtn" onclick="openMenu('starter')">Starter</a>
+    </div>
+
+    <div class="menu pizza">🍕 Pizza</div>
+    <div class="menu salads">🥗 Salads</div>
+    <div class="menu starter">🍽️ Starter</div>
+
+    <script>
+        function openMenu(type) {
+            document.querySelectorAll(".menu").forEach(x => {   // Hide all menu sections
+                x.classList.remove("active");
+            });
+
+            document.querySelectorAll(".menu-links a").forEach(btn => {  // Remove 'active' class from all buttons
+                btn.classList.remove("active");
+            });
+
+            document.querySelector(`.${type}`).classList.add("active");  //Template Literals
+            document.querySelector(`.${type}Btn`).classList.add("active");
+            
+        }
+
+            
+             // CSS selectors
+            // document.querySelector("." + type).classList.add("active");  // Show the selected section and activate the button 
+            // document.querySelector("." + type + "Btn").classList.add("active"); 
+
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+            openMenu("pizza"); // Default menu on page load
+        });
+    </script>
+
+</body>
+</html>
+
+

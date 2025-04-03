@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 33%;
+      opacity: 0.8;
+    }
+    img:hover {
+      opacity: 1;
+      z-index: 1;
+    }
+    .col {
+      display: flex;
+    }
+
+    .display {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      color: white;
+      text-align: center;
+    }
+    .content {
+      animation: animatezoom 0.5s;
+      padding: 64px 0;
+      margin: auto;
+      width: 900px;
+    }
+    .imgElement {
+      width: 55%;
+      margin: auto;
+      opacity: 1;
+    }
+
+    @keyframes animatezoom {
+      from {transform: scale(0);}
+      to {transform: scale(1);}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="col">
+    <img src="https://www.w3schools.com/w3images/natureboy.jpg" onclick="zoomin(this)" alt="A boy surrounded by beautiful nature">
+    <img src="https://www.w3schools.com/w3images/boy.jpg" onclick="zoomin(this)" alt="Quiet day at the beach. Cold, but beautiful">
+    <img src="https://www.w3schools.com/w3images/girl.jpg" onclick="zoomin(this)" alt="Canoeing again">
+  </div>
+
+  <div class="display" onclick="this.style.display='none'">
+    <div class="content">
+      <img class="imgElement">
+      <p class="caption"></p>
+    </div>
+  </div>
+
+  <script>
+    function zoomin(element) {
+      document.querySelector(".imgElement").src = element.src;
+      document.querySelector(".display").style.display = "block";
+      let caption = document.querySelector(".caption");
+      caption.innerHTML = element.alt;
+    }
+  </script>
+</body>
+</html>

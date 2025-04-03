@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-show.active {background-color: #57707d;}
+        .groups, .events, .photos {display: none;}
+    </style>
+</head>
+<body>
+    <button class="btn-show" onclick="shows('groups')"><i class="fa fa-circle-o-notch" style="margin-right:15px"></i> My Groups</button>
+    <div class="groups" style="padding:6px 18px;margin:-5px 0;background-color:white">
+        <p>Some text..</p>
+    </div><br>
+    <button class="btn-show" onclick="shows('events')"><i class="fa fa-calendar-check-o" style="margin-right:15px"></i> My Events</button>
+    <div class="events" style="padding:6px 18px;margin:-5px 0;background-color:white">
+        <p>Some other text..</p>
+    </div><br>
+    <button class="btn-show" onclick="shows('photos')"><i class="fa fa-users" style="margin-right:15px"></i> My Photos</button>
+    <div class="photos" style="background-color:white">
+        <p>xxx</p>
+    </div>
+
+    <script>
+        function shows(section){
+            const content = document.querySelector(`.${section}`);
+            const button = document.querySelector(`button[onclick="shows('${section}')"]`);
+
+            if (content.style.display === "block"){
+                content.style.display = "none";
+                button.classList.remove("active");
+            } else {
+                content.style.display = "block";
+                button.classList.add("active");
+            }
+        }
+    </script>
+</body>
+</html>

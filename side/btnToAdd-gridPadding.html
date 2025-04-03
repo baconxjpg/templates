@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grid {
+      display: flex;
+      max-width: 1500px;
+      margin: auto;
+      margin-bottom: 130px;
+      width: 50%; /* test */
+    }
+    
+    .col {
+      float: left;
+      width: 33.9999%;
+    }
+
+    @media (max-width:500px){
+      .col {
+        width: 100%;
+      }
+    }
+
+    .rowPad img {
+      margin-bottom: 15px;
+    }
+
+    .rowPad .col {
+      padding: 0 8px;
+    }
+    .btn {
+      position: absolute;
+      left: 50%;
+    }
+
+  </style>
+</head>
+<body>
+  <div style="padding: 50px;">
+  <button class="btn" onclick="gridPad()">Toggle Grid Padding</button>
+  </div>
+  <div class="grid">
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/sound.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/woods.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/rock.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
+    </div>
+  
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/coffee.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/bridge.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/notebook.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/london.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/avatar_g.jpg" style="width:100%">
+    </div>
+  
+    <div class="col">
+      <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/workbench.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/gondol.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/skies.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/lights.jpg" style="width:100%">
+      <img src="https://www.w3schools.com/w3images/workshop.jpg" style="width:100%">
+    </div>
+</div>
+
+<script>
+  function gridPad() {
+    let x = document.querySelector(".grid");
+    if (x.classList.contains("rowPad")){
+      x.classList.remove("rowPad");
+    } else {
+      x.classList.add("rowPad");
+    }
+  }
+</script>
+</body>
+</html>

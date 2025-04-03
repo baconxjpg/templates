@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu-container {
+            position: relative;
+            width: 100%; /* Adjust width as needed */
+            height: auto; /* Adjust height if necessary */
+        }
+        
+        .food, .beverage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s;
+        }
+        
+        .food.active, .beverage.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <h5><span>THE MENU</span></h5>
+    
+        <div class="menu-links">
+            <a href="javascript:void(0)" id="eatBtn" onclick="openMenu('food')">Eat</a>
+            <a href="javascript:void(0)" id="drinkBtn" onclick="openMenu('beverage')">Drink</a>
+        </div>
+    
+        <div class="menu-container">
+            <div class="food active">
+                <h5>Bread Basket</h5>
+                <p>Assortment of fresh baked fruit breads and muffins 5.50</p>
+                <h5>Honey Almond Granola with Fruits</h5>
+                <p>Natural cereal of honey toasted oats, raisins, almonds, and dates 7.00</p>
+                <h5>Belgian Waffle</h5>
+                <p>Vanilla flavored batter with malted flour 7.50</p>
+                <h5>Scrambled Eggs</h5>
+                <p>Scrambled eggs, roasted red pepper, and garlic, with green onions 7.50</p>
+                <h5>Blueberry Pancakes</h5>
+                <p>With syrup, butter, and lots of berries 8.50</p>
+            </div>
+    
+            <div class="beverage">
+                <h5>Coffee</h5>
+                <p>Regular coffee 2.50</p>
+                <h5>Chocolato</h5>
+                <p>Chocolate espresso with milk 4.50</p>
+                <h5>Corretto</h5>
+                <p>Whiskey and coffee 5.00</p>
+                <h5>Iced Tea</h5>
+                <p>Hot tea, except not hot 3.00</p>
+                <h5>Soda</h5>
+                <p>Coke, Sprite, Fanta, etc. 2.50</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function openMenu(type) {
+            const foodMenu = document.querySelector(".food");
+            const beverageMenu = document.querySelector(".beverage");
+            const eatBtn = document.querySelector("#eatBtn");
+            const drinkBtn = document.querySelector("#drinkBtn");
+        
+            if (type === "food") {
+                foodMenu.classList.add("active");
+                beverageMenu.classList.remove("active");
+        
+                eatBtn.classList.add("active");
+                drinkBtn.classList.remove("active");
+            } else {
+                foodMenu.classList.remove("active");
+                beverageMenu.classList.add("active");
+        
+                eatBtn.classList.remove("active");
+                drinkBtn.classList.add("active");
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

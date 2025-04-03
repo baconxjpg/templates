@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slide Header Changer</title>
+    <style>
+        header {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header style="background: url('https://www.w3schools.com/w3images/app.jpg') center/cover;">
+        <button onclick="changeHdr()">Next Slide</button>
+    </header>
+    <header class="hidden" style="background: url('https://www.w3schools.com/w3images/app2.jpg') center/cover;">
+        <button onclick="changeHdr()">Next Slide</button>
+    </header>
+    <header class="hidden" style="background: url('https://www.w3schools.com/w3images/app4.jpg') center/cover;">
+        <button onclick="changeHdr()">Next Slide</button>
+    </header>
+
+
+
+    <script>
+        const headers = document.querySelectorAll("header");
+        let index = 0;
+
+        function changeHdr() {
+            headers[index].classList.add("hidden"); // Hide current slide
+            index = (index + 1) % headers.length; // Move to next slide
+            headers[index].classList.remove("hidden"); // Show next slide
+        }
+
+        //classlist for transition and animation.
+    </script>
+
+</body>
+</html>
